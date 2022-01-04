@@ -5,3 +5,11 @@
   -o-transform: $propriety;
   -ms-transform: $propriety;
 }
+
+@mixin flex ( $just : center, $direction : row, $align : center, $wrap : wrap) {
+  display: flex;
+  justify-content: $just;
+  align-items: $align;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
