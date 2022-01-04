@@ -21,27 +21,125 @@ p, li, a {
   font-family: Signika;
 }
 
+a {
+  color: black;
+}
+
 header {
   background-color: #1d1c1c;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   flex-direction: row;
   flex-wrap: wrap;
+  padding: 1em 1em;
 }
-header .logo {
+
+.logo {
   width: 5em;
 }
-header nav {
+
+nav {
   display: none;
   color: white;
 }
-header nav ul {
+nav ul {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+#burgerButton {
+  position: relative;
+  cursor: pointer;
+  height: 2.5em;
+  margin-bottom: 1em;
+}
+
+#burger::after, #burger::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+}
+
+#burger {
+  position: relative;
+  display: inline-block;
+  top: 20%;
+  transition: all 0.5s ease-in-out;
+}
+#burger.open {
+  background: rgba(167, 1, 9, 0.8);
+  height: 2.5em;
+  top: 0;
+  border-radius: 50%;
+  box-shadow: 0px 0px 3px white;
+}
+#burger.open::after, #burger.open::before {
+  top: 1.05em;
+  left: 0.25em;
+  background-color: white;
+  box-shadow: 0px 0px 2px white;
+  width: 2em;
+}
+#burger.open::after {
+  transform: rotate(-45deg);
+}
+#burger.open::before {
+  transform: rotate(45deg);
+}
+
+#burger, #burger::after, #burger::before {
+  width: 2.5em;
+  height: 0.3em;
+  background-color: white;
+  border-radius: 10px;
+  transition: all 0.5s ease-in-out;
+}
+
+#burger::after {
+  top: -10px;
+  left: 0;
+}
+
+#burger::before {
+  top: 10px;
+  left: 0;
+}
+
+img {
+  width: 150px;
+}
+
+#sectionPresentation img {
+  display: none;
+}
+
+#sectionGallerie {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+#sectionGallerie h1 {
+  width: 100%;
+}
+#sectionGallerie article {
+  width: 40%;
+  margin-bottom: 2em;
+  text-align: center;
+}
+#sectionGallerie article div {
+  width: 100%;
+  height: 5em;
+  background-image: url(../images/gallerie02.jpg);
+  background-position: top;
+  background-size: cover;
+  clip-path: polygon(25% 0%, 100% 0, 75% 100%, 0% 100%);
 }
 
 /*# sourceMappingURL=style.css.map */
