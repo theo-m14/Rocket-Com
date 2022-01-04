@@ -1,3 +1,47 @@
+* {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
 
+@font-face {
+  font-family: Signika;
+  src: url(../fonts/Signika_Negative.zip);
+}
+@font-face {
+  font-family: Varela;
+  src: url(../fonts/Varela_Round.zip);
+}
+h1, h2, h3, h4 {
+  font-family: Varela;
+}
+
+p, li, a {
+  font-family: Signika;
+}
+
+header {
+  background-color: #1d1c1c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+header .logo {
+  width: 5em;
+}
+header nav {
+  display: none;
+  color: white;
+}
+header nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
 /*# sourceMappingURL=style.css.map */

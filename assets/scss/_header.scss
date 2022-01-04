@@ -1,0 +1,17 @@
+header {
+    background-color: $black;
+    @include flex(space-between);
+    
+    .logo {
+        width: 5em;
+    }
+    
+    nav {
+        display: none;
+        color: white;
+
+        ul {
+            @include flex;
+        }
+    }
+}
