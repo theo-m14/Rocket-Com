@@ -1,113 +1,269 @@
-img{
-    width: 150px;
-}
-
 #sectionBanniere{
-    width: 100%;
     font-size: 18px;
     text-transform: uppercase;
-    padding: 2em 0;
+    padding: 2.5em 0;
     background-image: url(../images/header-home-digital.png), linear-gradient(180deg, #5465FF 0%, #C90D0D 100%);
     background-size: cover;
+    background-position: bottom center;
     background-repeat: no-repeat;
 
+    // Les 3 mots de la bannière de plus en plus décalé
     p:first-of-type{
-        padding-left: 1em;
+        padding-left: 7%;
     }
 
     p:nth-of-type(2){
-        padding-left: 3em;
+        padding-left: 17%;
     }
 
     p:nth-of-type(3){
-        padding-left: 6em;
+        padding-left: 33%;
     }
 }
 
 #sectionPresentation{
     @include flex($direction: column);
+    position: relative;
     text-align: center;
     font-size: 16px;
-    padding: 1em 0;
+    padding: .5em 0 1em;
+    background-color: $white;
 
     h1{
-        width: 100%;
         padding-bottom: .5em;
-        
-        span{
-            position: relative;
-            // Bloc de couleur sous le titre
-            &::after{
-                content: "";
-                width: 150%;
-                height: .4em;
-                background-color: $secondaryColor;
-                opacity: .3;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                transform: translateX(-20%);
-                clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
-            }
-        }
     }
 
     p{
         width: 85%;
     }
-
+    // img caché pour le mobile
     img{
         display: none;
     }
 }
 
 #sectionGallerie{
-    @include flex;
     text-align: center;
     background-color: $greyBackground;
-    padding: 1em 0;
+    padding: 1em 0 1.5em;
+    position: relative;
+
     h1{
-        width: 100%;
-        font-size: 16px;
-        padding-bottom: 2em;
+        padding-bottom: 1.5em;
+    }
+
+    #imageGallerieContainer{
+        @include flex;
+
+        // chaque article correspond à une image et son titre cliquable
+        article{
+            @include flex( $direction: column );
+            padding-bottom: 1em;
+            width: 45%;
+            gap: .2em;
+            text-align: center;
+            // div qui va contenir l'img sur lequel on applique un filter pour l'effet box shadow
+            .imgContainer{
+                width: 100%;
+                filter: drop-shadow(0 4px 4px rgba(0, 0, 0, .2));
+            }
+
+            // img en forme de parallélogramme grâce au clip-path
+            img{
+                height: 6em;
+                width: 100%;
+                object-fit: cover;
+                object-position: top;
+                clip-path: polygon(25% 0%, 100% 0, 75% 100%, 0% 100%);
+            }
+
+            a{
+                font-size: 12px;
+            }
+        }
+
+    }
+
+    // chevron droite et gauche pour changer les pages de la gallerie
+    .chevronContainer{
+        @include flex;
+        gap: 2em;
+    }
+
+    .chevron{
+        width: 30px;
+        height: 15px;
+        position: static;
+    }
+
+    .chevronDroite{
+        transform: rotate(-90deg) translate(0,0);
+    }
+    
+    .chevronGauche{
+        transform: rotate(90deg) translate(0,0);
+    }
+}
+
+
+#sectionEquipe{
+    padding: 2em 0 3em;
+    text-align: center;
+    background-color: $white;
+    position: relative;
+
+    #equipePhotoContainer{
+        @include flex(space-around);
+        position: relative;
+
+        // chevron droite et gauche pour changer la photo du membre de l'équipe en focus 
+        .chevron{
+            width: 30px;
+            height: 15px;
+            position: static;
+        }
+
+        .chevronDroite{
+            transform: rotate(-90deg) translate(0,0);
+        }
         
-        span{
-            position: relative;
-            // Bloc de couleur sous le titre
-            &::after{
-                content: "";
-                width: 150%;
-                height: .5em;
+        .chevronGauche{
+            transform: rotate(90deg) translate(0,0);
+        }
+    }
+    
+    h1{
+        padding-bottom: 2em;
+    }
+    // un article correspond à une photo de membre + son sous titre
+    article{
+        @include flex($direction:column);
+        // photo du centre actuellement en focus
+        &:nth-of-type(2){
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            left: 50%;
+            transform :translate(-50%, -50%);
+        }
+        // container de chaque photo sous forme de parallélogramme
+        .imgContainer{
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+        // pour les photos en général
+        .img{
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            height: 7em;
+            width: 7em;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        // photo de chaque côté
+        // rajout de border sur le container
+        .leftPhotoContainer, .rightPhotoContainer{
+            border: 7px solid black;
+            background-color: black;
+        }
+
+        .leftPhoto{
+            background-image: url(../images/jeannePhoto.jpg);
+            background-position: bottom;
+        }
+
+        .rightPhoto{
+            background-image: url(../images/martinePhoto.jpg);
+            background-position: top left;
+        }
+
+        // la photo du centre ( en focus )
+        // rajout de border sur le container
+        .mainPhotoContainer{
+            border: 7px solid white;
+            background-color: white;
+        }
+
+        .mainPhoto{
+            height: 10em;
+            width: 10em;
+            background-image: url(../images/marcPhoto.jpg);
+        }
+        // le nom du membre
+        p{
+            font-size: 12px;
+            clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
+            background-color: #c4c4c4;
+            width: 55%;
+            margin-top: -16%;
+            // pour la photo du centre, on spécifie pour le deuxième <p>
+            &:nth-of-type(2){
+                font-size: 10px;
                 background-color: $secondaryColor;
-                opacity: .3;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                transform: translateX(-20%);
-                clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
+                width: 48%;
+                margin: -.1em 0 0;
             }
         }
     }
+}
 
-    article{
-        @include flex( $direction: column );
-        padding-bottom: 2em;
-        gap: .7em;
-        text-align: center;
+#sectionAvis{
+    position: relative;
+    padding: 3em 0 1em;
+    background-color: $greyBackground;
+    @include flex($direction:column);
 
+    // on cache pour le mobile
+    h1{
+        display: none;
+    }
+
+    img{
+        display: none;
+    }
+
+    // div avec la photo de l'avis selectionné
+    #avisFocus{
+        // container de la photo avec un fond et border, forme de parallélogramme
         .imgContainer{
-            filter: drop-shadow(0 4px 4px rgba(0, 0, 0, .2));
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            background-color: white;
+            border: 7px white solid;
         }
 
-        img{
-            height: 5em;
-            object-fit: cover;
-            object-position: top;
-            clip-path: polygon(25% 0%, 100% 0, 75% 100%, 0% 100%);
+        .img{
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            height: 8em;
+            width: 8em;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url(../images/avis1.jpg);
         }
+    }
 
-        a{
-            font-size: 12px;
+    // contient les chevrons + les icônes de quote + texte de l'avis
+    article{
+        @include flex($direction:column);
+        padding-top: 1.5em;
+        width: 80%;
+        position: relative;
+        // nom de l'auteur de l'avis aligné en bas à droite du texte
+        p:last-of-type{
+            align-self: flex-end;
         }
+    }
+
+    // le bouton pour revenir en haut de la page
+    a{
+        align-self: flex-end;
+        margin-top: 1em;
+        margin-right: 1.5em;
+        cursor: pointer;
+        display: block;
+    }
+    // l'icon fontawesome du bouton
+    .fa-angle-double-up{
+        font-size: 2.5em;
     }
 }

@@ -19,12 +19,37 @@ h1, h2, h3, h4 {
     font-family: Varela;
 }
 
+html, body {
+	scroll-behavior: smooth;
+}
+
 body {
     font-family: Signika;
 }
 
 a{
     color: black;
+}
+
+h1{
+    font-size: 16px;
+    span{
+        position: relative;
+        z-index: 10;
+        // Bloc de couleur sous le titre
+        &::after{
+            content: "";
+            width: 150%;
+            height: .4em;
+            background-color: $secondaryColor;
+            z-index: -1;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transform: translateX(-20%);
+            clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
+        }
+    }
 }
 
 .triangle{
@@ -35,12 +60,62 @@ a{
 }
 
 .triangle-blue{
-    background-color: blue;
+    background-color: $secondaryColor;
+}
+
+.triangleBlack{
+    background-color: $black;
+}
+
+.triangleTop{
+    position: absolute;
+    top: -1px;
+    right: 2%;
+    width: 60px;
+    height: 30px;
+    background-color: $primaryColor;
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
 }
 
 .triangle-left{
     clip-path: polygon(100% 50%, 0 0, 0 100%);
     top: -31px;
+    left: 0;
+}
+
+.triangleRight{
+    clip-path: polygon(100% 0, 0 50%, 100% 100%);
+    top: 0;
+    transform: translateY(-50%);
+    right: 0;
+    background-color:$secondaryColor;
+}
+
+.triangleBottom{
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    top: 0;
+    width: 250px;
+    height: 150px;
+    background-color: $primaryColor;
+}
+
+.chevron{
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    background-color: black;
+    top: 50%;
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    cursor: pointer;
+}
+
+.chevronDroite{
+    transform: rotate(-90deg) translate(50%, 200%);
+    right: 0;
+}
+
+.chevronGauche{
+    transform: rotate(90deg) translate(-50%, 200%);
     left: 0;
 }
 

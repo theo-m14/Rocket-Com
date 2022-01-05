@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-        <img class ="logo" src="assets/images/Rocket'ComLogo.png" alt="Logo de l'agence de communication Rocket'Com">
+        <img  id="logo" class ="logo" src="assets/images/Rocket'ComLogo.png" alt="Logo de l'agence de communication Rocket'Com">
         <nav>
             <ul id="navbar">
                 <li><a href="#">Accueil</a></li>
@@ -38,7 +38,7 @@
         </section>
 
         <section id="sectionPresentation">
-            <div class="triangle"></div>
+            <div class="triangle triangleTop"></div>
 
             <h1><span>Qui sommes nous?</span></h1>
 
@@ -48,57 +48,74 @@
         </section>
 
         <section id="sectionGallerie">
-            <div class="triangle"></div>
+            <div class="triangle triangle-left triangleBlack"></div>
 
             <h1><span>GALLERIE</span></h1>
 
-            <article>
-                <div class="imgContainer"><img src="assets/images/gallerie01.jpeg" alt=""></div>
-                <a href="#">Mondar</a>
-            </article>
+            <div id="imageGallerieContainer">
+                <article>
+                    <div class="imgContainer"><img src="assets/images/gallerie01.jpeg" alt=""></div>
+                    <a href="#">Mondar</a>
+                </article>
+    
+                <article>
+                    <div class="imgContainer"><img src="assets/images/gallerie02.jpg" alt=""></div>
+                    <a href="#">Neucar</a>
+                </article>
+    
+                <article>
+                    <div class="imgContainer"><img src="assets/images/gallerie03.jpg" alt=""></div>
+                    <a href="#">Buildzer</a>
+                </article>
+    
+                <article>
+                    <div class="imgContainer"><img src="assets/images/gallerie04.jpg" alt=""></div>
+                    <a href="#">Cashlan</a>
+                </article>
+            </div>
 
-            <article>
-                <div class="imgContainer"><img src="assets/images/gallerie02.jpg" alt=""></div>
-                <a href="#">Neucar</a>
-            </article>
-
-            <article>
-                <div class="imgContainer"><img src="assets/images/gallerie03.jpg" alt=""></div>
-                <a href="#">Buildzer</a>
-            </article>
-
-            <article>
-                <div class="imgContainer"><img src="assets/images/gallerie04.jpg" alt=""></div>
-                <a href="#">Cashlan</a>
-            </article>
+            <div class="chevronContainer">
+                <div class="chevronGauche chevron"></div>
+                <div class="chevronDroite chevron"></div>
+            </div>
         </section>
 
         <section id="sectionEquipe">
-            <div class="triangle"></div>
+            <div class="triangle triangleRight"></div>
 
-            <h1>NOTRE EQUIPE</h1>
-            <div class="chevronGauche"></div>
-            
-            <article>
-                <img src="assets/images/marcPhoto.jpg" alt="Photo de Marc">
-                <div>Marc</div>
-            </article>
+            <h1><span>NOTRE EQUIPE</span></h1>
 
-            <article>
-                <img src="assets/images/jeannePhoto.jpg" alt="Photo de Jeanne">
-                <div>Jeanne</div>
-            </article>
+            <div id="equipePhotoContainer">
+                <div class="chevronGauche chevron"></div>
+                
+                <article>
+                    <div class="imgContainer leftPhotoContainer">
+                        <div class="img leftPhoto"></div>
+                    </div> 
+                    <p>Jeanne</p>
+                </article>
+    
+                <article>
+                    <div class="imgContainer mainPhotoContainer">
+                        <div class="img mainPhoto"></div>
+                    </div> 
+                    <p>Marc</p>
+                    <p>Seo / CM</p>
+                </article>
+    
+                <article>
+                    <div class="imgContainer rightPhotoContainer">
+                        <div class="img rightPhoto"></div>
+                    </div> 
+                    <p>Martine</p>
+                </article>
+                <div class="chevronDroite chevron"></div>
+            </div>
 
-            <article>
-                <img src="assets/images/martinePhoto.jpg" alt="Photo de Martine">
-                <div>Martine</div>
-            </article>
-
-            <div class="chevronDroite"></div>
         </section>
 
-        <section>
-            <div class="triangle"></div>
+        <section id="sectionAvis">
+            <div class="triangle triangleBottom"></div>
             
             <h1>AVIS DE NOS CLIENTS</h1>
             <div id="listeAvis">
@@ -108,14 +125,23 @@
                 <img src="assets/images/avis5.jpg" alt="Photo de .">
             </div>
 
-            <div><img src="assets/images/avis1.jpg" alt="Photo de John K"></div>
+            <div id="avisFocus">
+                <div class="imgContainer">
+                    <div class="img"></div>
+                </div>
+            </div>
 
             <article>
-                <div class="chevronGauche"></div>
-                <p>« Très bonnes performances, bilan précis. Très grande qualité des opérations et outils réalisés. Délais respectés. Très bon contact. Compréhension des problématiques et enjeux clients. Très focus résultats et business. Des recommandations pertinentes et adaptées à l’échelle de nos budgets et de nos ambitions. »</p>
+                <div class="chevronGauche chevron"></div>
+                
+                <p><i class="fas fa-quote-left"></i> Très bonnes performances, bilan précis. Très grande qualité des opérations et outils réalisés. Délais respectés. Très bon contact. Compréhension des problématiques et enjeux clients. Très focus résultats et business. Des recommandations pertinentes et adaptées à l’échelle de nos budgets et de nos ambitions. <i class="fas fa-quote-right"></i></p>
+                
                 <p>John K.</p>
-                <div class="chevronDroite"></div>
+
+                <div class="chevronDroite chevron"></div>
             </article>
+
+            <a href="#logo"><i class="fas fa-angle-double-up"></i></a>
         </section>
     </main>
     <footer>
