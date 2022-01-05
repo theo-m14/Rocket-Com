@@ -1,0 +1,29 @@
+@media screen and (min-width: 1200px) {
+    #flexContainerContact{
+        @include flex;
+    }
+    #mainContact{
+        h1{
+            font-size: 32px;
+        }
+        form{
+            width: 45%;
+        }
+        article{
+            width: 340px;
+            height: 340px;
+            h2{
+                padding-top: 4em;
+                font-size: 20px;            }
+            p{
+                line-height: 32px;
+                font-size: 18px;
+            }
+        }
+        
+    }
+    #sectionContact{
+        background-position: center;
+    }
+    
+}
