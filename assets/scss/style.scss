@@ -2,6 +2,8 @@
 @import "mixin";
 @import "general";
 @import "header";
+@import '_services'; 
 @import "_index";
+@import "contact";
 @import "footer";
-@import "mediaQueries";
+@import "mediaQueriesContact";

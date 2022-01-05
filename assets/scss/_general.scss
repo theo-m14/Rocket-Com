@@ -40,6 +40,15 @@ a{
 
 .triangle-left{
     clip-path: polygon(100% 50%, 0 0, 0 100%);
-    top: calc(-25%);
+    top: -31px;
     left: 0;
+}
+
+.icoInsta{
+    color: white;
+    background: linear-gradient(182deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+   -webkit-text-fill-color: transparent;
 }
