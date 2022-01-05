@@ -7,12 +7,12 @@
 
 @font-face {
     font-family: Signika;
-    src: url(../fonts/Signika_Negative.zip);
+    src: url('../fonts/SignikaNegative-Regular.ttf')
 }
 
 @font-face {
     font-family: Varela;
-    src: url(../fonts/Varela_Round.zip);
+    src: url(../fonts/VarelaRound-Regular.ttf);
 }
 
 h1, h2, h3, h4 {
@@ -25,4 +25,21 @@ p, li, a{
 
 a{
     color: black;
+}
+
+.triangle{
+    width: 79px;
+    height: 62px;
+    position: absolute;
+    order: 6;
+}
+
+.triangle-blue{
+    background-color: blue;
+}
+
+.triangle-left{
+    clip-path: polygon(100% 50%, 0 0, 0 100%);
+    top: calc(-25%);
+    left: 0;
 }

@@ -1,0 +1,26 @@
+footer{
+    position: relative;
+    .logo{
+        width: 3.5em;
+    }
+    background-color: $black;
+    padding: 1em 4em;
+    .footerTopPart{
+        @include flex($just: space-between);
+        ul{
+            @include flex;
+            gap: 1em;
+        }
+    }
+    .footerBottomPart{
+        padding-top: 1em;
+        display: flex;
+        font-size: 10px;
+        color: white;
+        justify-content: space-between;
+        a{
+            color: white;
+            text-transform: uppercase;
+        }
+    }
+}

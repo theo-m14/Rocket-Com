@@ -1,0 +1,133 @@
+#sectionServicesAncres{
+    >h1{
+        text-align: center;
+        font-size: 18px;
+        font-weight: 300;
+        margin-top: 1em;
+    }
+}
+
+#blocAncre{
+    margin-top: 1em;
+    padding-bottom: 2em;
+    @include flex($align: flex-start, $just:space-around);
+    gap: 1em;
+    text-align: center;
+    .imageAncre{
+        width: 120px;
+        height: 120px;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+    .serviceAncre{
+        #imageAncreSeo{
+            background-image: url(../images/agence-seo.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+        #imageAncreMaquette{
+            background-image: url(../images/maquettte-site.png);
+            background-position: center;
+            background-size: cover;
+        }
+        #imageAncreSecurite{
+            background-image: url(../images/securitybg.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+        #imageAncreCommunityManagement{
+            background-image: url(../images/cmbg.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+        h2 span{
+            display: block;
+            margin: auto;
+        }
+        h2{
+            font-weight: 300;
+        }
+    }
+    .serviceAncre:nth-of-type(3) h2
+        {
+            padding-top: 10px;
+        }
+}
+
+#backgroundGradient{
+    padding: 2em 0;
+    background: rgb(201,13,13);
+    background: linear-gradient(90deg, rgba(201,13,13,1) 0%, rgba(84,101,255,1) 100%);
+    p{
+        font-size: 18px;
+        padding: 1em 1em 0 1em;
+        line-height: 2em;
+    }
+    h2{
+        padding-top: 1em;
+    }
+}
+
+
+
+#sectionSEO{
+    background-color: white;
+    padding-top: 1em;
+    text-align: center;
+    #imageSEO{
+        width: 240px;
+        height: 240px;
+        background-image: url(../images/seo-image.jpg);
+        background-position: center;
+        background-size: cover;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        margin: auto;
+    }
+}
+
+#sectionMaquette{
+    margin-top: 2em;
+    background-color: $greyBackground;
+    padding-top: 1em;
+    text-align: center;
+    #imageMaquette{
+        width: 240px;
+        height: 240px;
+        background-image: url(../images/maquette-site2.jpg);
+        background-position: center;
+        background-size: cover;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        margin: auto;
+    }
+}
+
+#sectionSecurite{
+    margin-top: 2em;
+    background-color: white;
+    padding-top: 1em;
+    text-align: center;
+    #imageSecurite{
+        width: 240px;
+        height: 240px;
+        background-image: url(../images/securitybg2.jpg);
+        background-position: 90%;
+        background-size: cover;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        margin: auto;
+    }
+}
+
+#sectionCommunityManagement{
+    margin-top: 2em;
+    background-color: $greyBackground;
+    padding-top: 1em;
+    text-align: center;
+    #imageCommunityManagement{
+        width: 240px;
+        height: 240px;
+        background-image: url(../images/community-manager2.jpg);
+        background-position: center;
+        background-size: cover;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        margin: auto;
+    }
+}
