@@ -7,7 +7,7 @@
 
 @font-face {
     font-family: Signika;
-    src: url('../fonts/SignikaNegative-Regular.ttf')
+    src: url(../fonts/SignikaNegative-Regular.ttf);
 }
 
 @font-face {
@@ -19,7 +19,7 @@ h1, h2, h3, h4 {
     font-family: Varela;
 }
 
-p, li, a{
+body {
     font-family: Signika;
 }
 

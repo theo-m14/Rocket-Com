@@ -1,0 +1,113 @@
+img{
+    width: 150px;
+}
+
+#sectionBanniere{
+    width: 100%;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 2em 0;
+    background-image: url(../images/header-home-digital.png), linear-gradient(180deg, #5465FF 0%, #C90D0D 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    p:first-of-type{
+        padding-left: 1em;
+    }
+
+    p:nth-of-type(2){
+        padding-left: 3em;
+    }
+
+    p:nth-of-type(3){
+        padding-left: 6em;
+    }
+}
+
+#sectionPresentation{
+    @include flex($direction: column);
+    text-align: center;
+    font-size: 16px;
+    padding: 1em 0;
+
+    h1{
+        width: 100%;
+        padding-bottom: .5em;
+        
+        span{
+            position: relative;
+            // Bloc de couleur sous le titre
+            &::after{
+                content: "";
+                width: 150%;
+                height: .4em;
+                background-color: $secondaryColor;
+                opacity: .3;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                transform: translateX(-20%);
+                clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
+            }
+        }
+    }
+
+    p{
+        width: 85%;
+    }
+
+    img{
+        display: none;
+    }
+}
+
+#sectionGallerie{
+    @include flex;
+    text-align: center;
+    background-color: $greyBackground;
+    padding: 1em 0;
+    h1{
+        width: 100%;
+        font-size: 16px;
+        padding-bottom: 2em;
+        
+        span{
+            position: relative;
+            // Bloc de couleur sous le titre
+            &::after{
+                content: "";
+                width: 150%;
+                height: .5em;
+                background-color: $secondaryColor;
+                opacity: .3;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                transform: translateX(-20%);
+                clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
+            }
+        }
+    }
+
+    article{
+        @include flex( $direction: column );
+        padding-bottom: 2em;
+        gap: .7em;
+        text-align: center;
+
+        .imgContainer{
+            filter: drop-shadow(0 4px 4px rgba(0, 0, 0, .2));
+        }
+
+        img{
+            height: 5em;
+            object-fit: cover;
+            object-position: top;
+            clip-path: polygon(25% 0%, 100% 0, 75% 100%, 0% 100%);
+        }
+
+        a{
+            font-size: 12px;
+        }
+    }
+}
