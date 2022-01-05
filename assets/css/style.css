@@ -36,7 +36,7 @@ header {
 }
 
 .logo {
-  width: 5em;
+  width: 3em;
 }
 
 nav {
@@ -55,7 +55,6 @@ nav ul {
   position: relative;
   cursor: pointer;
   height: 2.5em;
-  margin-bottom: 1em;
 }
 
 #burger::after, #burger::before {
