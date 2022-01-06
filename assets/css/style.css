@@ -247,6 +247,12 @@ nav ul {
   height: 120px;
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
+#blocAncre .serviceAncre a {
+  font-size: 16px;
+}
+#blocAncre .serviceAncre #colorLine {
+  display: none;
+}
 #blocAncre .serviceAncre #imageAncreSeo {
   background-image: url(../images/agence-seo.jpg);
   background-position: center;
@@ -304,7 +310,7 @@ nav ul {
   background-position: center;
   background-size: cover;
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  margin: auto;
+  margin: 0 auto;
 }
 #sectionSEO span {
   position: relative;
@@ -403,19 +409,21 @@ nav ul {
   margin: auto;
 }
 #sectionCommunityManagement span {
+  display: block;
+  margin: auto;
   position: relative;
   z-index: 1;
 }
 #sectionCommunityManagement span::after {
   z-index: -1;
   content: "";
-  width: 138%;
+  width: 230px;
   height: 0.6em;
   background-color: #9193FF;
   position: absolute;
   bottom: 0;
-  left: 5%;
-  transform: translateX(-20%);
+  left: center;
+  transform: translateX(-200px);
   clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
 }
 
@@ -755,217 +763,6 @@ nav ul {
   margin-bottom: -5px;
 }
 
-#sectionServicesAncres > h1 {
-  text-align: center;
-  font-size: 18px;
-  font-weight: 300;
-  margin-top: 1em;
-}
-#sectionServicesAncres > h1 span {
-  position: relative;
-  z-index: 1;
-}
-#sectionServicesAncres > h1 span::after {
-  z-index: -1;
-  content: "";
-  width: 150%;
-  height: 0.6em;
-  background-color: #9193FF;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  transform: translateX(-20%);
-  clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
-}
-
-#blocAncre {
-  margin-top: 1em;
-  padding-bottom: 2em;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1em;
-  text-align: center;
-}
-#blocAncre .imageAncre {
-  width: 120px;
-  height: 120px;
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-}
-#blocAncre .serviceAncre #imageAncreSeo {
-  background-image: url(../images/agence-seo.jpg);
-  background-position: center;
-  background-size: cover;
-}
-#blocAncre .serviceAncre #imageAncreMaquette {
-  background-image: url(../images/maquettte-site.png);
-  background-position: center;
-  background-size: cover;
-}
-#blocAncre .serviceAncre #imageAncreSecurite {
-  background-image: url(../images/securitybg.jpg);
-  background-position: center;
-  background-size: cover;
-}
-#blocAncre .serviceAncre #imageAncreCommunityManagement {
-  background-image: url(../images/cmbg.jpg);
-  background-position: center;
-  background-size: cover;
-}
-#blocAncre .serviceAncre h2 span {
-  display: block;
-  margin: auto;
-}
-#blocAncre .serviceAncre h2 {
-  font-weight: 300;
-}
-#blocAncre .serviceAncre:nth-of-type(3) h2 {
-  padding-top: 10px;
-}
-
-#backgroundGradient {
-  padding: 2em 0;
-  background: #c90d0d;
-  background: linear-gradient(90deg, #c90d0d 0%, #5465ff 100%);
-}
-#backgroundGradient p {
-  font-size: 18px;
-  padding: 1em 1em 0 1em;
-  line-height: 2em;
-}
-#backgroundGradient h2 {
-  padding-top: 1em;
-}
-
-#sectionSEO {
-  background-color: white;
-  padding-top: 1em;
-  text-align: center;
-}
-#sectionSEO #imageSEO {
-  width: 240px;
-  height: 240px;
-  background-image: url(../images/seo-image.jpg);
-  background-position: center;
-  background-size: cover;
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  margin: auto;
-}
-#sectionSEO span {
-  position: relative;
-  z-index: 1;
-}
-#sectionSEO span::after {
-  z-index: -1;
-  content: "";
-  width: 150%;
-  height: 0.6em;
-  background-color: #9193FF;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  transform: translateX(-20%);
-  clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
-}
-
-#sectionMaquette {
-  margin-top: 2em;
-  background-color: #eeeeee;
-  padding-top: 1em;
-  text-align: center;
-}
-#sectionMaquette #imageMaquette {
-  width: 240px;
-  height: 240px;
-  background-image: url(../images/maquette-site2.jpg);
-  background-position: center;
-  background-size: cover;
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  margin: auto;
-}
-#sectionMaquette span {
-  position: relative;
-  z-index: 1;
-}
-#sectionMaquette span::after {
-  z-index: -1;
-  content: "";
-  width: 150%;
-  height: 0.6em;
-  background-color: #9193FF;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  transform: translateX(-20%);
-  clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
-}
-
-#sectionSecurite {
-  margin-top: 2em;
-  background-color: white;
-  padding-top: 1em;
-  text-align: center;
-}
-#sectionSecurite #imageSecurite {
-  width: 240px;
-  height: 240px;
-  background-image: url(../images/securitybg2.jpg);
-  background-position: 90%;
-  background-size: cover;
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  margin: auto;
-}
-#sectionSecurite span {
-  position: relative;
-  z-index: 1;
-}
-#sectionSecurite span::after {
-  z-index: -1;
-  content: "";
-  width: 150%;
-  height: 0.6em;
-  background-color: #9193FF;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  transform: translateX(-20%);
-  clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
-}
-
-#sectionCommunityManagement {
-  margin-top: 2em;
-  background-color: #eeeeee;
-  padding-top: 1em;
-  text-align: center;
-}
-#sectionCommunityManagement #imageCommunityManagement {
-  width: 240px;
-  height: 240px;
-  background-image: url(../images/community-manager2.jpg);
-  background-position: center;
-  background-size: cover;
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  margin: auto;
-}
-#sectionCommunityManagement span {
-  position: relative;
-  z-index: 1;
-}
-#sectionCommunityManagement span::after {
-  z-index: -1;
-  content: "";
-  width: 138%;
-  height: 0.6em;
-  background-color: #9193FF;
-  position: absolute;
-  bottom: 0;
-  left: 5%;
-  transform: translateX(-20%);
-  clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
-}
-
 footer {
   position: relative;
   background-color: #1d1c1c;
@@ -1031,6 +828,297 @@ footer .footerBottomPart a {
 
   #sectionContact {
     background-position: center;
+  }
+}
+@media screen and (min-width: 392px) {
+  #blocAncre {
+    margin-top: 2em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  #backgroundGradient {
+    z-index: -2;
+    padding-top: 0;
+    clip-path: polygon(100% 3.3%, 100% 100%, 0 100%, 0 0.1%);
+  }
+
+  #sectionServicesAncres {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  #sectionServicesAncres h1 {
+    transform: rotate(-90deg);
+    font-size: 22px;
+    position: relative;
+  }
+  #sectionServicesAncres h1::after {
+    z-index: 0;
+    content: "";
+    position: absolute;
+    width: 1500%;
+    height: 1px;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-40%);
+    background-color: #1d1c1c;
+  }
+  #sectionServicesAncres h1 span::after {
+    z-index: 7;
+    clip-path: none;
+    width: 110%;
+    transform: translateX(-5%);
+    height: 0.2em;
+    bottom: -2px;
+    background: linear-gradient(-90deg, #c90d0d 0%, #5465ff 100%);
+  }
+
+  #blocAncre {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5em;
+  }
+  #blocAncre .imageAncre {
+    clip-path: none;
+    width: 360px;
+    height: 180px;
+    border-left: 5px white solid;
+  }
+  #blocAncre .serviceAncre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6em;
+  }
+  #blocAncre .serviceAncre:nth-of-type(3) h2 {
+    padding-top: 0;
+  }
+  #blocAncre .serviceAncre div {
+    order: 1;
+  }
+  #blocAncre .serviceAncre h2 {
+    position: relative;
+  }
+  #blocAncre .serviceAncre h2 ::after {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    width: 300%;
+    height: 5px;
+    bottom: 28%;
+    left: 120%;
+    background-color: #5465ff;
+  }
+  #blocAncre .serviceAncre #imageAncreSeo ~ h2 ::after, #blocAncre .serviceAncre #imageAncreMaquette ~ h2 ::after {
+    background-color: #c90d0d;
+  }
+  #blocAncre .serviceAncre #colorLine {
+    display: block;
+    position: absolute;
+    height: 700%;
+    width: 10px;
+    background: #c90d0d;
+    background: linear-gradient(180deg, #c90d0d 0%, #5465ff 100%);
+    left: calc(50% - 5px);
+    top: -20%;
+    z-index: -1;
+  }
+  #blocAncre .serviceAncre #imageAncreSeo {
+    position: relative;
+  }
+
+  #sectionSEO {
+    padding: 0 0 0 2em;
+    clip-path: polygon(100% 14%, 100% 86%, 0 100%, 0 1%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #eeeeee;
+  }
+  #sectionSEO h2 {
+    text-align: left;
+    order: -2;
+    width: 100%;
+    padding: 3em 0 0 3em;
+    margin-bottom: 5em;
+  }
+  #sectionSEO #imageSEO {
+    margin-bottom: 18%;
+  }
+  #sectionSEO p {
+    padding-left: 3em;
+    display: inline-block;
+    order: -1;
+    width: 50%;
+    margin-bottom: 8em;
+    text-align: justify;
+  }
+
+  #sectionMaquette {
+    margin-top: 1em;
+    padding: 0 2em 0 0;
+    clip-path: polygon(100% 0, 100% 100%, 0 86%, 0 14%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #eeeeee;
+  }
+  #sectionMaquette h2 {
+    text-align: right;
+    order: -2;
+    width: 100%;
+    padding: 3em 3em 0 0;
+    margin-bottom: 5em;
+  }
+  #sectionMaquette #imageMaquette {
+    margin-bottom: 18%;
+  }
+  #sectionMaquette p {
+    padding-right: 3em;
+    display: inline-block;
+    width: 50%;
+    margin-bottom: 8em;
+    text-align: right;
+  }
+
+  #sectionSecurite {
+    padding: 0 0 0 2em;
+    clip-path: polygon(100% 14%, 100% 86%, 0 100%, 0 0);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #eeeeee;
+  }
+  #sectionSecurite h2 {
+    text-align: left;
+    order: -2;
+    width: 100%;
+    padding: 3em 0 0 3em;
+    margin-bottom: 5em;
+  }
+  #sectionSecurite #imageSecurite {
+    margin-bottom: 18%;
+  }
+  #sectionSecurite p {
+    padding-left: 3em;
+    display: inline-block;
+    order: -1;
+    width: 50%;
+    margin-bottom: 8em;
+    text-align: justify;
+  }
+
+  #sectionCommunityManagement {
+    padding: 0 2em 0 0;
+    clip-path: polygon(100% 0, 100% 100%, 0 86%, 0 14%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #eeeeee;
+  }
+  #sectionCommunityManagement h2 {
+    text-align: right;
+    order: -2;
+    width: 100%;
+    padding: 3em 3em 0 0;
+    margin-bottom: 5em;
+  }
+  #sectionCommunityManagement #imageCommunityManagement {
+    margin-bottom: 18%;
+  }
+  #sectionCommunityManagement p {
+    padding-right: 3em;
+    display: inline-block;
+    width: 50%;
+    margin-bottom: 8em;
+    text-align: right;
+  }
+  #sectionCommunityManagement h2 {
+    z-index: -2;
+    position: relative;
+  }
+  #sectionCommunityManagement h2::after {
+    z-index: -1;
+    content: "";
+    width: 400px;
+    height: 0.6em;
+    background-color: #9193FF;
+    position: absolute;
+    bottom: 0;
+    right: 25px;
+    clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
+  }
+  #sectionCommunityManagement span {
+    display: inline;
+  }
+  #sectionCommunityManagement span::after {
+    display: none;
+  }
+}
+@media screen and (min-width: 1440px) {
+  #blocAncre .serviceAncre {
+    gap: 15em;
+  }
+  #blocAncre .serviceAncre h2 ::after {
+    width: 50vh;
+  }
+}
+@media screen and (min-width: 1250px) {
+  #sectionSEO #imageSEO {
+    width: 350px;
+    height: 350px;
+  }
+
+  #sectionMaquette #imageMaquette {
+    width: 350px;
+    height: 350px;
+  }
+
+  #sectionSecurite #imageSecurite {
+    width: 350px;
+    height: 350px;
+  }
+
+  #sectionCommunityManagement #imageCommunityManagement {
+    width: 350px;
+    height: 350px;
+  }
+}
+@media screen and (min-width: 1750px) {
+  #sectionSEO p {
+    padding-top: 3em;
+  }
+
+  #sectionMaquette p {
+    padding-top: 3em;
+  }
+
+  #sectionSecurite p {
+    padding-top: 3em;
+  }
+
+  #sectionCommunityManagement p {
+    padding-top: 3em;
+  }
+}
+@media screen and (min-width: 1804px) {
+  #blocAncre .serviceAncre {
+    gap: 20em;
+  }
+  #blocAncre .serviceAncre h2 ::after {
+    width: 25vh;
   }
 }
 

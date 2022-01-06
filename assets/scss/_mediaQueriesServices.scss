@@ -1,0 +1,295 @@
+@media screen and (min-width:392px){
+    #blocAncre{
+        margin-top: 2em;
+    }
+}
+
+//Changement de disposition générale
+@media screen and (min-width:1024px){
+    #backgroundGradient{
+        z-index: -2;
+        padding-top: 0;
+        clip-path: polygon(100% 3.3%, 100% 100%, 0 100%, 0 0.1%);
+        }
+
+    //Partie sur les ancres
+    #sectionServicesAncres{
+        @include flex($just: space-around);
+        h1{
+            transform: rotate(-90deg);
+            font-size: 22px;
+            position: relative;
+            &::after{
+                z-index: 0;
+                content: "";
+                position: absolute;
+                width: 1500%;
+                height: 1px;
+                bottom: -1px;
+                left: 50%;
+                transform: translateX(-40%);
+                background-color: $black;
+            }
+            span{
+                &::after{
+                    z-index: 7;
+                    clip-path: none;
+                    width: 110%;
+                    transform: translateX(-5%);
+                    height: 0.2em;
+                    bottom: -2px;
+                    background: linear-gradient(-90deg, rgba(201,13,13,1) 0%, rgba(84,101,255,1) 100%);
+                }
+            }
+        }
+    }
+    #blocAncre{
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 5em;
+        .imageAncre{
+            clip-path: none;
+            width: 360px;
+            height: 180px;
+            border-left: 5px white solid
+        }
+        .serviceAncre{
+            @include flex;
+            gap: 6em;
+            &:nth-of-type(3) h2
+            {
+                padding-top: 0;
+            }
+            div{
+                order: 1;
+            }
+            h2{
+                position: relative;
+                ::after{
+                    position: absolute;
+                    content: "";
+                    z-index: -1;
+                    width: 300%;
+                    height: 5px;
+                    bottom: 28%;
+                    left: 120%;
+                    background-color: $secondaryColor;
+                }
+            }
+            #imageAncreSeo ~ h2 ::after, #imageAncreMaquette ~ h2 ::after{
+                background-color: $primaryColor;
+            }
+            #colorLine{
+                display: block;
+                position: absolute;
+                height: 700%;
+                width: 10px;
+                background: rgb(201,13,13);
+                background: linear-gradient(180deg, rgba(201,13,13,1) 0%, rgba(84,101,255,1) 100%);
+                left: calc(50% - 5px);
+                top: -20%;
+                z-index: -1;
+            }
+            #imageAncreSeo{
+                position: relative;
+            }
+        }
+    }
+    //Partie contenu
+    //SEO
+    #sectionSEO{
+        padding: 0 0 0 2em;
+        clip-path: polygon(100% 14%, 100% 86%, 0 100%, 0 1%);
+       @include flex($align:flex-start);
+       background-color: $greyBackground;
+            h2{
+            text-align: left;
+            order: -2;
+            width: 100%;
+            padding:3em 0 0 3em;
+            margin-bottom: 5em;      
+        }
+        #imageSEO{
+           margin-bottom: 18%;             
+        }
+        p{
+            padding-left: 3em;
+            display: inline-block;
+            order: -1;
+            width: 50%;
+            margin-bottom: 8em;
+            text-align: justify;
+        }
+    }
+    //Maquette
+    #sectionMaquette{
+        margin-top: 1em;
+        padding: 0 2em 0 0;
+        clip-path: polygon(100% 0, 100% 100%, 0 86%, 0 14%);
+        @include flex($align:flex-start);
+        background-color: $greyBackground;
+        h2{
+            text-align: right;
+            order: -2;
+            width: 100%;
+            padding:3em 3em 0 0;
+            margin-bottom: 5em;      
+        }
+        #imageMaquette{
+            margin-bottom: 18%;             
+         }
+         p{
+            padding-right: 3em;
+            display: inline-block;
+            width: 50%;
+            margin-bottom: 8em;
+            text-align: right;
+        }
+    }
+    //Securite
+    #sectionSecurite{
+        padding: 0 0 0 2em;
+        clip-path: polygon(100% 14%, 100% 86%, 0 100%, 0 0);
+       @include flex($align:flex-start);
+       background-color: $greyBackground;
+               h2{
+            text-align: left;
+            order: -2;
+            width: 100%;
+            padding:3em 0 0 3em;
+            margin-bottom: 5em;      
+        }
+        #imageSecurite{
+           margin-bottom: 18%;             
+        }
+        p{
+            padding-left: 3em;
+            display: inline-block;
+            order: -1;
+            width: 50%;
+            margin-bottom: 8em;
+            text-align: justify;
+        }
+    }
+    //CommunityManagement
+    #sectionCommunityManagement{
+        padding: 0 2em 0 0;
+        clip-path: polygon(100% 0, 100% 100%, 0 86%, 0 14%);
+        @include flex($align:flex-start);
+        background-color: $greyBackground;
+        h2{
+            text-align: right;
+            order: -2;
+            width: 100%;
+            padding:3em 3em 0 0;
+            margin-bottom: 5em;      
+        }
+        #imageCommunityManagement{
+            margin-bottom: 18%;             
+         }
+         p{
+            padding-right: 3em;
+            display: inline-block;
+            width: 50%;
+            margin-bottom: 8em;
+            text-align: right;
+        }
+        h2{
+            z-index: -2;
+            position: relative;
+            &::after{
+                z-index: -1;
+                content: "";
+                width: 400px;
+                height: .6em;
+                background-color: $lightenSecondary;
+                position: absolute;
+                bottom: 0;
+                right: 25px;
+                clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
+            }
+        }
+        span{
+            display: inline;
+            &::after{
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1440px) {
+    #blocAncre{
+        .serviceAncre{
+            gap: 15em;
+            h2{
+                ::after{
+                    width: 50vh;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1250px) {
+    #sectionSEO{
+        #imageSEO{
+            width: 350px;
+            height: 350px;
+        }
+    }
+    #sectionMaquette{
+        #imageMaquette{
+            width: 350px;
+            height: 350px;
+        }
+    }
+    #sectionSecurite{
+        #imageSecurite{
+            width: 350px;
+            height: 350px;
+        }
+    }
+    #sectionCommunityManagement{
+        #imageCommunityManagement{
+            width: 350px;
+            height: 350px;
+        }
+    }
+}
+
+@media screen and (min-width:1750px){
+    #sectionSEO{
+        p{
+            padding-top: 3em;
+        }
+    }
+    #sectionMaquette{
+        p{
+            padding-top: 3em;
+        }
+    }
+    #sectionSecurite{
+        p{
+            padding-top: 3em;
+        }
+    }
+    #sectionCommunityManagement{
+        p{
+            padding-top: 3em;
+        }
+    }
+}
+
+@media screen and (min-width:1804px) {
+    #blocAncre{
+        .serviceAncre{
+            gap: 20em;
+            h2{
+                ::after{
+                    width: 25vh;
+                }
+            }
+        }
+    }
+}

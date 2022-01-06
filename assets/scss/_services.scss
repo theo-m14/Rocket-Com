@@ -35,6 +35,12 @@
         clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     }
     .serviceAncre{ //Background image des ancres
+        a{
+            font-size: 16px;
+        }
+        #colorLine{
+            display: none;
+        }
         #imageAncreSeo{
             background-image: url(../images/agence-seo.jpg);
             background-position: center;
@@ -97,7 +103,7 @@
         background-position: center;
         background-size: cover;
         clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-        margin: auto;
+        margin: 0 auto;
     }
     span{
         position: relative;
@@ -199,18 +205,20 @@
         margin: auto;
     }
     span{
+        display: block;
+        margin: auto;
         position: relative;
         z-index: 1;
         &::after{
             z-index: -1;
             content: "";
-            width: 138%;
+            width: 230px;
             height: .6em;
             background-color: $lightenSecondary;
             position: absolute;
             bottom: 0;
-            left: 5%;
-            transform: translateX(-20%);
+            left: center;
+            transform: translateX(-200px);
             clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
         }
     }
