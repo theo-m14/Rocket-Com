@@ -15,15 +15,17 @@
         <img  id="logo" class ="logo" src="assets/images/Rocket'ComLogo.png" alt="Logo de l'agence de communication Rocket'Com">
         <nav>
             <ul id="navbar">
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
             <ul class="socials">
                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                 <li><a href="#"><i class="fab fa-facebook"></i></a></li>
                 <li><a href="#"><i class="fab fa-instagram"></i></a></li>
             </ul>
+
+            <div class="triangle triangleRight"></div>
         </nav>
         <div id="burgerButton">
             <span id="burger"></span>
@@ -40,11 +42,13 @@
         <section id="sectionPresentation">
             <div class="triangle triangleTop"></div>
 
-            <h1><span>Qui sommes nous?</span></h1>
+            <article>
+                <h1><span>Qui sommes nous?</span></h1>
 
-            <p>Rocket’Com est une agence de communication dont le but est de renforcer l’image des entreprises sur le net. Pour cela notre équipe est composé de plusieurs experts dans différents domaine afin de fournir une amélioration globale de votre image. Nous nous destinons aux petits comme au grandes entreprises, alors sauter le pas ! Prenez contact avec nous</p>
+                <p>Rocket’Com est une agence de communication dont le but est de renforcer l’image des entreprises sur le net. Pour cela notre équipe est composé de plusieurs experts dans différents domaine afin de fournir une amélioration globale de votre image. Nous nous destinons aux petits comme au grandes entreprises, alors sauter le pas ! Prenez contact avec nous</p>
+            </article>
 
-            <img src="assets/images/communication-marketing.png" alt="Illustration">
+            <div class="imgContainer"><img src="assets/images/illustrationPresentation.png" alt="Illustration"></div>
         </section>
 
         <section id="sectionGallerie">
@@ -53,6 +57,7 @@
             <h1><span>GALLERIE</span></h1>
 
             <div id="imageGallerieContainer">
+                <div class="chevronGauche chevron chevronDesktop"></div>
                 <article>
                     <div class="imgContainer"><img src="assets/images/gallerie01.jpeg" alt=""></div>
                     <a href="#">Mondar</a>
@@ -72,6 +77,7 @@
                     <div class="imgContainer"><img src="assets/images/gallerie04.jpg" alt=""></div>
                     <a href="#">Cashlan</a>
                 </article>
+                <div class="chevronDroite chevron chevronDesktop"></div>
             </div>
 
             <div class="chevronContainer">
@@ -86,7 +92,7 @@
             <h1><span>NOTRE EQUIPE</span></h1>
 
             <div id="equipePhotoContainer">
-                <div class="chevronGauche chevron"></div>
+                <div class="chevronGauche chevron chevronDesktop"></div>
                 
                 <article>
                     <div class="imgContainer leftPhotoContainer">
@@ -109,6 +115,11 @@
                     </div> 
                     <p>Martine</p>
                 </article>
+                <div class="chevronDroite chevron chevronDesktop"></div>
+            </div>
+
+            <div class="chevronContainer">
+                <div class="chevronGauche chevron"></div>
                 <div class="chevronDroite chevron"></div>
             </div>
 
@@ -116,14 +127,6 @@
 
         <section id="sectionAvis">
             <div class="triangle triangleBottom"></div>
-            
-            <h1>AVIS DE NOS CLIENTS</h1>
-            <div id="listeAvis">
-                <img src="assets/images/avis2.jpg" alt="Photo de .">
-                <img src="assets/images/avis3.jpg" alt="Photo de .">
-                <img src="assets/images/avis4.jpg" alt="Photo de .">
-                <img src="assets/images/avis5.jpg" alt="Photo de .">
-            </div>
 
             <div id="avisFocus">
                 <div class="imgContainer">
@@ -131,15 +134,42 @@
                 </div>
             </div>
 
-            <article>
-                <div class="chevronGauche chevron"></div>
-                
-                <p><i class="fas fa-quote-left"></i> Très bonnes performances, bilan précis. Très grande qualité des opérations et outils réalisés. Délais respectés. Très bon contact. Compréhension des problématiques et enjeux clients. Très focus résultats et business. Des recommandations pertinentes et adaptées à l’échelle de nos budgets et de nos ambitions. <i class="fas fa-quote-right"></i></p>
-                
-                <p>John K.</p>
+            <div id="listeAvisContainer">
+                <h1><span>AVIS DE NOS CLIENTS</span></h1>
 
-                <div class="chevronDroite chevron"></div>
-            </article>
+                <div id="listeAvis">
+                    <div class="chevronGauche chevron"></div>
+                    <div>
+                        <div class="imgContainer">
+                            <div class="img"></div>
+                        </div>
+                        <div class="imgContainer">
+                            <div class="img"></div>
+                        </div>
+                        <div class="imgContainer">
+                            <div class="img"></div>
+                        </div>
+                        <div class="imgContainer">
+                            <div class="img"></div>
+                        </div>
+                    </div>
+                    <div class="chevronDroite chevron"></div>
+                </div>
+
+                <article>
+                    <div class="chevronGauche chevron"></div>
+                    
+                    <div id="avisTextContainer">
+                        <p><i class="fas fa-quote-left"></i> Très bonnes performances, bilan précis. Très grande qualité des opérations et outils réalisés. Délais respectés. Très bon contact. Compréhension des problématiques et enjeux clients. Très focus résultats et business. Des recommandations pertinentes et adaptées à l’échelle de nos budgets et de nos ambitions. <i class="fas fa-quote-right"></i></p>
+                    
+                        <p>John K.</p>
+                    </div>
+    
+                    <div class="chevronDroite chevron"></div>
+                </article>
+            </div>
+
+            
 
             <a href="#logo"><i class="fas fa-angle-double-up"></i></a>
         </section>

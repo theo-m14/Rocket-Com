@@ -1,0 +1,469 @@
+@media screen and (min-width: 550px) {
+    #sectionBanniere{
+        font-size: 26px;
+    }
+
+    .triangleTop{
+        height: 7vw;
+    }
+
+    #sectionGallerie{
+        padding: 2em 0 1.5em;
+    
+        h1{
+            font-size: 24px;
+            padding-bottom: 1.5em;
+        }
+    
+        #imageGallerieContainer{
+            // chaque article correspond à une image et son titre cliquable
+            article{
+                @include flex( $direction: column );
+                padding-bottom: 1.5em;
+    
+                a{
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    #sectionEquipe{
+        h1{
+            font-size: 22px;
+        }
+        #equipePhotoContainer{
+        // un article correspond à une photo de membre + son sous titre
+            article{
+                // pour les photos en général
+                .img{
+                    height: 30vw;
+                    width: 30vw;
+                }
+
+                // la photo du centre ( en focus )
+                // rajout de border sur le container
+                .mainPhoto{
+                    height: 40vw;
+                    width: 40vw;
+                }
+                // le nom du membre
+                p{
+                    font-size: 14px;
+                    width: 60%;
+                    // pour la photo du centre, on spécifie pour le deuxième <p>
+                    &:nth-of-type(2){
+                        font-size: 12px;
+                        transform: translate(-4%, -265%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .triangleTop{
+        height: 6vw;
+    }
+
+    #sectionEquipe{
+        padding-bottom: 2em;
+        .chevronDesktop{
+            display: block;
+        }
+    
+        .chevronContainer{
+           display: none;
+        }
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .triangleTop{
+        height: 4.8vw;
+    }
+}
+
+@media screen and (min-width: 800px){
+    #sectionGallerie{
+        // chevron droite et gauche pour changer les pages de la gallerie
+        .chevronContainer{
+            gap: 4em;
+        }
+
+        .chevron{
+            width: 7vw;
+            height: 5vw;
+            position: static;
+        }
+    }
+}
+
+// premier breakpoint pour section presentation / 
+@media screen and (min-width: 850px) {
+    #sectionBanniere{
+        font-size: 36px;
+    }
+
+    #sectionPresentation{
+        padding-bottom: 3em;
+        @include flex(space-between,row,flex-start);
+
+        article{
+            @include flex(flex-start);
+            width: 48%;
+            font-size: 16px;
+            text-align: start;
+            padding: 2em 0 .5em 3em;
+            p{
+                width: 100%;
+                font-size: 20px;
+            }
+
+            h1{
+                padding-bottom: 2em;
+                font-size: 32px;
+                span{
+                    // Bloc de couleur sous le titre
+                    &::after{
+                        width: 140%;
+                        height: .5em;
+                        bottom: 0;
+                        left: 3px;
+                    }
+                }
+            }
+        }
+
+        .triangleTop{
+            top: -1px;
+            right: 0;
+            width: 45%;
+            height: 65%;
+        }
+        
+        .imgContainer{
+            width: 45%;
+            z-index: 55;
+        }
+        
+        img{
+            margin: 0 auto;
+            display: block;
+            width: 80%;
+            object-fit: cover;  
+        }
+    }
+
+    #sectionGallerie{
+        h1{
+            font-size: 32px;
+        }
+    
+        #imageGallerieContainer{
+            article{
+                gap: .8em;
+                a{
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    #sectionEquipe{
+        padding-bottom: 3%;
+        h1{
+            padding-bottom: 6%;
+            font-size: 32px;
+        }
+        #equipePhotoContainer{
+            article{
+                .img{
+                    height: 25vw;
+                    width: 25vw;
+                }
+    
+                .mainPhoto{
+                    height: 35vw;
+                    width: 35vw;
+                    background-image: url(../images/marcPhoto.jpg);
+                }
+
+                p{
+                    font-size: 18px;
+                    width: 50%;
+                    // pour la photo du centre, on spécifie pour le deuxième <p>
+                    &:nth-of-type(2){
+                        font-size: 16px;
+                        transform: translate(-4%, -255%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    #sectionBanniere{
+        font-size: 46px;
+    }
+
+    #sectionGallerie{
+        padding: 2em 0 2em;
+    
+        h1{
+            padding-bottom: 2em;
+        }
+    
+        #imageGallerieContainer{
+            @include flex(center);
+            padding: 0 1em;
+            // chaque article correspond à une image et son titre cliquable
+            article{
+                padding-bottom: 2.5em;
+                width: 40%;
+                a{
+                    font-size: 22px;
+                }
+            }
+        }
+
+        .chevron{
+            width: 7vw;
+            height: 5vw;
+            position: static;
+        }
+
+        .chevronContainer{
+            display: none;
+        }
+
+        .chevronDesktop{
+            display: block;
+        }
+
+        .chevronGauche{
+            align-self: flex-end;
+            transform: rotate(0deg) translate(-50%,0%);
+        }
+
+        .chevronDroite{
+            align-self: flex-start;
+            transform: rotate(180deg) translate(-50%,100%);
+        }
+    }
+}
+
+@media screen and (min-width: 1050px) {
+    #sectionPresentation{
+        article{
+            p{
+                width: 100%;
+                font-size: 24px;
+            }
+        }
+    }
+
+    #sectionEquipe{
+        h1{
+            // padding-bottom: 5em;
+        }
+
+        #equipePhotoContainer{
+            @include flex(space-evenly);
+
+            .chevron{
+                width: 5vw;
+                height: 5vw;
+            }
+            // un article correspond à une photo de membre + son sous titre
+                article{
+                    // pour les photos en général
+                    .img{
+                        height: 20vw;
+                        width: 20vw;
+                    }
+    
+                    // la photo du centre ( en focus )
+                    // rajout de border sur le container
+                    .mainPhoto{
+                        height: 30vw;
+                        width: 30vw;
+                    }
+                    // le nom du membre
+                    p{
+                        font-size: 22px;
+                        width: 65%;
+                        // pour la photo du centre, on spécifie pour le deuxième <p>
+                        &:nth-of-type(2){
+                            font-size: 18px;
+                            transform: translate(-4%, -285%);
+                        }
+                    }
+                }
+            }
+    }
+
+    #sectionAvis{
+        padding: 3em 0 1em;
+        @include flex(flex-end, $direction:row);
+
+        .triangleBottom{
+            top: 0;
+            left: 0;
+            width: 30%;
+            height: 50%;
+        }
+    
+        // on cache pour le mobile
+        h1{
+            display: block;
+            align-self: flex-start;
+            margin: 0 auto;
+            font-size: 32px;
+            padding-bottom: 1em
+        }
+        
+        #listeAvisContainer{
+            @include flex(center, column);
+            align-self: flex-start;
+            width: 70%;
+
+            // contient les chevrons + les icônes de quote + texte de l'avis
+            article{
+                @include flex($direction:column);
+                padding-top: 1.5em;
+                width: 70%;
+                font-size: 24px;
+                // nom de l'auteur de l'avis aligné en bas à droite du texte
+                p:last-of-type{
+                    align-self: flex-start;
+                    padding-top: .5em;
+                    font-size: 32px;
+                }
+
+                .chevron{
+                    display: none;
+                }
+            }
+        }
+
+        #listeAvis{
+            @include flex(space-evenly);
+            width: 80%;
+
+            div{
+                @include flex;
+                gap: .3em;
+            }
+
+            .imgContainer{
+                clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+                background-color: $black;
+                border: 5px $black solid;
+            }
+
+            .img{
+                clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+                height: 8vw;
+                width: 8vw;
+                background-size: cover;
+                background-position: top;
+                background-repeat: no-repeat;
+                background-image: url(../images/avis2.jpg);
+            }
+
+            .chevron{
+                width: 4vw;
+                height: 4vw;
+                position: static;
+                display: block;
+            }
+        }
+    
+        // div avec la photo de l'avis selectionné
+        #avisFocus{
+            @include flex;
+            padding-top: 0em;
+            width: 30%;
+            // container de la photo avec un fond et border, forme de parallélogramme
+            .imgContainer{
+                border: 8px white solid;
+                height: 20vw;
+                width: 20vw;
+            }
+    
+            .img{
+                height: 20vw;
+                width: 20vw;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #sectionBanniere{
+        font-size: 56px;
+    }
+
+    #sectionGallerie{
+        #imageGallerieContainer{
+            article{
+                a{
+                    font-size: 32px;
+                }
+            }
+        }
+    }
+
+    #sectionEquipe{
+        #equipePhotoContainer{
+                article{
+                    // pour les photos en général
+                    .img{
+                        height: 15vw;
+                        width: 15vw;
+                    }
+    
+                    // la photo du centre ( en focus )
+                    // rajout de border sur le container
+                    .mainPhoto{
+                        height: 25vw;
+                        width: 25vw;
+                    }
+                }
+            }
+    }
+}
+
+
+@media screen and (min-width: 1350px) {
+    #sectionBanniere{
+        font-size: 66px;
+    }
+
+    #sectionPresentation{
+        article{
+            padding: 4em 0 1.5em 5.5em;
+            p{
+                font-size: 26px;
+                line-height: 35px;
+            }
+        }
+
+        img{
+            width: 65%;
+        }
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    #sectionBanniere{
+        font-size: 72px;
+    }
+
+    #sectionEquipe{
+        // padding-bottom: 5em;
+    }
+}

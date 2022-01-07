@@ -40,7 +40,7 @@ h1 span::after {
   content: "";
   width: 150%;
   height: 0.4em;
-  background-color: #5465ff;
+  background-color: #9193FF;
   z-index: -1;
   position: absolute;
   bottom: 0;
@@ -50,10 +50,9 @@ h1 span::after {
 }
 
 .triangle {
-  width: 79px;
-  height: 62px;
+  width: 13vw;
+  height: 12vw;
   position: absolute;
-  order: 6;
 }
 
 .triangle-blue {
@@ -67,24 +66,25 @@ h1 span::after {
 .triangleTop {
   position: absolute;
   top: -1px;
-  right: 2%;
-  width: 60px;
-  height: 30px;
+  right: 0%;
+  width: 18%;
+  height: 8vw;
   background-color: #c90d0d;
   clip-path: polygon(50% 100%, 0 0, 100% 0);
 }
 
 .triangle-left {
   clip-path: polygon(100% 50%, 0 0, 0 100%);
-  top: -31px;
+  top: 0;
   left: 0;
+  transform: translateY(-50%);
 }
 
 .triangleRight {
   clip-path: polygon(100% 0, 0 50%, 100% 100%);
   top: 0;
-  transform: translateY(-50%);
   right: 0;
+  transform: translateY(-50%);
   background-color: #5465ff;
 }
 
@@ -97,23 +97,19 @@ h1 span::after {
 }
 
 .chevron {
-  position: absolute;
-  width: 40px;
-  height: 20px;
-  background-color: black;
-  top: 50%;
-  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  width: 5.5vw;
+  height: 5.5vw;
+  background-color: #1d1c1c;
+  clip-path: polygon(0 50%, 100% 0, 70% 50%, 100% 100%);
   cursor: pointer;
 }
 
 .chevronDroite {
-  transform: rotate(-90deg) translate(50%, 200%);
-  right: 0;
+  transform: rotate(180deg);
 }
 
 .chevronGauche {
-  transform: rotate(90deg) translate(-50%, 200%);
-  left: 0;
+  transform: rotate(0deg);
 }
 
 .icoInsta {
@@ -129,10 +125,11 @@ header {
   background-color: #1d1c1c;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 1em 1em;
+  padding: 1em 55px 1em 1em;
+  position: relative;
 }
 
 .logo {
@@ -142,6 +139,8 @@ header {
 nav {
   display: none;
   color: white;
+  width: 80%;
+  font-size: 24px;
 }
 nav ul {
   display: flex;
@@ -149,6 +148,25 @@ nav ul {
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
+}
+nav ul a {
+  color: white;
+  font-family: Varela;
+}
+nav #navbar {
+  gap: 4em;
+}
+nav .socials {
+  gap: 1em;
+}
+nav .triangle {
+  width: 40px;
+  height: 100%;
+}
+nav .triangleRight {
+  top: 0;
+  transform: translateY(0);
+  background-color: #c90d0d;
 }
 
 #burgerButton {
@@ -206,6 +224,392 @@ nav ul {
 #burger::before {
   top: 10px;
   left: 0;
+}
+
+#sectionBanniere {
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 1.5em 0;
+  height: 20vw;
+  background-image: url(../images/header-home-digital.png), linear-gradient(180deg, #5465FF 0%, #C90D0D 100%);
+  background-size: contain;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+}
+#sectionBanniere p:first-of-type {
+  padding-left: 7%;
+}
+#sectionBanniere p:nth-of-type(2) {
+  padding-left: 17%;
+}
+#sectionBanniere p:nth-of-type(3) {
+  padding-left: 33%;
+}
+#sectionBanniere p {
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+#sectionPresentation {
+  position: relative;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#sectionPresentation article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+  font-size: 16px;
+  padding: 0.5em 0 1em;
+}
+#sectionPresentation article h1 {
+  padding-bottom: 1em;
+}
+#sectionPresentation article p {
+  width: 85%;
+}
+#sectionPresentation img {
+  display: none;
+}
+
+#sectionGallerie {
+  text-align: center;
+  background-color: #eeeeee;
+  padding: 1em 0 1.5em;
+  position: relative;
+}
+#sectionGallerie h1 {
+  padding-bottom: 1.5em;
+}
+#sectionGallerie #imageGallerieContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#sectionGallerie #imageGallerieContainer article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-bottom: 1em;
+  width: 45%;
+  gap: 0.2em;
+  text-align: center;
+}
+#sectionGallerie #imageGallerieContainer article .imgContainer {
+  width: 100%;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
+}
+#sectionGallerie #imageGallerieContainer article img {
+  height: 25vw;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+  clip-path: polygon(25% 0%, 100% 0, 75% 100%, 0% 100%);
+  cursor: pointer;
+}
+#sectionGallerie #imageGallerieContainer article a {
+  font-size: 12px;
+}
+#sectionGallerie .chevronContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+#sectionGallerie .chevron {
+  width: 9vw;
+  height: 7vw;
+  position: static;
+}
+#sectionGallerie .chevronDroite {
+  transform: rotate(180deg) translate(0, 0);
+}
+#sectionGallerie .chevronGauche {
+  transform: rotate(0deg) translate(0, 0);
+}
+#sectionGallerie .chevronDesktop {
+  display: none;
+}
+
+#sectionEquipe {
+  padding: 2em 0 1em;
+  text-align: center;
+  background-color: #fafafa;
+  position: relative;
+}
+#sectionEquipe #equipePhotoContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: relative;
+  padding: 1em 0;
+}
+#sectionEquipe #equipePhotoContainer .chevron {
+  width: 7vw;
+  height: 7vw;
+  position: static;
+}
+#sectionEquipe #equipePhotoContainer .chevronDroite {
+  transform: rotate(180deg) translate(0, 15%);
+  clip-path: polygon(0 50%, 100% 0, 70% 50%, 100% 100%);
+}
+#sectionEquipe #equipePhotoContainer .chevronGauche {
+  transform: rotate(0deg) translate(0, -15%);
+  clip-path: polygon(0 50%, 100% 0, 70% 50%, 100% 100%);
+}
+#sectionEquipe h1 {
+  padding-bottom: 2em;
+}
+#sectionEquipe article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+#sectionEquipe article:first-of-type p, #sectionEquipe article:last-of-type p {
+  transform: translateY(-150%);
+}
+#sectionEquipe article:nth-of-type(2) {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#sectionEquipe article .imgContainer {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+#sectionEquipe article .img {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  height: 37vw;
+  width: 37vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#sectionEquipe article .leftPhotoContainer, #sectionEquipe article .rightPhotoContainer {
+  border: 8px solid black;
+  background-color: black;
+}
+#sectionEquipe article .leftPhoto {
+  background-image: url(../images/jeannePhoto.jpg);
+  background-position: bottom;
+}
+#sectionEquipe article .rightPhoto {
+  background-image: url(../images/martinePhoto.jpg);
+  background-position: top left;
+}
+#sectionEquipe article .mainPhotoContainer {
+  border: 8px solid white;
+  background-color: white;
+}
+#sectionEquipe article .mainPhoto {
+  height: 50vw;
+  width: 50vw;
+  background-image: url(../images/marcPhoto.jpg);
+}
+#sectionEquipe article p {
+  font-size: 12px;
+  clip-path: polygon(25% 0, 90% 0, 80% 100%, 15% 100%);
+  background-color: #c4c4c4;
+  width: 65%;
+  transform: translateY(-220%);
+}
+#sectionEquipe article p:nth-of-type(2) {
+  font-size: 10px;
+  background-color: #5465ff;
+  width: 48%;
+  transform: translate(-4%, -300%);
+}
+#sectionEquipe .chevronDesktop {
+  display: none;
+}
+#sectionEquipe .chevronContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-top: 0.7em;
+  gap: 20%;
+}
+#sectionEquipe .chevronContainer .chevron {
+  width: 8vw;
+  height: 8vw;
+  position: static;
+}
+
+#sectionAvis {
+  position: relative;
+  padding: 3em 0 1em;
+  background-color: #eeeeee;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+#sectionAvis h1 {
+  display: none;
+}
+#sectionAvis img {
+  display: none;
+}
+#sectionAvis #avisFocus .imgContainer {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  background-color: white;
+  border: 7px white solid;
+}
+#sectionAvis #avisFocus .img {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  height: 8em;
+  width: 8em;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(../images/avis1.jpg);
+}
+#sectionAvis #listeAvisContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+#sectionAvis #listeAvis .chevron {
+  display: none;
+}
+#sectionAvis article {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-top: 1.5em;
+  position: relative;
+}
+#sectionAvis article p:last-of-type {
+  align-self: flex-end;
+}
+#sectionAvis article #avisTextContainer {
+  width: 80%;
+}
+#sectionAvis a {
+  align-self: flex-end;
+  margin-top: 1em;
+  margin-right: 1.5em;
+  cursor: pointer;
+  display: block;
+}
+#sectionAvis .fa-angle-double-up {
+  font-size: 3em;
+}
+
+#mainContact h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 18px;
+  padding: 2em 0;
+}
+#mainContact h1 span {
+  position: relative;
+  z-index: 1;
+}
+#mainContact h1 span::after {
+  z-index: -1;
+  content: "";
+  width: 150%;
+  height: 0.6em;
+  background-color: #c90d0d;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-20%);
+  clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
+}
+#mainContact #sectionContact {
+  background-image: url(../images/backgroundContact.jpg);
+  background-size: cover;
+  padding-bottom: 2em;
+}
+#mainContact article {
+  color: white;
+  background: #c90d0d;
+  background: linear-gradient(317deg, rgba(201, 13, 13, 0.85) 0%, rgba(84, 101, 255, 0.85) 100%);
+  text-align: center;
+  width: 290px;
+  height: 290px;
+  margin: auto;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+#mainContact article h2 {
+  padding-top: 4.2em;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+#mainContact article p {
+  font-size: 15px;
+  font-family: Varela;
+  line-height: 25px;
+}
+#mainContact form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #5465ff9d;
+  width: 90%;
+  margin: 2em auto 0;
+  padding: 1em 0;
+  border-radius: 5px;
+  font-family: Signika;
+}
+#mainContact form input {
+  padding: 3px 0 3px 2px;
+}
+#mainContact form #nom {
+  width: 35%;
+  margin-right: 5%;
+}
+#mainContact form #prenom {
+  width: 35%;
+}
+#mainContact form #objet {
+  margin-top: 1em;
+  width: 76%;
+}
+#mainContact form #formText {
+  margin-top: 1em;
+  width: 76%;
+  padding: 6px 0 0 2px;
+}
+#mainContact form button {
+  margin-top: 1em;
+  width: 25%;
+  padding: 5px 0;
+  background-color: #003BCB;
+  border: none;
+  color: white;
+}
+#mainContact iframe {
+  margin-bottom: -5px;
 }
 
 #sectionServicesAncres > h1 {
@@ -425,342 +829,6 @@ nav ul {
   left: center;
   transform: translateX(-200px);
   clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
-}
-
-#sectionBanniere {
-  font-size: 18px;
-  text-transform: uppercase;
-  padding: 2.5em 0;
-  background-image: url(../images/header-home-digital.png), linear-gradient(180deg, #5465FF 0%, #C90D0D 100%);
-  background-size: cover;
-  background-position: bottom center;
-  background-repeat: no-repeat;
-}
-#sectionBanniere p:first-of-type {
-  padding-left: 7%;
-}
-#sectionBanniere p:nth-of-type(2) {
-  padding-left: 17%;
-}
-#sectionBanniere p:nth-of-type(3) {
-  padding-left: 33%;
-}
-
-#sectionPresentation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-  position: relative;
-  text-align: center;
-  font-size: 16px;
-  padding: 0.5em 0 1em;
-  background-color: #fafafa;
-}
-#sectionPresentation h1 {
-  padding-bottom: 0.5em;
-}
-#sectionPresentation p {
-  width: 85%;
-}
-#sectionPresentation img {
-  display: none;
-}
-
-#sectionGallerie {
-  text-align: center;
-  background-color: #eeeeee;
-  padding: 1em 0 1.5em;
-  position: relative;
-}
-#sectionGallerie h1 {
-  padding-bottom: 1.5em;
-}
-#sectionGallerie #imageGallerieContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-#sectionGallerie #imageGallerieContainer article {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-  padding-bottom: 1em;
-  width: 45%;
-  gap: 0.2em;
-  text-align: center;
-}
-#sectionGallerie #imageGallerieContainer article .imgContainer {
-  width: 100%;
-  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
-}
-#sectionGallerie #imageGallerieContainer article img {
-  height: 6em;
-  width: 100%;
-  object-fit: cover;
-  object-position: top;
-  clip-path: polygon(25% 0%, 100% 0, 75% 100%, 0% 100%);
-}
-#sectionGallerie #imageGallerieContainer article a {
-  font-size: 12px;
-}
-#sectionGallerie .chevronContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 2em;
-}
-#sectionGallerie .chevron {
-  width: 30px;
-  height: 15px;
-  position: static;
-}
-#sectionGallerie .chevronDroite {
-  transform: rotate(-90deg) translate(0, 0);
-}
-#sectionGallerie .chevronGauche {
-  transform: rotate(90deg) translate(0, 0);
-}
-
-#sectionEquipe {
-  padding: 2em 0 3em;
-  text-align: center;
-  background-color: #fafafa;
-  position: relative;
-}
-#sectionEquipe #equipePhotoContainer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  position: relative;
-}
-#sectionEquipe #equipePhotoContainer .chevron {
-  width: 30px;
-  height: 15px;
-  position: static;
-}
-#sectionEquipe #equipePhotoContainer .chevronDroite {
-  transform: rotate(-90deg) translate(0, 0);
-}
-#sectionEquipe #equipePhotoContainer .chevronGauche {
-  transform: rotate(90deg) translate(0, 0);
-}
-#sectionEquipe h1 {
-  padding-bottom: 2em;
-}
-#sectionEquipe article {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-#sectionEquipe article:nth-of-type(2) {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-#sectionEquipe article .imgContainer {
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-}
-#sectionEquipe article .img {
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  height: 7em;
-  width: 7em;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-#sectionEquipe article .leftPhotoContainer, #sectionEquipe article .rightPhotoContainer {
-  border: 7px solid black;
-  background-color: black;
-}
-#sectionEquipe article .leftPhoto {
-  background-image: url(../images/jeannePhoto.jpg);
-  background-position: bottom;
-}
-#sectionEquipe article .rightPhoto {
-  background-image: url(../images/martinePhoto.jpg);
-  background-position: top left;
-}
-#sectionEquipe article .mainPhotoContainer {
-  border: 7px solid white;
-  background-color: white;
-}
-#sectionEquipe article .mainPhoto {
-  height: 10em;
-  width: 10em;
-  background-image: url(../images/marcPhoto.jpg);
-}
-#sectionEquipe article p {
-  font-size: 12px;
-  clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
-  background-color: #c4c4c4;
-  width: 55%;
-  margin-top: -16%;
-}
-#sectionEquipe article p:nth-of-type(2) {
-  font-size: 10px;
-  background-color: #5465ff;
-  width: 48%;
-  margin: -0.1em 0 0;
-}
-
-#sectionAvis {
-  position: relative;
-  padding: 3em 0 1em;
-  background-color: #eeeeee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-#sectionAvis h1 {
-  display: none;
-}
-#sectionAvis img {
-  display: none;
-}
-#sectionAvis #avisFocus .imgContainer {
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  background-color: white;
-  border: 7px white solid;
-}
-#sectionAvis #avisFocus .img {
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  height: 8em;
-  width: 8em;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url(../images/avis1.jpg);
-}
-#sectionAvis article {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-  padding-top: 1.5em;
-  width: 80%;
-  position: relative;
-}
-#sectionAvis article p:last-of-type {
-  align-self: flex-end;
-}
-#sectionAvis a {
-  align-self: flex-end;
-  margin-top: 1em;
-  margin-right: 1.5em;
-  cursor: pointer;
-  display: block;
-}
-#sectionAvis .fa-angle-double-up {
-  font-size: 2.5em;
-}
-
-#mainContact h1 {
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 18px;
-  padding: 2em 0;
-}
-#mainContact h1 span {
-  position: relative;
-  z-index: 1;
-}
-#mainContact h1 span::after {
-  z-index: -1;
-  content: "";
-  width: 150%;
-  height: 0.6em;
-  background-color: #c90d0d;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  transform: translateX(-20%);
-  clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
-}
-#mainContact #sectionContact {
-  background-image: url(../images/backgroundContact.jpg);
-  background-size: cover;
-  padding-bottom: 2em;
-}
-#mainContact article {
-  color: white;
-  background: #c90d0d;
-  background: linear-gradient(317deg, rgba(201, 13, 13, 0.85) 0%, rgba(84, 101, 255, 0.85) 100%);
-  text-align: center;
-  width: 290px;
-  height: 290px;
-  margin: auto;
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-}
-#mainContact article h2 {
-  padding-top: 4.2em;
-  font-size: 18px;
-  text-transform: uppercase;
-  font-weight: 300;
-}
-#mainContact article p {
-  font-size: 15px;
-  font-family: Varela;
-  line-height: 25px;
-}
-#mainContact form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  background-color: #5465ff9d;
-  width: 90%;
-  margin: 2em auto 0;
-  padding: 1em 0;
-  border-radius: 5px;
-  font-family: Signika;
-}
-#mainContact form input {
-  padding: 3px 0 3px 2px;
-}
-#mainContact form #nom {
-  width: 35%;
-  margin-right: 5%;
-}
-#mainContact form #prenom {
-  width: 35%;
-}
-#mainContact form #objet {
-  margin-top: 1em;
-  width: 76%;
-}
-#mainContact form #formText {
-  margin-top: 1em;
-  width: 76%;
-  padding: 6px 0 0 2px;
-}
-#mainContact form button {
-  margin-top: 1em;
-  width: 25%;
-  padding: 5px 0;
-  background-color: #003BCB;
-  border: none;
-  color: white;
-}
-#mainContact iframe {
-  margin-bottom: -5px;
 }
 
 footer {
@@ -1119,6 +1187,431 @@ footer .footerBottomPart a {
   }
   #blocAncre .serviceAncre h2 ::after {
     width: 25vh;
+  }
+}
+@media screen and (min-width: 550px) {
+  #sectionBanniere {
+    font-size: 26px;
+  }
+
+  .triangleTop {
+    height: 7vw;
+  }
+
+  #sectionGallerie {
+    padding: 2em 0 1.5em;
+  }
+  #sectionGallerie h1 {
+    font-size: 24px;
+    padding-bottom: 1.5em;
+  }
+  #sectionGallerie #imageGallerieContainer article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-bottom: 1.5em;
+  }
+  #sectionGallerie #imageGallerieContainer article a {
+    font-size: 16px;
+  }
+
+  #sectionEquipe h1 {
+    font-size: 22px;
+  }
+  #sectionEquipe #equipePhotoContainer article .img {
+    height: 30vw;
+    width: 30vw;
+  }
+  #sectionEquipe #equipePhotoContainer article .mainPhoto {
+    height: 40vw;
+    width: 40vw;
+  }
+  #sectionEquipe #equipePhotoContainer article p {
+    font-size: 14px;
+    width: 60%;
+  }
+  #sectionEquipe #equipePhotoContainer article p:nth-of-type(2) {
+    font-size: 12px;
+    transform: translate(-4%, -265%);
+  }
+}
+@media screen and (min-width: 650px) {
+  .triangleTop {
+    height: 6vw;
+  }
+
+  #sectionEquipe {
+    padding-bottom: 2em;
+  }
+  #sectionEquipe .chevronDesktop {
+    display: block;
+  }
+  #sectionEquipe .chevronContainer {
+    display: none;
+  }
+}
+@media screen and (min-width: 720px) {
+  .triangleTop {
+    height: 4.8vw;
+  }
+}
+@media screen and (min-width: 800px) {
+  #sectionGallerie .chevronContainer {
+    gap: 4em;
+  }
+  #sectionGallerie .chevron {
+    width: 7vw;
+    height: 5vw;
+    position: static;
+  }
+}
+@media screen and (min-width: 850px) {
+  #sectionBanniere {
+    font-size: 36px;
+  }
+
+  #sectionPresentation {
+    padding-bottom: 3em;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  #sectionPresentation article {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 48%;
+    font-size: 16px;
+    text-align: start;
+    padding: 2em 0 0.5em 3em;
+  }
+  #sectionPresentation article p {
+    width: 100%;
+    font-size: 20px;
+  }
+  #sectionPresentation article h1 {
+    padding-bottom: 2em;
+    font-size: 32px;
+  }
+  #sectionPresentation article h1 span::after {
+    width: 140%;
+    height: 0.5em;
+    bottom: 0;
+    left: 3px;
+  }
+  #sectionPresentation .triangleTop {
+    top: -1px;
+    right: 0;
+    width: 45%;
+    height: 65%;
+  }
+  #sectionPresentation .imgContainer {
+    width: 45%;
+    z-index: 55;
+  }
+  #sectionPresentation img {
+    margin: 0 auto;
+    display: block;
+    width: 80%;
+    object-fit: cover;
+  }
+
+  #sectionGallerie h1 {
+    font-size: 32px;
+  }
+  #sectionGallerie #imageGallerieContainer article {
+    gap: 0.8em;
+  }
+  #sectionGallerie #imageGallerieContainer article a {
+    font-size: 20px;
+  }
+
+  #sectionEquipe {
+    padding-bottom: 3%;
+  }
+  #sectionEquipe h1 {
+    padding-bottom: 6%;
+    font-size: 32px;
+  }
+  #sectionEquipe #equipePhotoContainer article .img {
+    height: 25vw;
+    width: 25vw;
+  }
+  #sectionEquipe #equipePhotoContainer article .mainPhoto {
+    height: 35vw;
+    width: 35vw;
+    background-image: url(../images/marcPhoto.jpg);
+  }
+  #sectionEquipe #equipePhotoContainer article p {
+    font-size: 18px;
+    width: 50%;
+  }
+  #sectionEquipe #equipePhotoContainer article p:nth-of-type(2) {
+    font-size: 16px;
+    transform: translate(-4%, -255%);
+  }
+}
+@media screen and (min-width: 1000px) {
+  #sectionBanniere {
+    font-size: 46px;
+  }
+
+  #sectionGallerie {
+    padding: 2em 0 2em;
+  }
+  #sectionGallerie h1 {
+    padding-bottom: 2em;
+  }
+  #sectionGallerie #imageGallerieContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0 1em;
+  }
+  #sectionGallerie #imageGallerieContainer article {
+    padding-bottom: 2.5em;
+    width: 40%;
+  }
+  #sectionGallerie #imageGallerieContainer article a {
+    font-size: 22px;
+  }
+  #sectionGallerie .chevron {
+    width: 7vw;
+    height: 5vw;
+    position: static;
+  }
+  #sectionGallerie .chevronContainer {
+    display: none;
+  }
+  #sectionGallerie .chevronDesktop {
+    display: block;
+  }
+  #sectionGallerie .chevronGauche {
+    align-self: flex-end;
+    transform: rotate(0deg) translate(-50%, 0%);
+  }
+  #sectionGallerie .chevronDroite {
+    align-self: flex-start;
+    transform: rotate(180deg) translate(-50%, 100%);
+  }
+}
+@media screen and (min-width: 1050px) {
+  #sectionPresentation article p {
+    width: 100%;
+    font-size: 24px;
+  }
+
+  #sectionEquipe #equipePhotoContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  #sectionEquipe #equipePhotoContainer .chevron {
+    width: 5vw;
+    height: 5vw;
+  }
+  #sectionEquipe #equipePhotoContainer article .img {
+    height: 20vw;
+    width: 20vw;
+  }
+  #sectionEquipe #equipePhotoContainer article .mainPhoto {
+    height: 30vw;
+    width: 30vw;
+  }
+  #sectionEquipe #equipePhotoContainer article p {
+    font-size: 22px;
+    width: 65%;
+  }
+  #sectionEquipe #equipePhotoContainer article p:nth-of-type(2) {
+    font-size: 18px;
+    transform: translate(-4%, -285%);
+  }
+
+  #sectionAvis {
+    padding: 3em 0 1em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  #sectionAvis .triangleBottom {
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 50%;
+  }
+  #sectionAvis h1 {
+    display: block;
+    align-self: flex-start;
+    margin: 0 auto;
+    font-size: 32px;
+    padding-bottom: 1em;
+  }
+  #sectionAvis #listeAvisContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-self: flex-start;
+    width: 70%;
+  }
+  #sectionAvis #listeAvisContainer article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-top: 1.5em;
+    width: 70%;
+    font-size: 24px;
+  }
+  #sectionAvis #listeAvisContainer article p:last-of-type {
+    align-self: flex-start;
+    padding-top: 0.5em;
+    font-size: 32px;
+  }
+  #sectionAvis #listeAvisContainer article .chevron {
+    display: none;
+  }
+  #sectionAvis #listeAvis {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+  }
+  #sectionAvis #listeAvis div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.3em;
+  }
+  #sectionAvis #listeAvis .imgContainer {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    background-color: #1d1c1c;
+    border: 5px #1d1c1c solid;
+  }
+  #sectionAvis #listeAvis .img {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    height: 8vw;
+    width: 8vw;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-image: url(../images/avis2.jpg);
+  }
+  #sectionAvis #listeAvis .chevron {
+    width: 4vw;
+    height: 4vw;
+    position: static;
+    display: block;
+  }
+  #sectionAvis #avisFocus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 0em;
+    width: 30%;
+  }
+  #sectionAvis #avisFocus .imgContainer {
+    border: 8px white solid;
+    height: 20vw;
+    width: 20vw;
+  }
+  #sectionAvis #avisFocus .img {
+    height: 20vw;
+    width: 20vw;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #sectionBanniere {
+    font-size: 56px;
+  }
+
+  #sectionGallerie #imageGallerieContainer article a {
+    font-size: 32px;
+  }
+
+  #sectionEquipe #equipePhotoContainer article .img {
+    height: 15vw;
+    width: 15vw;
+  }
+  #sectionEquipe #equipePhotoContainer article .mainPhoto {
+    height: 25vw;
+    width: 25vw;
+  }
+}
+@media screen and (min-width: 1350px) {
+  #sectionBanniere {
+    font-size: 66px;
+  }
+
+  #sectionPresentation article {
+    padding: 4em 0 1.5em 5.5em;
+  }
+  #sectionPresentation article p {
+    font-size: 26px;
+    line-height: 35px;
+  }
+  #sectionPresentation img {
+    width: 65%;
+  }
+}
+@media screen and (min-width: 1500px) {
+  #sectionBanniere {
+    font-size: 72px;
+  }
+}
+@media screen and (min-width: 900px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  #burgerButton {
+    display: none;
+  }
+
+  .logo {
+    width: 5em;
+  }
+}
+@media screen and (min-width: 1100px) {
+  nav {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 1500px) {
+  nav {
+    width: 60%;
   }
 }
 

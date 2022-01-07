@@ -1,19 +1,44 @@
 header{
     background-color: $black;
-    @include flex(space-between, $align: flex-end);
-    padding: 1em 1em;
+    @include flex(space-between);
+    padding: 1em 55px 1em 1em;
+    position: relative;
 }
 
 .logo {
     width: 3.5em;
 }
-
+// navbar non affiché en mobile
 nav {
     display: none;
     color: white;
-
+    width: 80%;
+    font-size: 24px;
     ul {
         @include flex;
+        a{
+            color:white;
+            font-family: Varela;
+        }
+    }
+
+    #navbar{
+        gap: 4em;
+    }
+
+    .socials{
+        gap: 1em;
+    }
+    // triangle rouge sur la droite du header
+    .triangle{
+        width: 40px;
+        height: 100%;
+    }
+
+    .triangleRight{
+        top: 0;
+        transform: translateY(0);
+        background-color:$primaryColor;
     }
 }
 

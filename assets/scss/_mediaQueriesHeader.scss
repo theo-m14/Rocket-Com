@@ -1,0 +1,30 @@
+// apparition de la navbar / disparition du burger
+@media screen and (min-width: 900px) {
+    header{
+        @include flex(space-between);
+    }
+    nav{
+        @include flex(space-between);
+    }
+
+    #burgerButton {
+        display: none;
+    }
+
+    .logo{
+        width: 5em;
+    }
+}
+
+// changement de largeur de la navbar 
+@media screen and (min-width: 1100px) {
+    nav{
+        width: 70%;
+    }
+}
+// changement de largeur de la navbar 
+@media screen and (min-width: 1500px) {
+    nav{
+        width: 60%;
+    }
+}
