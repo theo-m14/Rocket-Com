@@ -98,21 +98,14 @@
     .chevronContainer{
         @include flex;
         gap: 2em;
+
+        .chevron{
+            width: 9vw;
+            height: 7vw;
+            position: static;
+        }
     }
 
-    .chevron{
-        width: 9vw;
-        height: 7vw;
-        position: static;
-    }
-
-    .chevronDroite{
-        transform: rotate(180deg) translate(0,0);
-    }
-    
-    .chevronGauche{
-        transform: rotate(0deg) translate(0,0);
-    }
     // chevrons pour le responsive en version desktop
     .chevronDesktop{
         display: none;
@@ -138,22 +131,9 @@
             position: static;
         }
 
-        // .chevronDroite{
-        //     transform: rotate(-90deg) translate(0,0);
-        // }
-        
-        // .chevronGauche{
-        //     transform: rotate(90deg) translate(0,0);
-        // }
-
-        .chevronDroite{
-            transform: rotate(180deg) translate(0,15%);
-            clip-path: polygon(0 50%, 100% 0, 70% 50%, 100% 100%);
-        }
-        
-        .chevronGauche{
-            transform: rotate(0deg) translate(0,-15%);
-            clip-path: polygon(0 50%, 100% 0, 70% 50%, 100% 100%);
+        .chevronDroite, .chevronGauche{
+            // transform: translate(0,15%);
+            margin-bottom: 1em;
         }
     }
     

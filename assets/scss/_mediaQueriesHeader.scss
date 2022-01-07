@@ -22,6 +22,13 @@
         width: 70%;
     }
 }
+
+
+@media screen and (min-width: 1250px) {
+    header{
+        padding-right: 100px;
+    }
+}
 // changement de largeur de la navbar 
 @media screen and (min-width: 1500px) {
     nav{

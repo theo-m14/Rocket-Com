@@ -250,7 +250,7 @@
 
         .chevronDroite{
             align-self: flex-start;
-            transform: rotate(180deg) translate(-50%,100%);
+            transform: translate(50%,-100%);
         }
     }
 }
@@ -266,10 +266,6 @@
     }
 
     #sectionEquipe{
-        h1{
-            // padding-bottom: 5em;
-        }
-
         #equipePhotoContainer{
             @include flex(space-evenly);
 
@@ -364,6 +360,30 @@
                 border: 5px $black solid;
             }
 
+            .imgContainer1{
+                .img{
+                    background-image: url(../images/avis2.jpg)
+                }
+            }
+
+            .imgContainer2{
+                .img{
+                    background-image: url(../images/avis3.jpg)
+                }
+            }
+
+            .imgContainer3{
+                .img{
+                    background-image: url(../images/avis4.jpg)
+                }
+            }
+
+            .imgContainer4{
+                .img{
+                    background-image: url(../images/avis5.jpg)
+                }
+            }
+
             .img{
                 clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
                 height: 8vw;
@@ -372,6 +392,7 @@
                 background-position: top;
                 background-repeat: no-repeat;
                 background-image: url(../images/avis2.jpg);
+                cursor: pointer;
             }
 
             .chevron{
@@ -461,9 +482,5 @@
 @media screen and (min-width: 1500px) {
     #sectionBanniere{
         font-size: 72px;
-    }
-
-    #sectionEquipe{
-        // padding-bottom: 5em;
     }
 }

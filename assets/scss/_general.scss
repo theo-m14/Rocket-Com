@@ -103,16 +103,17 @@ h1{
     width: 5.5vw;
     height: 5.5vw;
     background-color: $black;
-    clip-path: polygon(0 50%, 100% 0, 70% 50%, 100% 100%);
+    
     cursor: pointer;
 }
 
 .chevronDroite{
-    transform: rotate(180deg);
+    clip-path: polygon(0 0, 100% 50%, 0 100%, 25% 50%);
 }
 
 .chevronGauche{
-    transform: rotate(0deg);
+    clip-path: polygon(0 50%, 100% 0, 70% 50%, 100% 100%);
+    
 }
 
 .fa-instagram{
@@ -129,4 +130,119 @@ h1{
 }
 .fa-facebook{
     color: #475993;
+}
+
+// class lié aux animations de fade + mouvement
+.reveal{
+    position: relative;
+    opacity: 0;
+}
+
+.reveal.active{
+    opacity: 1;
+}
+
+.reveal.active.fadeFromLeft{
+        animation: fadeFromLeft 1.5s ease-in-out;
+}
+
+.reveal.active.fadeFromRight{
+    animation: fadeFromRight 1.5s ease-in-out;
+}
+
+.reveal.active.fadeFromBottom{
+    animation: fadeFromBottom 1.5s ease-in-out;
+}
+
+.reveal.active.fadeFromLeftChevron{
+    animation: fadeFromLeftChevron 1.5s ease-in-out;
+}
+
+.reveal.active.fadeFromRightChevron{
+    animation: fadeFromRightChevron 1.5s ease-in-out;
+}
+
+.reveal.active.fadeFromBottomPhoto{
+    animation: fadeFromBottomPhoto 1.5s ease-in-out;
+}
+
+//les animations selon la direction d'apparition avec opacity + mouvement avec translate
+@keyframes fadeFromLeft {
+    from{
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeFromRight {
+    from{
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeFromBottom {
+    from{
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+// animations plus spécifique pour certains éléments
+@keyframes fadeFromLeftChevron {
+    from{
+        transform: translateX(-400%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(-50%);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeFromRightChevron {
+    from{
+        transform: translateX(400%);
+        opacity: 0;
+    }
+    to{
+        transform: translate(50%,-100%);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeFromBottomPhoto {
+    from{
+        transform: translateY(20%);
+        opacity: 0;
+    }
+    to{
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+// animation bounce pour le bouton retour en haut de la page
+.bounce {
+    animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+    0%   { transform: scale(1,1)    translateY(0); }
+    10%  { transform: scale(1.1,.9) translateY(0); }
+    30%  { transform: scale(.9,1.1) translateY(-30%); }
+    50%  { transform: scale(1,1)    translateY(0); }
+    100% { transform: scale(1,1)    translateY(0); }
 }

@@ -100,16 +100,15 @@ h1 span::after {
   width: 5.5vw;
   height: 5.5vw;
   background-color: #1d1c1c;
-  clip-path: polygon(0 50%, 100% 0, 70% 50%, 100% 100%);
   cursor: pointer;
 }
 
 .chevronDroite {
-  transform: rotate(180deg);
+  clip-path: polygon(0 0, 100% 50%, 0 100%, 25% 50%);
 }
 
 .chevronGauche {
-  transform: rotate(0deg);
+  clip-path: polygon(0 50%, 100% 0, 70% 50%, 100% 100%);
 }
 
 .fa-instagram {
@@ -129,6 +128,120 @@ h1 span::after {
   color: #475993;
 }
 
+.reveal {
+  position: relative;
+  opacity: 0;
+}
+
+.reveal.active {
+  opacity: 1;
+}
+
+.reveal.active.fadeFromLeft {
+  animation: fadeFromLeft 1.5s ease-in-out;
+}
+
+.reveal.active.fadeFromRight {
+  animation: fadeFromRight 1.5s ease-in-out;
+}
+
+.reveal.active.fadeFromBottom {
+  animation: fadeFromBottom 1.5s ease-in-out;
+}
+
+.reveal.active.fadeFromLeftChevron {
+  animation: fadeFromLeftChevron 1.5s ease-in-out;
+}
+
+.reveal.active.fadeFromRightChevron {
+  animation: fadeFromRightChevron 1.5s ease-in-out;
+}
+
+.reveal.active.fadeFromBottomPhoto {
+  animation: fadeFromBottomPhoto 1.5s ease-in-out;
+}
+
+@keyframes fadeFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeFromBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeFromLeftChevron {
+  from {
+    transform: translateX(-400%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%);
+    opacity: 1;
+  }
+}
+@keyframes fadeFromRightChevron {
+  from {
+    transform: translateX(400%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(50%, -100%);
+    opacity: 1;
+  }
+}
+@keyframes fadeFromBottomPhoto {
+  from {
+    transform: translateY(20%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+.bounce {
+  animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(1.1, 0.9) translateY(0);
+  }
+  30% {
+    transform: scale(0.9, 1.1) translateY(-30%);
+  }
+  50% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}
 header {
   background-color: #1d1c1c;
   display: flex;
@@ -158,14 +271,50 @@ nav ul {
   flex-wrap: wrap;
 }
 nav ul a {
-  color: white;
+  display: inline-block;
+  position: relative;
   font-family: Varela;
+  font-weight: 600;
+  overflow: hidden;
+  color: white;
+  background: linear-gradient(to right, #c90d0d, #5465ff 50%, white 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: all 0.4s ease-in-out;
+}
+nav ul a:hover {
+  background-position: 0 100%;
+}
+nav ul a:hover:after {
+  background-position: 0 100%;
+}
+nav ul a:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 25px;
+  color: transparent;
+  overflow: hidden;
+  background: linear-gradient(to right, #c90d0d, #5465ff 50%, transparent 50%);
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: all 0.4s ease-in-out;
 }
 nav #navbar {
   gap: 4em;
 }
 nav .socials {
   gap: 1em;
+}
+nav .socials a::after {
+  display: none;
 }
 nav .triangle {
   width: 40px;
@@ -336,16 +485,10 @@ nav .triangleRight {
   flex-wrap: wrap;
   gap: 2em;
 }
-#sectionGallerie .chevron {
+#sectionGallerie .chevronContainer .chevron {
   width: 9vw;
   height: 7vw;
   position: static;
-}
-#sectionGallerie .chevronDroite {
-  transform: rotate(180deg) translate(0, 0);
-}
-#sectionGallerie .chevronGauche {
-  transform: rotate(0deg) translate(0, 0);
 }
 #sectionGallerie .chevronDesktop {
   display: none;
@@ -371,13 +514,8 @@ nav .triangleRight {
   height: 7vw;
   position: static;
 }
-#sectionEquipe #equipePhotoContainer .chevronDroite {
-  transform: rotate(180deg) translate(0, 15%);
-  clip-path: polygon(0 50%, 100% 0, 70% 50%, 100% 100%);
-}
-#sectionEquipe #equipePhotoContainer .chevronGauche {
-  transform: rotate(0deg) translate(0, -15%);
-  clip-path: polygon(0 50%, 100% 0, 70% 50%, 100% 100%);
+#sectionEquipe #equipePhotoContainer .chevronDroite, #sectionEquipe #equipePhotoContainer .chevronGauche {
+  margin-bottom: 1em;
 }
 #sectionEquipe h1 {
   padding-bottom: 2em;
@@ -1414,7 +1552,7 @@ footer .footerBottomPart a {
   }
   #sectionGallerie .chevronDroite {
     align-self: flex-start;
-    transform: rotate(180deg) translate(-50%, 100%);
+    transform: translate(50%, -100%);
   }
 }
 @media screen and (min-width: 1050px) {
@@ -1520,6 +1658,18 @@ footer .footerBottomPart a {
     background-color: #1d1c1c;
     border: 5px #1d1c1c solid;
   }
+  #sectionAvis #listeAvis .imgContainer1 .img {
+    background-image: url(../images/avis2.jpg);
+  }
+  #sectionAvis #listeAvis .imgContainer2 .img {
+    background-image: url(../images/avis3.jpg);
+  }
+  #sectionAvis #listeAvis .imgContainer3 .img {
+    background-image: url(../images/avis4.jpg);
+  }
+  #sectionAvis #listeAvis .imgContainer4 .img {
+    background-image: url(../images/avis5.jpg);
+  }
   #sectionAvis #listeAvis .img {
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     height: 8vw;
@@ -1528,6 +1678,7 @@ footer .footerBottomPart a {
     background-position: top;
     background-repeat: no-repeat;
     background-image: url(../images/avis2.jpg);
+    cursor: pointer;
   }
   #sectionAvis #listeAvis .chevron {
     width: 4vw;
@@ -1593,6 +1744,28 @@ footer .footerBottomPart a {
     font-size: 72px;
   }
 }
+@media screen and (min-width: 700px) {
+  footer .footerBottomPart {
+    width: auto;
+    gap: 3em;
+  }
+  footer ul {
+    order: 3;
+  }
+}
+@media screen and (min-width: 850px) {
+  footer .logo {
+    padding-left: 10%;
+  }
+  footer .footerBottomPart {
+    gap: 10em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  footer .footerBottomPart {
+    width: 45%;
+  }
+}
 @media screen and (min-width: 900px) {
   header {
     display: flex;
@@ -1623,31 +1796,14 @@ footer .footerBottomPart a {
     width: 70%;
   }
 }
+@media screen and (min-width: 1250px) {
+  header {
+    padding-right: 100px;
+  }
+}
 @media screen and (min-width: 1500px) {
   nav {
     width: 60%;
-  }
-}
-@media screen and (min-width: 700px) {
-  footer .footerBottomPart {
-    width: auto;
-    gap: 3em;
-  }
-  footer ul {
-    order: 3;
-  }
-}
-@media screen and (min-width: 850px) {
-  footer .logo {
-    padding-left: 10%;
-  }
-  footer .footerBottomPart {
-    gap: 10em;
-  }
-}
-@media screen and (min-width: 1024px) {
-  footer .footerBottomPart {
-    width: 45%;
   }
 }
 
