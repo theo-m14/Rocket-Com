@@ -2,22 +2,24 @@ footer{
     position: relative;
     .logo{
         width: 3.5em;
+        padding-left: 1em;
     }
+    @include flex($just:space-between);
     background-color: $black;
-    padding: 1em 4em;
-    .footerTopPart{
-        @include flex($just: space-between);
+    padding: 1em 2em;
         ul{
+            padding-right: 1em;
             @include flex;
             gap: 1em;
+            font-size: 20px;
         }
-    }
     .footerBottomPart{
+        width: 100%;
         padding-top: 1em;
-        display: flex;
+        text-align: center;
+        @include flex($just: space-between);
         font-size: 10px;
         color: white;
-        justify-content: space-between;
         a{
             color: white;
             text-transform: uppercase;

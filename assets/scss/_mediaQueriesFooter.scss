@@ -1,0 +1,30 @@
+@media screen and (min-width:700px) {
+    footer{
+        .footerBottomPart{
+            width: auto;
+            gap: 3em;
+        }
+        ul{
+            order: 3;
+        }
+    }
+}
+
+@media screen and (min-width:850px){
+    footer{
+        .logo{
+                padding-left: 10%;
+        }
+        .footerBottomPart{
+            gap: 10em;
+        }
+    }
+}
+
+@media screen and (min-width:1024px) {
+    footer{
+        .footerBottomPart{
+            width: 45%;
+        }
+    }
+}
