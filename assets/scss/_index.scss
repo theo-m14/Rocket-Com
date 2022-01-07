@@ -65,6 +65,7 @@
 
     #imageGallerieContainer{
         @include flex;
+        overflow: hidden;
         // chaque article correspond à une image et son titre cliquable
         article{
             @include flex( $direction: column );
@@ -90,6 +91,7 @@
 
             a{
                 font-size: 12px;
+                padding-right: 25%
             }
         }
     }
@@ -138,6 +140,7 @@
     }
     
     h1{
+        overflow: hidden;
         padding-bottom: 2em;
     }
     // un article correspond à une photo de membre + son sous titre
@@ -242,7 +245,7 @@
     padding: 3em 0 1em;
     background-color: $greyBackground;
     @include flex($direction:column, $just: flex-end);
-
+    overflow: hidden;
     // on cache pour le mobile
     h1{
         display: none;
@@ -268,7 +271,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-image: url(../images/avis1.jpg);
+            background-image: url(../images/avis1.png);
         }
     }
 

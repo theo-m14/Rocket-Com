@@ -53,6 +53,7 @@ h1 span::after {
   width: 13vw;
   height: 12vw;
   position: absolute;
+  overflow: visible;
 }
 
 .triangle-blue {
@@ -61,6 +62,7 @@ h1 span::after {
 
 .triangleBlack {
   background-color: #1d1c1c;
+  overflow: visible;
 }
 
 .triangleTop {
@@ -78,6 +80,7 @@ h1 span::after {
   top: 0;
   left: 0;
   transform: translateY(-50%);
+  overflow: visible;
 }
 
 .triangleRight {
@@ -86,6 +89,7 @@ h1 span::after {
   right: 0;
   transform: translateY(-50%);
   background-color: #5465ff;
+  overflow: visible;
 }
 
 .triangleBottom {
@@ -101,14 +105,22 @@ h1 span::after {
   height: 5.5vw;
   background-color: #1d1c1c;
   cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
 }
 
 .chevronDroite {
   clip-path: polygon(0 0, 100% 50%, 0 100%, 25% 50%);
 }
+.chevronDroite:hover {
+  transform: rotate(0deg) translateX(20%);
+}
 
 .chevronGauche {
   clip-path: polygon(0 50%, 100% 0, 70% 50%, 100% 100%);
+}
+.chevronGauche:hover {
+  transform: rotate(0deg) translateX(-20%);
 }
 
 .fa-instagram {
@@ -138,60 +150,68 @@ h1 span::after {
 }
 
 .reveal.active.fadeFromLeft {
-  animation: fadeFromLeft 1.5s ease-in-out;
+  animation: fadeFromLeft 1.5s ease;
 }
 
 .reveal.active.fadeFromRight {
-  animation: fadeFromRight 1.5s ease-in-out;
+  animation: fadeFromRight 1.5s ease;
 }
 
 .reveal.active.fadeFromBottom {
-  animation: fadeFromBottom 1.5s ease-in-out;
+  animation: fadeFromBottom 1.5s ease;
 }
 
 .reveal.active.fadeFromLeftChevron {
-  animation: fadeFromLeftChevron 1.5s ease-in-out;
+  animation: fadeFromLeft 1.5s ease, bounceChevronLeft 3s 1.8s infinite ease-in-out;
 }
 
 .reveal.active.fadeFromRightChevron {
-  animation: fadeFromRightChevron 1.5s ease-in-out;
+  animation: fadeFromRight 1.5s ease, bounceChevronRight 3s 1.8s infinite ease-in-out;
+}
+
+.reveal.active.fadeFromLeftChevronGalerie {
+  animation: fadeFromLeftChevronGalerie 1.5s ease, bounceChevronLeftGalerie 3s 1.8s infinite ease-in-out;
+}
+
+.reveal.active.fadeFromRightChevronGalerie {
+  animation: fadeFromRightChevronGalerie 1.5s ease, bounceChevronRightGalerie 3s 1.8s infinite ease-in-out;
 }
 
 .reveal.active.fadeFromBottomPhoto {
-  animation: fadeFromBottomPhoto 1.5s ease-in-out;
+  animation: fadeFromBottomPhoto 1s ease;
 }
 
 @keyframes fadeFromLeft {
-  from {
-    transform: translateX(-100%);
+  0% {
+    transform: translateX(-100px);
     opacity: 0;
   }
-  to {
+  100% {
     transform: translateX(0);
     opacity: 1;
   }
 }
 @keyframes fadeFromRight {
-  from {
-    transform: translateX(100%);
+  0% {
+    transform: translateX(100px);
     opacity: 0;
   }
-  to {
+  100% {
     transform: translateX(0);
     opacity: 1;
   }
 }
 @keyframes fadeFromBottom {
-  from {
-    transform: translateY(100%);
+  0% {
+    transform: translateY(100px);
     opacity: 0;
   }
-  to {
+  100% {
     transform: translateY(0);
     opacity: 1;
   }
 }
-@keyframes fadeFromLeftChevron {
+@keyframes fadeFromLeftChevronGalerie {
   from {
     transform: translateX(-400%);
     opacity: 0;
@@ -201,7 +221,7 @@ h1 span::after {
     opacity: 1;
   }
 }
-@keyframes fadeFromRightChevron {
+@keyframes fadeFromRightChevronGalerie {
   from {
     transform: translateX(400%);
     opacity: 0;
@@ -213,7 +233,7 @@ h1 span::after {
 }
 @keyframes fadeFromBottomPhoto {
   from {
-    transform: translateY(20%);
+    transform: translate(-50%);
     opacity: 0;
   }
   to {
@@ -240,6 +260,50 @@ h1 span::after {
   }
   100% {
     transform: scale(1, 1) translateY(0);
+  }
+}
+@keyframes bounceChevronLeft {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-30%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes bounceChevronRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(30%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes bounceChevronLeftGalerie {
+  0% {
+    transform: translateX(-50%);
+  }
+  50% {
+    transform: translateX(-70%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes bounceChevronRightGalerie {
+  0% {
+    transform: translate(50%, -100%);
+  }
+  50% {
+    transform: translate(70%, -100%);
+  }
+  100% {
+    transform: translate(50%, -100%);
   }
 }
 header {
@@ -290,13 +354,14 @@ nav ul a:hover {
 }
 nav ul a:hover:after {
   background-position: 0 100%;
+  width: 100%;
 }
 nav ul a:after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 0%;
   height: 2px;
   border-radius: 25px;
   color: transparent;
@@ -312,6 +377,31 @@ nav #navbar {
 }
 nav .socials {
   gap: 1em;
+  font-size: 30px;
+}
+nav .socials li:first-of-type a {
+  background: linear-gradient(to right, #c90d0d, #5465ff 50%, #76A9EA 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: all 0.4s ease-in-out;
+}
+nav .socials li:first-of-type a:hover {
+  background-position: 0 100%;
+}
+nav .socials li:nth-of-type(2) a {
+  background: linear-gradient(to right, #c90d0d, #5465ff 50%, #475993 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: all 0.4s ease-in-out;
+}
+nav .socials li:nth-of-type(2) a:hover {
+  background-position: 0 100%;
 }
 nav .socials a::after {
   display: none;
@@ -450,6 +540,7 @@ nav .triangleRight {
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
+  overflow: hidden;
 }
 #sectionGallerie #imageGallerieContainer article {
   display: flex;
@@ -476,6 +567,7 @@ nav .triangleRight {
 }
 #sectionGallerie #imageGallerieContainer article a {
   font-size: 12px;
+  padding-right: 25%;
 }
 #sectionGallerie .chevronContainer {
   display: flex;
@@ -518,6 +610,7 @@ nav .triangleRight {
   margin-bottom: 1em;
 }
 #sectionEquipe h1 {
+  overflow: hidden;
   padding-bottom: 2em;
 }
 #sectionEquipe article {
@@ -609,6 +702,7 @@ nav .triangleRight {
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
+  overflow: hidden;
 }
 #sectionAvis h1 {
   display: none;
@@ -628,7 +722,7 @@ nav .triangleRight {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url(../images/avis1.jpg);
+  background-image: url(../images/avis1.png);
 }
 #sectionAvis #listeAvisContainer {
   display: flex;
@@ -1548,11 +1642,17 @@ footer .footerBottomPart a {
   }
   #sectionGallerie .chevronGauche {
     align-self: flex-end;
-    transform: rotate(0deg) translate(-50%, 0%);
+    transform: rotate(0deg) translateX(-50%);
+  }
+  #sectionGallerie .chevronGauche:hover {
+    transform: rotate(0deg) translateX(-70%);
   }
   #sectionGallerie .chevronDroite {
     align-self: flex-start;
     transform: translate(50%, -100%);
+  }
+  #sectionGallerie .chevronDroite:hover {
+    transform: rotate(0deg) translate(70%, -100%);
   }
 }
 @media screen and (min-width: 1050px) {
@@ -1659,16 +1759,16 @@ footer .footerBottomPart a {
     border: 5px #1d1c1c solid;
   }
   #sectionAvis #listeAvis .imgContainer1 .img {
-    background-image: url(../images/avis2.jpg);
+    background-image: url(../images/avis2.png);
   }
   #sectionAvis #listeAvis .imgContainer2 .img {
-    background-image: url(../images/avis3.jpg);
+    background-image: url(../images/avis3.png);
   }
   #sectionAvis #listeAvis .imgContainer3 .img {
-    background-image: url(../images/avis4.jpg);
+    background-image: url(../images/avis4.png);
   }
   #sectionAvis #listeAvis .imgContainer4 .img {
-    background-image: url(../images/avis5.jpg);
+    background-image: url(../images/avis5.png);
   }
   #sectionAvis #listeAvis .img {
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
@@ -1677,7 +1777,7 @@ footer .footerBottomPart a {
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
-    background-image: url(../images/avis2.jpg);
+    background-image: url(../images/avis2.png);
     cursor: pointer;
   }
   #sectionAvis #listeAvis .chevron {
@@ -1759,6 +1859,15 @@ footer .footerBottomPart a {
   }
   footer .footerBottomPart {
     gap: 10em;
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 900px) {
+  footer .logo {
+    width: 5em;
+  }
+  footer .socials {
+    font-size: 24px;
   }
 }
 @media screen and (min-width: 1024px) {

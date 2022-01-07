@@ -56,6 +56,7 @@ h1{
     width: 13vw;
     height: 12vw;
     position: absolute;
+    overflow: visible;
 }
 
 .triangle-blue{
@@ -64,6 +65,7 @@ h1{
 
 .triangleBlack{
     background-color: $black;
+    overflow: visible;
 }
 
 .triangleTop{
@@ -81,6 +83,7 @@ h1{
     top: 0;
     left: 0;
     transform: translateY(-50%);
+    overflow: visible;
 }
 
 .triangleRight{
@@ -89,6 +92,7 @@ h1{
     right: 0;
     transform: translateY(-50%);
     background-color:$secondaryColor;
+    overflow: visible;
 }
 
 .triangleBottom{
@@ -103,17 +107,23 @@ h1{
     width: 5.5vw;
     height: 5.5vw;
     background-color: $black;
-    
     cursor: pointer;
+    overflow: hidden;
+    @include transi;
 }
 
 .chevronDroite{
     clip-path: polygon(0 0, 100% 50%, 0 100%, 25% 50%);
+    &:hover{
+        transform: rotate(0deg) translateX(20%);
+    }
 }
 
 .chevronGauche{
     clip-path: polygon(0 50%, 100% 0, 70% 50%, 100% 100%);
-    
+    &:hover{
+        transform: rotate(0deg) translateX(-20%);
+    }
 }
 
 .fa-instagram{
@@ -143,65 +153,76 @@ h1{
 }
 
 .reveal.active.fadeFromLeft{
-        animation: fadeFromLeft 1.5s ease-in-out;
+    animation: fadeFromLeft 1.5s ease;
 }
 
 .reveal.active.fadeFromRight{
-    animation: fadeFromRight 1.5s ease-in-out;
+    animation: fadeFromRight 1.5s ease;
 }
 
 .reveal.active.fadeFromBottom{
-    animation: fadeFromBottom 1.5s ease-in-out;
+    animation: fadeFromBottom 1.5s ease;
 }
 
+// animations pour les chevrons 
 .reveal.active.fadeFromLeftChevron{
-    animation: fadeFromLeftChevron 1.5s ease-in-out;
+    animation: fadeFromLeft 1.5s ease, bounceChevronLeft 3s 1.8s infinite ease-in-out;
 }
 
 .reveal.active.fadeFromRightChevron{
-    animation: fadeFromRightChevron 1.5s ease-in-out;
+    animation: fadeFromRight 1.5s ease, bounceChevronRight 3s 1.8s infinite ease-in-out;
 }
 
+// animations pour les deux chevrons de la galerie en desktop
+.reveal.active.fadeFromLeftChevronGalerie{
+    animation: fadeFromLeftChevronGalerie 1.5s ease, bounceChevronLeftGalerie 3s 1.8s infinite ease-in-out;
+}
+
+.reveal.active.fadeFromRightChevronGalerie{
+    animation: fadeFromRightChevronGalerie 1.5s ease, bounceChevronRightGalerie 3s 1.8s infinite ease-in-out;
+}
+
+// animation pour la photo du centre dans la section equipe
 .reveal.active.fadeFromBottomPhoto{
-    animation: fadeFromBottomPhoto 1.5s ease-in-out;
+    animation: fadeFromBottomPhoto 1s ease;
 }
 
 //les animations selon la direction d'apparition avec opacity + mouvement avec translate
 @keyframes fadeFromLeft {
-    from{
-        transform: translateX(-100%);
+    0%{
+        transform: translateX(-100px);
         opacity: 0;
     }
-    to{
+    100%{
         transform: translateX(0);
         opacity: 1;
     }
 }
 
 @keyframes fadeFromRight {
-    from{
-        transform: translateX(100%);
+    0%{
+        transform: translateX(100px);
         opacity: 0;
     }
-    to{
+    100%{
         transform: translateX(0);
         opacity: 1;
     }
 }
 
 @keyframes fadeFromBottom {
-    from{
-        transform: translateY(100%);
+    0%{
+        transform: translateY(100px);
         opacity: 0;
     }
-    to{
+    100%{
         transform: translateY(0);
         opacity: 1;
     }
 }
 
 // animations plus spécifique pour certains éléments
-@keyframes fadeFromLeftChevron {
+@keyframes fadeFromLeftChevronGalerie {
     from{
         transform: translateX(-400%);
         opacity: 0;
@@ -212,7 +233,7 @@ h1{
     }
 }
 
-@keyframes fadeFromRightChevron {
+@keyframes fadeFromRightChevronGalerie {
     from{
         transform: translateX(400%);
         opacity: 0;
@@ -225,7 +246,7 @@ h1{
 
 @keyframes fadeFromBottomPhoto {
     from{
-        transform: translateY(20%);
+        transform: translate(-50%);
         opacity: 0;
     }
     to{
@@ -246,3 +267,31 @@ h1{
     50%  { transform: scale(1,1)    translateY(0); }
     100% { transform: scale(1,1)    translateY(0); }
 }
+
+// animation constante pour les chevrons
+@keyframes bounceChevronLeft {
+    0%   { transform: translateX(0); }
+    50%  { transform: translateX(-30%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes bounceChevronRight {
+    0%   { transform: translateX(0); }
+    50%  { transform: translateX(30%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes bounceChevronLeftGalerie {
+    0%   { transform: translateX(-50%); }
+    50%  { transform: translateX(-70%); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes bounceChevronRightGalerie {
+    0%   { transform: translate(50%,-100%); }
+    50%  { transform: translate(70%,-100%); }
+    100% { transform: translate(50%,-100%); }
+}
+
+
+

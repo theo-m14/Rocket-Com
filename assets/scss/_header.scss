@@ -38,6 +38,7 @@ nav {
 
                 &:after{
                     background-position: 0 100%;
+                    width: 100%;
                 }
             }
             // effet de ligne sous le text
@@ -46,7 +47,7 @@ nav {
                 position: absolute;
                 bottom: 0;
                 left: 0;
-                width: 100%;
+                width: 0%;
                 height: 2px;
                 border-radius: 25px;
                 color:transparent;
@@ -66,6 +67,39 @@ nav {
 
     .socials{
         gap: 1em;
+        font-size: 30px;
+        li:first-of-type{
+            a{
+            background: linear-gradient(to right, $primaryColor, $secondaryColor 50%, #76A9EA 50%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 100%;
+            background-position: 100%;
+            @include transi(.4s);
+
+                &:hover{
+                    background-position: 0 100%;
+                }
+            }
+        }
+
+        li:nth-of-type(2){
+            a{
+                background: linear-gradient(to right, $primaryColor, $secondaryColor 50%, #475993 50%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                background-size: 200% 100%;
+                background-position: 100%;
+                @include transi(.4s);
+    
+                    &:hover{
+                        background-position: 0 100%;
+                    }
+            }
+        }
+
         a::after{
             display: none;
         }

@@ -245,12 +245,20 @@
 
         .chevronGauche{
             align-self: flex-end;
-            transform: rotate(0deg) translate(-50%,0%);
+            transform: rotate(0deg) translateX(-50%);
+
+            &:hover{
+                transform: rotate(0deg) translateX(-70%);
+            }
         }
 
         .chevronDroite{
             align-self: flex-start;
-            transform: translate(50%,-100%);
+            transform: translate(50%, -100%);
+
+            &:hover{
+                transform: rotate(0deg) translate(70%, -100%);
+            }
         }
     }
 }
@@ -362,25 +370,25 @@
 
             .imgContainer1{
                 .img{
-                    background-image: url(../images/avis2.jpg)
+                    background-image: url(../images/avis2.png)
                 }
             }
 
             .imgContainer2{
                 .img{
-                    background-image: url(../images/avis3.jpg)
+                    background-image: url(../images/avis3.png)
                 }
             }
 
             .imgContainer3{
                 .img{
-                    background-image: url(../images/avis4.jpg)
+                    background-image: url(../images/avis4.png)
                 }
             }
 
             .imgContainer4{
                 .img{
-                    background-image: url(../images/avis5.jpg)
+                    background-image: url(../images/avis5.png)
                 }
             }
 
@@ -391,7 +399,7 @@
                 background-size: cover;
                 background-position: top;
                 background-repeat: no-repeat;
-                background-image: url(../images/avis2.jpg);
+                background-image: url(../images/avis2.png);
                 cursor: pointer;
             }
 
