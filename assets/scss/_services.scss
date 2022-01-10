@@ -1,225 +1,238 @@
-#sectionServicesAncres{  //On gères les ancres
-    >h1{
-        text-align: center;
-        font-size: 18px;
-        font-weight: 300;
-        margin-top: 1em;
-        span{ //Couleur sous le titre
-            position: relative;
-            z-index: 1;
-            &::after{
-                z-index: -1;
-                content: "";
-                width: 150%;
-                height: .6em;
-                background-color: $lightenSecondary;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                transform: translateX(-20%);
-                clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
-            }
-        }  
+#sectionServicesAncres {
+  //On gères les ancres
+  > h1 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 1em;
+    span {
+      //Couleur sous le titre
+      position: relative;
+      z-index: 1;
+      &::after {
+        z-index: -1;
+        content: "";
+        width: 150%;
+        height: 0.6em;
+        background-color: $lightenSecondary;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform: translateX(-20%);
+        clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
+      }
     }
+  }
 }
 
-#blocAncre{ //Bloc contenant les ancres
-    margin-top: 1em;
-    padding-bottom: 2em;
-    @include flex($align: flex-start, $just:space-around);
-    gap: 1em;
-    text-align: center;
-    .imageAncre{
-        width: 120px;
-        height: 120px;
-        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+#blocAncre {
+  //Bloc contenant les ancres
+  margin-top: 1em;
+  padding-bottom: 2em;
+  @include flex($align: flex-start, $just: space-around);
+  gap: 1em;
+  text-align: center;
+  .imageAncre {
+    width: 120px;
+    height: 120px;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+  .serviceAncre {
+    //Background image des ancres
+    .clickImage {
+      display: block;
+      width: 100%;
+      height: 100%;
     }
-    .serviceAncre{ //Background image des ancres
-        a{
-            font-size: 16px;
-        }
-        #colorLine{
-            display: none;
-        }
-        #imageAncreSeo{
-            background-image: url(../images/agence-seo.jpg);
-            background-position: center;
-            background-size: cover;
-        }
-        #imageAncreMaquette{
-            background-image: url(../images/maquettte-site.png);
-            background-position: center;
-            background-size: cover;
-        }
-        #imageAncreSecurite{
-            background-image: url(../images/securitybg.jpg);
-            background-position: center;
-            background-size: cover;
-        }
-        #imageAncreCommunityManagement{
-            background-image: url(../images/cmbg.jpg);
-            background-position: center;
-            background-size: cover;
-        }
-        h2 span{
-            display: block;
-            margin: auto;
-        }
-        h2{
-            font-weight: 300;
-        }
+
+    a {
+      font-size: 16px;
     }
-    .serviceAncre:nth-of-type(3) h2
-        {
-            padding-top: 10px;
-        }
+    #colorLine {
+      display: none;
+    }
+    #imageAncreSeo {
+      background-image: url(../images/agence-seo.jpg);
+      background-position: center;
+      background-size: cover;
+    }
+    #imageAncreMaquette {
+      background-image: url(../images/maquettte-site.png);
+      background-position: center;
+      background-size: cover;
+    }
+    #imageAncreSecurite {
+      background-image: url(../images/securitybg.jpg);
+      background-position: center;
+      background-size: cover;
+    }
+    #imageAncreCommunityManagement {
+      background-image: url(../images/cmbg.jpg);
+      background-position: center;
+      background-size: cover;
+    }
+    h2 span {
+      display: block;
+      margin: auto;
+    }
+    h2 {
+      font-weight: 300;
+      text-decoration: underline black;
+    }
+  }
+  .serviceAncre:nth-of-type(3) h2 {
+    padding-top: 10px;
+  }
 }
 
 //Dégradé de fond pour les délimitations
-#backgroundGradient{
-    padding: 2em 0;
-    background: rgb(201,13,13);
-    background: linear-gradient(90deg, rgba(201,13,13,1) 0%, rgba(84,101,255,1) 100%);
-    p{
-        font-size: 18px;
-        padding: 1em 1em 0 1em;
-        line-height: 2em;
-    }
-    h2{
-        padding-top: 1em;
-    }
+#backgroundGradient {
+  padding: 2em 0;
+  background: rgb(201, 13, 13);
+  background: linear-gradient(
+    90deg,
+    rgba(201, 13, 13, 1) 0%,
+    rgba(84, 101, 255, 1) 100%
+  );
+  p {
+    font-size: 18px;
+    padding: 1em 1em 0 1em;
+    line-height: 2em;
+  }
+  h2 {
+    padding-top: 1em;
+  }
 }
 
-
 ///section sur le seo
-#sectionSEO{
-    background-color: white;
-    padding-top: 1em;
-    text-align: center;
-    #imageSEO{
-        width: 240px;
-        height: 240px;
-        background-image: url(../images/seo-image.jpg);
-        background-position: center;
-        background-size: cover;
-        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-        margin: 0 auto;
+#sectionSEO {
+  background-color: white;
+  padding-top: 1em;
+  text-align: center;
+  #imageSEO {
+    width: 240px;
+    height: 240px;
+    background-image: url(../images/seo-image.jpg);
+    background-position: center;
+    background-size: cover;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    margin: 0 auto;
+  }
+  span {
+    position: relative;
+    z-index: 1;
+    &::after {
+      z-index: -1;
+      content: "";
+      width: 150%;
+      height: 0.6em;
+      background-color: $lightenSecondary;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: translateX(-20%);
+      clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
     }
-    span{
-        position: relative;
-        z-index: 1;
-        &::after{
-            z-index: -1;
-            content: "";
-            width: 150%;
-            height: .6em;
-            background-color: $lightenSecondary;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            transform: translateX(-20%);
-            clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
-        }
-    }
+  }
 }
 
 //Section sur les maquettes
-#sectionMaquette{
-    margin-top: 2em;
-    background-color: $greyBackground;
-    padding-top: 1em;
-    text-align: center;
-    #imageMaquette{
-        width: 240px;
-        height: 240px;
-        background-image: url(../images/maquette-site2.jpg);
-        background-position: center;
-        background-size: cover;
-        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-        margin: auto;
+#sectionMaquette {
+  margin-top: 2em;
+  background-color: $greyBackground;
+  padding-top: 1em;
+  text-align: center;
+  #imageMaquette {
+    width: 240px;
+    height: 240px;
+    background-image: url(../images/maquette-site2.jpg);
+    background-position: center;
+    background-size: cover;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    margin: auto;
+  }
+  span {
+    position: relative;
+    z-index: 1;
+    &::after {
+      z-index: -1;
+      content: "";
+      width: 150%;
+      height: 0.6em;
+      background-color: $lightenSecondary;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: translateX(-20%);
+      clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
     }
-    span{
-        position: relative;
-        z-index: 1;
-        &::after{
-            z-index: -1;
-            content: "";
-            width: 150%;
-            height: .6em;
-            background-color: $lightenSecondary;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            transform: translateX(-20%);
-            clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
-        }
-    }
+  }
 }
 
 //section sur la sécurité
-#sectionSecurite{
-    margin-top: 2em;
-    background-color: white;
-    padding-top: 1em;
-    text-align: center;
-    #imageSecurite{
-        width: 240px;
-        height: 240px;
-        background-image: url(../images/securitybg2.jpg);
-        background-position: 90%;
-        background-size: cover;
-        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-        margin: auto;
+#sectionSecurite {
+  margin-top: 2em;
+  background-color: white;
+  padding-top: 1em;
+  text-align: center;
+  #imageSecurite {
+    width: 240px;
+    height: 240px;
+    background-image: url(../images/securitybg2.jpg);
+    background-position: 90%;
+    background-size: cover;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    margin: auto;
+  }
+  span {
+    position: relative;
+    z-index: 1;
+    &::after {
+      z-index: -1;
+      content: "";
+      width: 150%;
+      height: 0.6em;
+      background-color: $lightenSecondary;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: translateX(-20%);
+      clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
     }
-    span{
-        position: relative;
-        z-index: 1;
-        &::after{
-            z-index: -1;
-            content: "";
-            width: 150%;
-            height: .6em;
-            background-color: $lightenSecondary;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            transform: translateX(-20%);
-            clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
-        }
-    }
+  }
 }
 
 //Section sur le communityManagment
-#sectionCommunityManagement{
-    margin-top: 2em;
-    background-color: $greyBackground;
-    padding-top: 1em;
-    text-align: center;
-    #imageCommunityManagement{
-        width: 240px;
-        height: 240px;
-        background-image: url(../images/community-manager2.jpg);
-        background-position: center;
-        background-size: cover;
-        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-        margin: auto;
+#sectionCommunityManagement {
+  margin-top: 2em;
+  background-color: $greyBackground;
+  padding-top: 1em;
+  text-align: center;
+  #imageCommunityManagement {
+    width: 240px;
+    height: 240px;
+    background-image: url(../images/community-manager2.jpg);
+    background-position: center;
+    background-size: cover;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    margin: auto;
+  }
+  span {
+    display: block;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+    &::after {
+      z-index: -1;
+      content: "";
+      width: 230px;
+      height: 0.6em;
+      background-color: $lightenSecondary;
+      position: absolute;
+      bottom: 0;
+      left: center;
+      transform: translateX(-200px);
+      clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
     }
-    span{
-        display: block;
-        margin: auto;
-        position: relative;
-        z-index: 1;
-        &::after{
-            z-index: -1;
-            content: "";
-            width: 230px;
-            height: .6em;
-            background-color: $lightenSecondary;
-            position: absolute;
-            bottom: 0;
-            left: center;
-            transform: translateX(-200px);
-            clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
-        }
-    }
+  }
 }

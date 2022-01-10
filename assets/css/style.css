@@ -844,9 +844,16 @@ nav .triangleRight {
   margin-top: 1em;
   width: 25%;
   padding: 5px 0;
-  background-color: #003BCB;
+  background-color: #003bcb;
   border: none;
   color: white;
+  box-shadow: black 3px 3px 10px;
+  border-radius: 5px;
+}
+#mainContact form button:hover {
+  background-color: #002c98;
+  box-shadow: black 1px 1px 6px;
+  cursor: pointer;
 }
 #mainContact iframe {
   margin-bottom: -5px;
@@ -891,6 +898,11 @@ nav .triangleRight {
   height: 120px;
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
+#blocAncre .serviceAncre .clickImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 #blocAncre .serviceAncre a {
   font-size: 16px;
 }
@@ -923,6 +935,7 @@ nav .triangleRight {
 }
 #blocAncre .serviceAncre h2 {
   font-weight: 300;
+  text-decoration: underline black;
 }
 #blocAncre .serviceAncre:nth-of-type(3) h2 {
   padding-top: 10px;
@@ -1200,6 +1213,10 @@ footer .footerBottomPart a {
     height: 180px;
     border-left: 5px white solid;
   }
+  #blocAncre .imageAncre:hover {
+    border: black 3px solid;
+    box-sizing: border-box;
+  }
   #blocAncre .serviceAncre {
     display: flex;
     justify-content: center;
@@ -1214,6 +1231,9 @@ footer .footerBottomPart a {
   #blocAncre .serviceAncre div {
     order: 1;
   }
+  #blocAncre .serviceAncre a {
+    font-size: 22px;
+  }
   #blocAncre .serviceAncre h2 {
     position: relative;
   }
@@ -1227,7 +1247,8 @@ footer .footerBottomPart a {
     left: 120%;
     background-color: #5465ff;
   }
-  #blocAncre .serviceAncre #imageAncreSeo ~ h2 ::after, #blocAncre .serviceAncre #imageAncreMaquette ~ h2 ::after {
+  #blocAncre .serviceAncre #imageAncreSeo ~ h2 ::after,
+#blocAncre .serviceAncre #imageAncreMaquette ~ h2 ::after {
     background-color: #c90d0d;
   }
   #blocAncre .serviceAncre #colorLine {
@@ -1238,7 +1259,7 @@ footer .footerBottomPart a {
     background: #c90d0d;
     background: linear-gradient(180deg, #c90d0d 0%, #5465ff 100%);
     left: calc(50% - 5px);
-    top: -20%;
+    top: -30%;
     z-index: -1;
   }
   #blocAncre .serviceAncre #imageAncreSeo {
