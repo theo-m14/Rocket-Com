@@ -25,6 +25,7 @@ html, body {
 
 body {
     font-family: Signika;
+    position: relative;
 }
 
 a{
@@ -35,7 +36,7 @@ h1{
     font-size: 16px;
     span{
         position: relative;
-        z-index: 10;
+        z-index: 2;
         // Bloc de couleur sous le titre
         &::after{
             content: "";
@@ -166,20 +167,20 @@ h1{
 
 // animations pour les chevrons 
 .reveal.active.fadeFromLeftChevron{
-    animation: fadeFromLeft 1.5s ease, bounceChevronLeft 3s 1.8s infinite ease-in-out;
+    animation: fadeFromLeft 1.5s ease, bounceChevronLeft 3s 1.5s infinite ease-in-out;
 }
 
 .reveal.active.fadeFromRightChevron{
-    animation: fadeFromRight 1.5s ease, bounceChevronRight 3s 1.8s infinite ease-in-out;
+    animation: fadeFromRight 1.5s ease, bounceChevronRight 3s 1.5s infinite ease-in-out;
 }
 
 // animations pour les deux chevrons de la galerie en desktop
 .reveal.active.fadeFromLeftChevronGalerie{
-    animation: fadeFromLeftChevronGalerie 1.5s ease, bounceChevronLeftGalerie 3s 1.8s infinite ease-in-out;
+    animation: fadeFromLeftChevronGalerie 1.5s ease, bounceChevronLeftGalerie 3s 1.5s infinite ease-in-out;
 }
 
 .reveal.active.fadeFromRightChevronGalerie{
-    animation: fadeFromRightChevronGalerie 1.5s ease, bounceChevronRightGalerie 3s 1.8s infinite ease-in-out;
+    animation: fadeFromRightChevronGalerie 1.5s ease, bounceChevronRightGalerie 3s 1.5s infinite ease-in-out;
 }
 
 // animation pour la photo du centre dans la section equipe
@@ -189,70 +190,34 @@ h1{
 
 //les animations selon la direction d'apparition avec opacity + mouvement avec translate
 @keyframes fadeFromLeft {
-    0%{
-        transform: translateX(-100px);
-        opacity: 0;
-    }
-    100%{
-        transform: translateX(0);
-        opacity: 1;
-    }
+    0%{ transform: translateX(-100px); opacity: 0;}
+    100%{ transform: translateX(0); opacity: 1;}
 }
 
 @keyframes fadeFromRight {
-    0%{
-        transform: translateX(100px);
-        opacity: 0;
-    }
-    100%{
-        transform: translateX(0);
-        opacity: 1;
-    }
+    0%{ transform: translateX(100px); opacity: 0;}
+    100%{ transform: translateX(0); opacity: 1;}
 }
 
 @keyframes fadeFromBottom {
-    0%{
-        transform: translateY(100px);
-        opacity: 0;
-    }
-    100%{
-        transform: translateY(0);
-        opacity: 1;
-    }
+    0%{ transform: translateY(100px); opacity: 0;}
+    100%{ transform: translateY(0); opacity: 1;}
 }
 
 // animations plus spécifique pour certains éléments
 @keyframes fadeFromLeftChevronGalerie {
-    from{
-        transform: translateX(-400%);
-        opacity: 0;
-    }
-    to{
-        transform: translateX(-50%);
-        opacity: 1;
-    }
+    from{ transform: translateX(-400%); opacity: 0;}
+    to{ transform: translateX(-50%); opacity: 1;}
 }
 
 @keyframes fadeFromRightChevronGalerie {
-    from{
-        transform: translateX(400%);
-        opacity: 0;
-    }
-    to{
-        transform: translate(50%,-100%);
-        opacity: 1;
-    }
+    from{ transform: translateX(400%); opacity: 0;}
+    to{ transform: translate(50%,-100%); opacity: 1;}
 }
 
 @keyframes fadeFromBottomPhoto {
-    from{
-        transform: translate(-50%);
-        opacity: 0;
-    }
-    to{
-        transform: translate(-50%, -50%);
-        opacity: 1;
-    }
+    from{transform: translate(-50%); opacity: 0;}
+    to{transform: translate(-50%, -50%); opacity: 1;}
 }
 
 // animation bounce pour le bouton retour en haut de la page
@@ -271,19 +236,19 @@ h1{
 // animation constante pour les chevrons
 @keyframes bounceChevronLeft {
     0%   { transform: translateX(0); }
-    50%  { transform: translateX(-30%); }
+    50%  { transform: translateX(-15%); }
     100% { transform: translateX(0); }
 }
 
 @keyframes bounceChevronRight {
     0%   { transform: translateX(0); }
-    50%  { transform: translateX(30%); }
+    50%  { transform: translateX(15%); }
     100% { transform: translateX(0); }
 }
 
 @keyframes bounceChevronLeftGalerie {
     0%   { transform: translateX(-50%); }
-    50%  { transform: translateX(-70%); }
+    50%  { transform: translateX(-60%); }
     100% { transform: translateX(-50%); }
 }
 
