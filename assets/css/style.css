@@ -486,12 +486,29 @@ nav .triangleRight {
 }
 #sectionBanniere p:first-of-type {
   padding-left: 7%;
+  border-right: solid rgba(255, 255, 255, 0.637) 5px;
+  display: inline-block;
+  animation: clignote 0.7s infinite step-end;
+}
+@keyframes clignote {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: rgba(255, 255, 255, 0.637);
+  }
 }
 #sectionBanniere p:nth-of-type(2) {
   padding-left: 17%;
+  border-right: solid rgba(255, 255, 255, 0.637) 5px;
+  display: inline-block;
+  animation: clignote 0.85s infinite step-end;
 }
 #sectionBanniere p:nth-of-type(3) {
   padding-left: 33%;
+  border-right: solid rgba(255, 255, 255, 0.637) 5px;
+  display: inline-block;
+  animation: clignote 0.85s infinite step-end;
 }
 #sectionBanniere p {
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);

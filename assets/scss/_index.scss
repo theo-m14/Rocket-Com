@@ -9,16 +9,35 @@
     background-repeat: no-repeat;
 
     // Les 3 mots de la bannière de plus en plus décalé
-    p:first-of-type{
-        padding-left: 7%;
+    p:first-of-type {
+    padding-left: 7%;
+    border-right: solid rgba(255, 255, 255, 0.637) 5px;
+    display: inline-block;
+    animation: clignote 0.7s infinite step-end;
     }
 
-    p:nth-of-type(2){
+    @keyframes clignote {
+        from,
+        to {
+        border-color: transparent;
+        }
+        50% {
+        border-color: rgba(255, 255, 255, 0.637);
+        }
+    }
+
+    p:nth-of-type(2) {
         padding-left: 17%;
+        border-right: solid rgba(255, 255, 255, 0.637) 5px;
+        display: inline-block;
+        animation: clignote 0.85s infinite step-end;
     }
-
-    p:nth-of-type(3){
+    
+    p:nth-of-type(3) {
         padding-left: 33%;
+        border-right: solid rgba(255, 255, 255, 0.637) 5px;
+        display: inline-block;
+        animation: clignote 0.85s infinite step-end;
     }
 
     // effet d'ombre sur le texte
