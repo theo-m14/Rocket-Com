@@ -1,383 +1,385 @@
-#sectionBanniere{
-    font-size: 18px;
-    text-transform: uppercase;
-    padding: 1.5em 0;
-    height: 20vw;
-    background-image: url(../images/header-home-digital.png), linear-gradient(180deg, #5465FF 0%, #C90D0D 100%);
-    background-size: contain;
-    background-position: right bottom;
-    background-repeat: no-repeat;
+#sectionBanniere {
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 1.5em 0;
+  height: 20vw;
+  background-image: url(../images/header-home-digital.png),
+    linear-gradient(180deg, #5465ff 0%, #c90d0d 100%);
+  background-size: contain;
+  background-position: right bottom;
+  background-repeat: no-repeat;
 
-    // Les 3 mots de la bannière de plus en plus décalé
-    p:first-of-type {
+  // Les 3 mots de la bannière de plus en plus décalé
+  p:first-of-type {
     padding-left: 7%;
     border-right: solid rgba(255, 255, 255, 0.637) 5px;
     display: inline-block;
     animation: clignote 0.7s infinite step-end;
-    }
+  }
 
-    @keyframes clignote {
-        from,
-        to {
-        border-color: transparent;
-        }
-        50% {
-        border-color: rgba(255, 255, 255, 0.637);
-        }
+  @keyframes clignote {
+    from,
+    to {
+      border-color: transparent;
     }
+    50% {
+      border-color: rgba(255, 255, 255, 0.637);
+    }
+  }
 
-    p:nth-of-type(2) {
-        padding-left: 17%;
-        border-right: solid rgba(255, 255, 255, 0.637) 5px;
-        display: inline-block;
-        animation: clignote 0.85s infinite step-end;
-    }
-    
-    p:nth-of-type(3) {
-        padding-left: 33%;
-        border-right: solid rgba(255, 255, 255, 0.637) 5px;
-        display: inline-block;
-        animation: clignote 0.85s infinite step-end;
-    }
+  p:nth-of-type(2) {
+    padding-left: 17%;
+    border-right: solid rgba(255, 255, 255, 0.637) 5px;
+    display: inline-block;
+    animation: clignote 0.85s infinite step-end;
+  }
 
-    // effet d'ombre sur le texte
-    p{
-        text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
-    }
+  p:nth-of-type(3) {
+    padding-left: 33%;
+    border-right: solid rgba(255, 255, 255, 0.637) 5px;
+    display: inline-block;
+    animation: clignote 0.85s infinite step-end;
+  }
+
+  // effet d'ombre sur le texte
+  p {
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+  }
 }
 
-#sectionPresentation{
-    position: relative;
-    background-color: $white;
+#sectionPresentation {
+  position: relative;
+  background-color: $white;
+  @include flex;
+
+  article {
+    @include flex($direction: column);
+    // position: relative;
+    text-align: center;
+    font-size: 16px;
+    padding: 0.5em 0 1em;
+
+    h1 {
+      padding-bottom: 1em;
+    }
+
+    p {
+      width: 85%;
+    }
+  }
+  // img caché pour le mobile
+  img {
+    display: none;
+  }
+}
+
+#sectionGallerie {
+  text-align: center;
+  background-color: $greyBackground;
+  padding: 1em 0 1.5em;
+  position: relative;
+
+  // modal qui sera visible lors du clique sur l'image
+  #modalGalerie {
+    position: absolute;
+    width: 80vw;
+    height: 80vh;
+    top: 10%;
+    left: -100%;
+    @include transi(0.5s);
+    overflow-x: scroll;
+    z-index: 1;
+
+    &.active {
+      z-index: 10;
+      top: 10%;
+      left: 10%;
+    }
+
+    img {
+      object-fit: cover;
+      object-position: top;
+      width: 100%;
+    }
+  }
+
+  h1 {
+    padding-bottom: 1.5em;
+  }
+
+  #imageGallerieContainer {
     @include flex;
-
-    article{
-        @include flex($direction: column);
-        // position: relative;
-        text-align: center;
-        font-size: 16px;
-        padding: .5em 0 1em;
-        
-        h1{
-            padding-bottom: 1em;
-        }
-
-        p{
-            width: 85%;
-        }
-    }
-    // img caché pour le mobile
-    img{
-        display: none;
-    }
-}
-
-#sectionGallerie{
-    text-align: center;
-    background-color: $greyBackground;
-    padding: 1em 0 1.5em;
-    position: relative;
-
-    // modal qui sera visible lors du clique sur l'image
-    #modalGalerie {
-        position: absolute;
-        width: 80vw;
-        height: 80vh;
-        top: 10%;
-        left: -100%;
-        @include transi(.5s);
-        overflow-x: scroll;
-        z-index: 1;
-    
-        &.active{
-            z-index: 10;
-            top: 10%;
-            left: 10%;
-        }
-
-        img{
-            object-fit: cover;
-            object-position: top;
-            width: 100%;
-        }
-    }
-
-    h1{
-        padding-bottom: 1.5em;
-    }
-
-    #imageGallerieContainer{
-        @include flex;
-        overflow: hidden;
-        // chaque article correspond à une image et son titre cliquable
-        article{
-            @include flex( $direction: column );
-            padding-bottom: 1em;
-            width: 45%;
-            gap: .2em;
-            text-align: center;
-            // div qui va contenir l'img sur lequel on applique un filter pour l'effet box shadow
-            .imgContainer{
-                width: 100%;
-                filter: drop-shadow(0 4px 4px rgba(0, 0, 0, .2));
-            }
-
-            // img en forme de parallélogramme grâce au clip-path
-            img{
-                height: 25vw;
-                width: 100%;
-                object-fit: cover;
-                object-position: top;
-                clip-path: polygon(25% 0%, 100% 0, 75% 100%, 0% 100%);
-                cursor: zoom-in;
-                @include transi;
-
-                &:hover {
-                    transform: scale(105%);
-                }
-            }
-
-            a{
-                font-size: 12px;
-                padding-right: 25%
-            }
-        }
-    }
-
-    // chevron droite et gauche pour changer les pages de la gallerie
-    .chevronContainer{
-        @include flex;
-        gap: 2em;
-
-        .chevron{
-            width: 9vw;
-            height: 7vw;
-            position: static;
-        }
-    }
-
-    // chevrons pour le responsive en version desktop
-    .chevronDesktop{
-        display: none;
-    }
-}
-
-
-#sectionEquipe{
-    padding: 2em 0 1em;
-    text-align: center;
-    background-color: $white;
-    position: relative;
-
-    #equipePhotoContainer{
-        @include flex(space-around, $wrap:nowrap);
-        position: relative;
-        padding: 1em 0;
-
-        // chevron droite et gauche pour changer la photo du membre de l'équipe en focus 
-        .chevron{
-            width: 7vw;
-            height: 7vw;
-            position: static;
-        }
-
-        .chevronDroite, .chevronGauche{
-            // transform: translate(0,15%);
-            margin-bottom: 1em;
-        }
-    }
-    
-    h1{
-        overflow: hidden;
-        padding-bottom: 2em;
-    }
-    // un article correspond à une photo de membre + son sous titre
-    article{
-        @include flex($direction:column);
-        // photo du centre actuellement en focus
-        &:first-of-type, &:last-of-type{
-            p{
-                transform: translateY(-150%);
-            }
-
-        }
-        &:nth-of-type(2){
-            position: absolute;
-            z-index: 2;
-            top: 50%;
-            left: 50%;
-            transform :translate(-50%, -50%);
-        }
-        // container de chaque photo sous forme de parallélogramme
-        .imgContainer{
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-        }
-        // pour les photos en général
-        .img{
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-            height: 37vw;
-            width: 37vw;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            // transition: background-image .2s ease-in-out;
-        }
-        
-        // photo de chaque côté
-        // rajout de border sur le container
-        .leftPhotoContainer, .rightPhotoContainer{
-            border: 8px solid black;
-            background-color: black;
-        }
-
-        .leftPhoto{
-            background-image: url(../images/jeannePhoto.jpg);
-            background-position: bottom;
-        }
-
-        .rightPhoto{
-            background-image: url(../images/martinePhoto.jpg);
-            background-position: top left;
-        }
-
-        // la photo du centre ( en focus )
-        // rajout de border sur le container
-        .mainPhotoContainer{
-            border: 8px solid white;
-            background-color: white;
-        }
-
-        .mainPhoto{
-            height: 50vw;
-            width: 50vw;
-            background-image: url(../images/marcPhoto.jpg);
-        }
-        // le nom du membre
-        p{
-            font-size: 12px;
-            // clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
-            clip-path: polygon(25% 0, 90% 0, 80% 100%, 15% 100%);
-            background-color: #c4c4c4;
-            width: 65%;
-            // margin-top: -16%;
-            transform: translateY(-220%);
-            // pour la photo du centre, on spécifie pour le deuxième <p>
-            &:nth-of-type(2){
-                font-size: 10px;
-                background-color: $secondaryColor;
-                width: 48%;
-                // margin: -.1em 0 0;
-                transform: translate(-4%, -300%);
-            }
-        }
-    }
-
-    .chevronDesktop{
-        display: none;
-    }
-
-    .chevronContainer{
-        @include flex;
-        padding-top: .7em;
-        gap: 20%;
-
-        .chevron{
-            width: 8vw;
-            height: 8vw;
-            position: static;
-        }
-    }
-}
-
-#sectionAvis{
-    position: relative;
-    padding: 3em 0 1em;
-    background-color: $greyBackground;
-    @include flex($direction:column, $just: flex-end);
     overflow: hidden;
-    // on cache pour le mobile
-    h1{
-        display: none;
-    }
+    // chaque article correspond à une image et son titre cliquable
+    article {
+      @include flex($direction: column);
+      padding-bottom: 1em;
+      width: 45%;
+      gap: 0.2em;
+      text-align: center;
+      // div qui va contenir l'img sur lequel on applique un filter pour l'effet box shadow
+      .imgContainer {
+        width: 100%;
+        filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
+      }
 
-    img{
-        display: none;
-    }
+      // img en forme de parallélogramme grâce au clip-path
+      img {
+        height: 25vw;
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
+        clip-path: polygon(25% 0%, 100% 0, 75% 100%, 0% 100%);
+        cursor: zoom-in;
+        @include transi;
 
-    // div avec la photo de l'avis selectionné
-    #avisFocus{
-        // container de la photo avec un fond et border, forme de parallélogramme
-        .imgContainer{
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-            background-color: white;
-            border: 7px white solid;
+        &:hover {
+          transform: scale(105%);
         }
+      }
 
-        .img{
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-            height: 8em;
-            width: 8em;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-image: url(../images/avis1.png);
-        }
+      a {
+        font-size: 12px;
+        padding-right: 25%;
+      }
+    }
+  }
+
+  // chevron droite et gauche pour changer les pages de la gallerie
+  .chevronContainer {
+    @include flex;
+    gap: 2em;
+
+    .chevron {
+      width: 9vw;
+      height: 7vw;
+      position: static;
+    }
+  }
+
+  // chevrons pour le responsive en version desktop
+  .chevronDesktop {
+    display: none;
+  }
+}
+
+#sectionEquipe {
+  padding: 2em 0 1em;
+  text-align: center;
+  background-color: $white;
+  position: relative;
+
+  #equipePhotoContainer {
+    @include flex(space-around, $wrap: nowrap);
+    position: relative;
+    padding: 1em 0;
+
+    // chevron droite et gauche pour changer la photo du membre de l'équipe en focus
+    .chevron {
+      width: 7vw;
+      height: 7vw;
+      position: static;
     }
 
-    #listeAvisContainer{
-        @include flex(center, column);
+    .chevronDroite,
+    .chevronGauche {
+      // transform: translate(0,15%);
+      margin-bottom: 1em;
+    }
+  }
+
+  h1 {
+    overflow: hidden;
+    padding-bottom: 2em;
+  }
+  // un article correspond à une photo de membre + son sous titre
+  article {
+    @include flex($direction: column);
+    // photo du centre actuellement en focus
+    &:first-of-type,
+    &:last-of-type {
+      p {
+        transform: translateY(-150%);
+      }
+    }
+    &:nth-of-type(2) {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    // container de chaque photo sous forme de parallélogramme
+    .imgContainer {
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+    // pour les photos en général
+    .img {
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      height: 37vw;
+      width: 37vw;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      // transition: background-image .2s ease-in-out;
     }
 
-    #listeAvis{
-        .chevron{
-            display: none;
-        }
+    // photo de chaque côté
+    // rajout de border sur le container
+    .leftPhotoContainer,
+    .rightPhotoContainer {
+      border: 8px solid black;
+      background-color: black;
     }
 
-    // contient les chevrons + les icônes de quote + texte de l'avis
-    article{
-        @include flex(space-evenly);
-        padding-top: 1.5em;
-        // width: 80%;
-        position: relative;
-        // nom de l'auteur de l'avis aligné en bas à droite du texte
-        p:last-of-type{
-            align-self: flex-end;
-        }
-
-        #avisTextContainer{
-            width: 80%;
-        }
+    .leftPhoto {
+      background-image: url(../images/jeannePhoto.jpg);
+      background-position: bottom;
     }
 
-    // le bouton pour revenir en haut de la page
-    a{
-        align-self: flex-end;
-        margin-top: 1em;
-        margin-right: 1.5em;
-        cursor: pointer;
-        display: block;
+    .rightPhoto {
+      background-image: url(../images/martinePhoto.jpg);
+      background-position: top left;
     }
-    // l'icon fontawesome du bouton
-    .fa-angle-double-up{
-        font-size: 3em;
+
+    // la photo du centre ( en focus )
+    // rajout de border sur le container
+    .mainPhotoContainer {
+      border: 8px solid white;
+      background-color: white;
     }
+
+    .mainPhoto {
+      height: 50vw;
+      width: 50vw;
+      background-image: url(../images/marcPhoto.jpg);
+    }
+    // le nom du membre
+    p {
+      font-size: 12px;
+      // clip-path: polygon(20% 0, 92% 0, 85% 100%, 13% 100%);
+      clip-path: polygon(25% 0, 90% 0, 80% 100%, 15% 100%);
+      background-color: #c4c4c4;
+      width: 65%;
+      // margin-top: -16%;
+      transform: translateY(-220%);
+      // pour la photo du centre, on spécifie pour le deuxième <p>
+      &:nth-of-type(2) {
+        font-size: 10px;
+        background-color: $secondaryColor;
+        width: 48%;
+        // margin: -.1em 0 0;
+        transform: translate(-4%, -300%);
+      }
+    }
+  }
+
+  .chevronDesktop {
+    display: none;
+  }
+
+  .chevronContainer {
+    @include flex;
+    padding-top: 0.7em;
+    gap: 20%;
+
+    .chevron {
+      width: 8vw;
+      height: 8vw;
+      position: static;
+    }
+  }
+}
+
+#sectionAvis {
+  position: relative;
+  padding: 3em 0 1em;
+  background-color: $greyBackground;
+  @include flex($direction: column, $just: flex-end);
+  overflow: hidden;
+  // on cache pour le mobile
+  h1 {
+    display: none;
+  }
+
+  img {
+    display: none;
+  }
+
+  // div avec la photo de l'avis selectionné
+  #avisFocus {
+    // container de la photo avec un fond et border, forme de parallélogramme
+    .imgContainer {
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      background-color: white;
+      border: 7px white solid;
+    }
+
+    .img {
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      height: 8em;
+      width: 8em;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url(../images/avis1.png);
+    }
+  }
+
+  #listeAvisContainer {
+    @include flex(center, column);
+  }
+
+  #listeAvis {
+    .chevron {
+      display: none;
+    }
+  }
+
+  // contient les chevrons + les icônes de quote + texte de l'avis
+  article {
+    height: 14em;
+    @include flex(space-evenly);
+    padding-top: 1.5em;
+    // width: 80%;
+    position: relative;
+    // nom de l'auteur de l'avis aligné en bas à droite du texte
+    p:last-of-type {
+      align-self: flex-end;
+    }
+
+    #avisTextContainer {
+      width: 80%;
+    }
+  }
+
+  // le bouton pour revenir en haut de la page
+  a {
+    align-self: flex-end;
+    margin-top: 1em;
+    margin-right: 1.5em;
+    cursor: pointer;
+    display: block;
+  }
+  // l'icon fontawesome du bouton
+  .fa-angle-double-up {
+    font-size: 3em;
+  }
 }
 // fond gris lorsque le modal est visible
-#modalBackground{
-    @include transi;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(94, 93, 93, .9);
-    z-index: -1;
-       
-    &.active{
-        z-index: 4;
-        opacity: 1;
-    }
-}
+#modalBackground {
+  @include transi;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(94, 93, 93, 0.9);
+  z-index: -1;
 
+  &.active {
+    z-index: 4;
+    opacity: 1;
+  }
+}

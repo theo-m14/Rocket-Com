@@ -118,7 +118,18 @@ const equipeArray = [
     { "nom": "Jeanne", "src": "url('assets/images/jeannePhoto.jpg')", "bgPosition": "bottom center", "job": "Graphiste"},
     { "nom": "Marc", "src": "url('assets/images/marcPhoto.jpg')", "bgPosition": "center center", "job": "Seo / CM"},
     { "nom": "Martine", "src": "url('assets/images/martinePhoto.jpg')", "bgPosition": "top left", "job": "Security"},
-]                                                                                                  
+]                                                                           
+
+//tableau de la section avis
+const avisArray = [
+    { 'id': 1,'nom': 'John K.', 'src': "url('assets/images/avis1.png')", 'texte': ' Très bonnes performances, bilan précis. Très grande qualité des opérations et outils réalisés. Délais respectés. Très bon contact. Compréhension des problématiques et enjeux clients. Très focus résultats et business. Des recommandations pertinentes et adaptées à l’échelle de nos budgets et de nos ambitions. ' },
+    {'id': 2,'nom': 'Anna C.', 'src': "url('assets/images/avis2.png')", 'texte': "Nous avons fais appel à RocketCom lors de la mise en place de notre site web. Ils ont réalisés une maquette en total accord avec nos attentes. Le référencement du site est bien réalisé et notre position au sein des moteurs de recherches de fais que monter. De plus l'équipe est vraiment sympathique et ont su s'impliquer dans le projet" },
+    {'id': 3,'nom': 'Inaya G.', 'src': "url('assets/images/avis3.png')", 'texte': "Le travail mené avec Marc nous a permis d’y voir plus clair sur les missions, valeurs et raison d’être de notre drive zéro déchet, La Caloup. Grâce à cet éclaircissement, il sera plus facile de mener à bien des actions de com’ profitables en restant sur une même ligne de conduite précise et claire. Le travail a été réalisé dans la bonne humeur, de façon structurée et organisée avec un objectif clair et des séances efficaces. Nous remercions chaleureusement Rocket'Com pour cet accompagnement très utile et pratique." },
+    {'id':4,'nom': 'Maria J.', 'src': "url('assets/images/avis4.png')", 'texte': ' ComOnlight nous a accompagnés sur toute la mise en place de la stratégie de communication de Demain, dès l’Aube. Thomas a tout de suite cerné nos problématiques et nous a aidés à construire un discours pertinent et adapté à notre secteur d’activité. Lors de la réalisation de notre site Internet, nous avons pu échanger régulièrement avec Lisa (la graphiste), ce qui fut fort appréciable. Tout au long de l’accompagnement, nous nous sommes sentis écoutés et compris. Merci pour votre approche humaine et votre professionnalisme !' },
+    {'id':5,'nom': 'Wade W.', 'src': "url('assets/images/avis5.png')", 'texte': ' Agagaga agagaga agagaga agagggaa ! Gouga gaou gaga goukou aougou gougou Gan gougoga. Gagaougou gagag gagga, gagag gagaga, gagaa ga ga gagaga. Gouga gaou gaga goukou, Agagaga agagaga gagag gagga. Agagaga agagaga agagaga agagggaa ! Gouga gaou gaga goukou aougou gougou Gan gougoga. Gagaougou gagag gagga, gagag gagaga, gagaa ga ga gagaga. Gouga gaou gaga goukou, Agagaga agagaga gagag gagga.' },
+]
+
+let avisFocusName;
 
 // fonction pour la galerie pour changer le src de l'image + le nom affiché en dessous
 function changeGalerieImgAndText(image,index){
@@ -202,10 +213,53 @@ function switchImage(chevron){
                 changementContentEquipe(marc, martine, jeanne);
             }
         }       
-    } 
+    } else{ //Sinon c'est un chevron de la section avis
+        if(chevron.classList.contains('chevronDroite')){
+            changeContentAvis('droite');
+        }else{//C'est le chevron gauche
+            changeContentAvis('gauche');
+        }
+    }
 }
 
 // forEach sur chaque chevron pour ajouter l'addEventListener et appeller la fonction principale
 getChevron.forEach(chevron => {
     chevron.addEventListener("click", ()=> switchImage(chevron));
 });
+
+let getAllImageAvis = [
+    document.querySelector('#avisFocus .img'),
+    document.querySelector('.imgContainer1>.img'),
+    document.querySelector('.imgContainer2>.img'),
+    document.querySelector(' .imgContainer3>.img'),
+    document.querySelector('.imgContainer4>.img')
+];
+let avisTexte = document.getElementById("avisText");
+let nomAvis = document.getElementById('avisName');
+
+function changeContentAvis(sens){
+        //On mets a jour la place des avis dans le tableau avec leurs id
+        updateIdAvis(sens);
+        //Pour chaque items dans le tableau je mets a jour les backgrounds image des éléments get au dessus
+        for(let i = 0;i<5;i++){
+            getAllImageAvis[i].style.backgroundImage = avisArray.filter(avis => avis.id == i+1)[0].src;
+        }
+        //Puis je mets a jour le texte et le nom de celui affiché( dont l'id est 1)
+        avisTexte.innerHTML = '<i class="fas fa-quote-left"></i>'+ avisArray.filter(avis => avis.id == 1)[0].texte + '<i class="fas fa-quote-right"></i>';
+        nomAvis.innerText = avisArray.filter(avis => avis.id == 1)[0].nom;
+}
+
+//On update le tableau d'avis selon le sens de parcours
+function updateIdAvis(sens){
+    if(sens === 'droite'){
+        for(let avis in avisArray){
+            avisArray[avis].id += 1;
+            if(avisArray[avis].id  == 6) avisArray[avis].id  = 1;
+        }
+    }else{
+        for(let avis in avisArray){
+            avisArray[avis].id  -= 1;
+            if(avisArray[avis].id  == 0) avisArray[avis].id  = 5;
+        }
+    }
+}
