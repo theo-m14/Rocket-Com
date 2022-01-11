@@ -1,3 +1,11 @@
+@media screen and (min-width: 500px) { // adaptation de la position de la croix du menu burger
+    #burger{
+        &.active {
+            transform: translateX(-15vw);
+        }
+    }
+}
+
 // apparition de la navbar / disparition du burger
 @media screen and (min-width: 900px) {
     header{

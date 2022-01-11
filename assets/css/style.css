@@ -417,26 +417,39 @@ nav .triangleRight {
   background-color: #c90d0d;
 }
 
-nav.navbarOfBurger.active {
-  display: block;
+nav.navbarOfBurger {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 12;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: no-wrap;
+  background-color: black;
+  width: 0%;
+  height: 0vh;
+  overflow: hidden;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
 }
-nav.navbarOfBurger.active #navbar {
+nav.navbarOfBurger.active {
+  width: 80%;
+  height: 200vh;
+  padding: 2em 0 0 2em;
+  transition: all 0.3s ease-in-out;
+}
+nav.navbarOfBurger #navbar {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   flex-wrap: wrap;
+  gap: 1em;
+  padding-bottom: 1em;
 }
-nav.navbarOfBurger.active .triangle {
+nav.navbarOfBurger .triangle {
   display: none;
 }
 
@@ -444,6 +457,7 @@ nav.navbarOfBurger.active .triangle {
   position: relative;
   cursor: pointer;
   height: 2.5em;
+  transition: all 0.3s ease-in-out;
 }
 
 #burger::after, #burger::before {
@@ -459,13 +473,13 @@ nav.navbarOfBurger.active .triangle {
   transition: all 0.5s ease-in-out;
 }
 #burger.active {
-  position: absolute;
-  z-index: 13;
   background: rgba(167, 1, 9, 0.8);
   height: 2.5em;
   top: 0;
   border-radius: 50%;
   box-shadow: 0px 0px 3px white;
+  transform: translateX(-4vw);
+  z-index: 13;
 }
 #burger.active::after, #burger.active::before {
   top: 1.05em;
@@ -1980,6 +1994,11 @@ footer .footerBottomPart a {
 @media screen and (min-width: 1024px) {
   footer .footerBottomPart {
     width: 45%;
+  }
+}
+@media screen and (min-width: 500px) {
+  #burger.active {
+    transform: translateX(-15vw);
   }
 }
 @media screen and (min-width: 900px) {

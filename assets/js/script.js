@@ -1,3 +1,16 @@
+// js pour le burger button de la version mobile
+const getBurgerButton = document.getElementById('burgerButton');
+const getBurger = document.getElementById('burger');
+const getBurgerNavbar = document.querySelector('.navbarOfBurger');
+const getNavbar = document.querySelector('nav');
+
+// lors du click sur le burger button > rajout si non présent/retrait si déjà présent de la classe "active" 
+getBurgerButton.addEventListener('click', function() {
+    getBurger.classList.toggle('active');
+    getBurgerNavbar.classList.toggle('active');
+    getModalBg.classList.toggle('active')
+})
+
 const reveals = document.querySelectorAll(".reveal");
 
 function animationFade(){
@@ -88,13 +101,20 @@ getGalerieImage.forEach(e => {
     })
 });
 
-// modal background, lors du clique sur le bg, retrait des classes "active" du modal et bg, plus la balise img est supprimé après 0.33secondes
+// modal background, lors du clique sur le bg, retrait de la classe "active" du bg, background aussi utilisé pour le menu burger
 getModalBg.addEventListener('click', function(){
-    getModalGalerie.classList.remove('active');
     getModalBg.classList.remove('active');
-    setTimeout(() => {
+    if(getBurgerNavbar.classList.contains("active")){//si la navbar du menu burger est active
+        // pour le burger, lors du click > même effet que lors d'un click sur la croix du burger
+        getBurger.classList.remove('active');
+        getBurgerNavbar.classList.remove('active');
+    } else{ 
+        // retrait de la classe "active" du modal, plus la balise img est supprimé après 0.33secondes
+        getModalGalerie.classList.remove('active');
+        setTimeout(() => {
         getModalGalerie.removeChild(createImg);
-    }, 330);
+        }, 330);
+    }
 })
 
 // tableau d'image avec nom pour la galerie
@@ -130,6 +150,7 @@ const avisArray = [
 ]
 
 let avisFocusName;
+                                                                                               
 
 // fonction pour la galerie pour changer le src de l'image + le nom affiché en dessous
 function changeGalerieImgAndText(image,index){
@@ -273,3 +294,31 @@ getBurgerButton.addEventListener('click', function() {
     getBurgerNavbar.classList.toggle('active');
     getModalBg.classList.toggle('active')
 })
+
+// Media queries
+if (window.matchMedia("(min-width: 900px)").matches) {
+    getNavbar.classList.remove("navbarOfBurger");
+};
+
+// retrait des classes "reveal" qui ajoute l'animation de fade lors du scroll lorsque l'écran est trop petit est donc que la galerie est visible directement lors du chargement de la page
+// if (window.matchMedia("(max-width: 850px)").matches) {
+// const getGalerieReveal = document.querySelectorAll("#sectionGallerie .reveal");
+// getGalerieReveal.forEach(element => {
+//     element.classList.remove('reveal');
+// });
+// } else {
+// /* the view port is less than 900 pixels wide */
+// }
+
+window.addEventListener("load", function(){
+    const getGalerieReveal = document.querySelectorAll("#sectionGallerie .reveal");
+    const windowHeight = window.innerHeight;
+    const getSectionGalerie = document.getElementById('sectionGallerie').getBoundingClientRect().top;
+    const elementVisible = 20;
+
+    if(getSectionGalerie < windowHeight - elementVisible && window.matchMedia("(max-width: 850px)").matches){
+        getGalerieReveal.forEach(element => {
+        element.classList.remove('reveal');
+        })
+    }
+});
