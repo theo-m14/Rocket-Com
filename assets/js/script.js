@@ -263,3 +263,13 @@ function updateIdAvis(sens){
         }
     }
 }
+// js pour le burger button de la version mobile
+const getBurgerButton = document.getElementById('burgerButton');
+const getBurger = document.getElementById('burger');
+const getBurgerNavbar = document.querySelector('.navbarOfBurger');
+
+getBurgerButton.addEventListener('click', function() {
+    getBurger.classList.toggle('active');
+    getBurgerNavbar.classList.toggle('active');
+    getModalBg.classList.toggle('active')
+})

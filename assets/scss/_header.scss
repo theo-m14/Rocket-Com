@@ -117,6 +117,23 @@ nav {
     }
 }
 
+nav.navbarOfBurger.active{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 12;
+    @include flex(flex-start, column);
+
+    #navbar{
+        @include flex(flex-start, column);
+    }
+
+    .triangle{
+        display: none;
+    }
+
+}
 // SPAN POUR FAIRE LE BURGER
 #burgerButton {
     position: relative;
@@ -137,7 +154,11 @@ nav {
     @include transi(.5s);
     
     // ANIMATION DE PASSAGE EN CROIX 
-    &.open {
+    &.active {
+        position: absolute;
+        z-index: 13;
+        // top: 1em;
+        // right: 1em;
         background: rgba(167, 1, 9, 0.8);
         height: 2.5em;
         top:0;
