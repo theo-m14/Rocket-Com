@@ -21,6 +21,47 @@ function animationFade(){
 // lors du scroll > ma fonction d'ajout ou retrait de classe "active"
 window.addEventListener("scroll", animationFade);
 
+//On récupère le texte du background hero
+const getFirstPBanniere = document.getElementById('sectionBanniere').children[0];
+const getSecondPBanniere = document.getElementById('sectionBanniere').children[1];
+const getThirdPBanniere = document.getElementById('sectionBanniere').children[2];
+
+//Fonction qui écrit les lettres une à une selon un timer
+function ecritureTestFor(text, element){
+    for(let i = 0; i <= text.length; i++){
+        setTimeout(() =>{
+            element.innerHTML = text.slice(0,i);
+        }, i*200)
+    }
+}
+
+//On stock le texte du background hero et on les vide
+const text1 = getFirstPBanniere.innerHTML;
+getFirstPBanniere.innerHTML = '';
+const text2 = getSecondPBanniere.innerHTML;
+getSecondPBanniere.innerHTML = '';
+const text3 = getThirdPBanniere.innerHTML;
+getThirdPBanniere.innerHTML = '';
+
+
+//fonction qui va ecrire le texte petit à petit en attendant la fin du mot précédant tout en mettant à jour le placement du curseur
+function writeAllHeroText(){
+    ecritureTestFor(text1,getFirstPBanniere);
+    setTimeout(()=> {
+        ecritureTestFor(text2,getSecondPBanniere);
+        getFirstPBanniere.style.border = 'none';
+        getFirstPBanniere.style.display ='block';
+    },text1.length*200);
+    setTimeout(()=> {
+        ecritureTestFor(text3,getThirdPBanniere);
+        getSecondPBanniere.style.border = 'none';
+        getSecondPBanniere.style.display ='block';
+    },(text2.length+text1.length)*200);
+}
+
+writeAllHeroText();
+
+
 // js pour la section galerie
 const getContainerImgGalerie = document.getElementById("imageGallerieContainer");
 const getGalerieImage = getContainerImgGalerie.querySelectorAll(".imgContainer > img");
