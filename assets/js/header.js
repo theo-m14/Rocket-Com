@@ -15,11 +15,9 @@ const getModalBg = document.getElementById("modalBackground");
 // modal background, lors du clique sur le bg, retrait de la classe "active" du bg, background aussi utilisé pour le menu burger
 getModalBg.addEventListener('click', function(){
     getModalBg.classList.remove('active');
-    if(getBurgerNavbar.classList.contains("active")){//si la navbar du menu burger est active
-        // pour le burger, lors du click > même effet que lors d'un click sur la croix du burger
-        getBurger.classList.remove('active');
-        getBurgerNavbar.classList.remove('active');
-    }
+    // pour le burger, lors du click > même effet que lors d'un click sur la croix du burger
+    getBurger.classList.remove('active');
+    getBurgerNavbar.classList.remove('active');
 })
 
 // Media queries
