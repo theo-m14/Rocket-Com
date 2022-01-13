@@ -24,4 +24,3 @@ getModalBg.addEventListener('click', function(){
 if (window.matchMedia("(min-width: 900px)").matches) {
     getNavbar.classList.remove("navbarOfBurger");
 };
-

@@ -21,7 +21,7 @@
                 @include flex( $direction: column );
                 padding-bottom: 1.5em;
     
-                a{
+                p{
                     font-size: 16px;
                 }
             }
@@ -177,7 +177,7 @@
         #imageGallerieContainer{
             article{
                 gap: .8em;
-                a{
+                p{
                     font-size: 20px;
                 }
             }
@@ -237,7 +237,7 @@
             article{
                 padding-bottom: 2.5em;
                 width: 40%;
-                a{
+                p{
                     font-size: 22px;
                 }
             }
@@ -466,7 +466,7 @@
     #sectionGallerie{
         #imageGallerieContainer{
             article{
-                a{
+                p{
                     font-size: 32px;
                 }
             }

@@ -619,6 +619,9 @@ nav.navbarOfBurger .triangle {
 #sectionGallerie h1 {
   padding-bottom: 1.5em;
 }
+#sectionGallerie .chevronGauche {
+  visibility: hidden;
+}
 #sectionGallerie #imageGallerieContainer {
   display: flex;
   justify-content: center;
@@ -654,7 +657,7 @@ nav.navbarOfBurger .triangle {
 #sectionGallerie #imageGallerieContainer article img:hover {
   transform: scale(105%);
 }
-#sectionGallerie #imageGallerieContainer article a {
+#sectionGallerie #imageGallerieContainer article p {
   font-size: 12px;
   padding-right: 25%;
 }
@@ -1616,7 +1619,7 @@ footer .footerBottomPart a {
     flex-wrap: wrap;
     padding-bottom: 1.5em;
   }
-  #sectionGallerie #imageGallerieContainer article a {
+  #sectionGallerie #imageGallerieContainer article p {
     font-size: 16px;
   }
 
@@ -1745,7 +1748,7 @@ footer .footerBottomPart a {
   #sectionGallerie #imageGallerieContainer article {
     gap: 0.8em;
   }
-  #sectionGallerie #imageGallerieContainer article a {
+  #sectionGallerie #imageGallerieContainer article p {
     font-size: 20px;
   }
 
@@ -1793,7 +1796,7 @@ footer .footerBottomPart a {
     padding-bottom: 2.5em;
     width: 40%;
   }
-  #sectionGallerie #imageGallerieContainer article a {
+  #sectionGallerie #imageGallerieContainer article p {
     font-size: 22px;
   }
   #sectionGallerie .chevron {
@@ -1989,7 +1992,7 @@ footer .footerBottomPart a {
     font-size: 56px;
   }
 
-  #sectionGallerie #imageGallerieContainer article a {
+  #sectionGallerie #imageGallerieContainer article p {
     font-size: 32px;
   }
 

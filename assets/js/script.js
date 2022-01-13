@@ -85,6 +85,8 @@ const createImg = document.createElement('img');
 const getSectionGalerie = document.getElementById("sectionGallerie");
 const getChevronContainer = getSectionGalerie.querySelector(".chevronContainer");
 const getChevron = document.querySelectorAll(".chevron");
+const getChevronGalerieDroite = getSectionGalerie.querySelectorAll(".chevronDroite");
+const getChevronGalerieGauche = getSectionGalerie.querySelectorAll(".chevronGauche");
 
 // modal, lors du clique ajout de la classe "active" sur le modal et modalbackground, ajout d'une div img pour le modal + modif de l'attribut src pour rajouter l'image lié à l'élément
 getGalerieImage.forEach(e => {
@@ -114,15 +116,15 @@ getModalBg.addEventListener('click', function(){
 
 // tableau d'image avec nom pour la galerie
 const galerieArray = [ 
-    { "nom": "Mondare", "src": "gallerie01.jpg"},
-    { "nom": "Neucaro", "src": "gallerie02.jpg"},
-    { "nom": "Buildzer", "src": "gallerie03.jpg"},
-    { "nom": "Cashlan", "src": "gallerie04.jpg"},
-    { "nom": "Vlogon", "src": "gallerie05.jpg"},
-    { "nom": "Offlit", "src": "gallerie06.jpg"},
-    { "nom": "Sitent", "src": "gallerie07.jpg"},
-    { "nom": "Flixie", "src": "gallerie08.jpg"},
-    { "nom": "Mwebe", "src": "gallerie09.jpg"},
+    { "nom": "Mondar", "src": "gallerie1.jpg"},
+    { "nom": "Neucar", "src": "gallerie2.jpg"},
+    { "nom": "Buildzer", "src": "gallerie3.jpg"},
+    { "nom": "Cashlan", "src": "gallerie4.jpg"},
+    { "nom": "Vlogon", "src": "gallerie5.jpg"},
+    { "nom": "Offlit", "src": "gallerie6.jpg"},
+    { "nom": "Sitent", "src": "gallerie7.jpg"},
+    { "nom": "Flixie", "src": "gallerie8.jpg"},
+    { "nom": "Mwebe", "src": "gallerie9.jpg"},
     { "nom": "Opoint", "src": "gallerie10.jpg"},
     { "nom": "Revibe", "src": "gallerie11.jpg"},
     { "nom": "Lojoli", "src": "gallerie12.jpg"},
@@ -173,38 +175,47 @@ function changeOrder(mainOrderTo, rightOrderTo, leftOrderTo) {
         }
     }
     
+// fonction pour la galerie pour changer le src de l'image + le nom affiché en dessous
+function switchPageGalerie(image, sens){
+    // substring pour récuperer la 23eme et 24eme lettre de la string de l'attribut src de l'image, qui sera passé en parseInt pour pouvoir faire une incrémentation de 4 ou -4 
+    image.setAttribute('src', `assets/images/gallerie${parseInt(image.getAttribute('src').substring(22,24))+sens}.jpg`);
+    // filter pour faire une recherche dans l'array en utilisant la src de l'element que je viens de modifier juste au dessus, renvoi un array donc on accède au nom avec [0].nom pour l'ajouter en innerText 
+    image.parentElement.parentElement.querySelector('p').innerText = galerieArray.filter(site => site.src == `gallerie${parseInt(image.getAttribute('src').substring(22,24))}.jpg`)[0].nom;
+}
 
 function switchImage(chevron){
     // si le parent du parent du chevron est dans #sectionGallerie 
     if(chevron.parentElement.parentElement.id.includes('sectionGallerie')){
         // si le chevron à la classe chevronDroite
         if(chevron.classList.contains('chevronDroite')){
-            // vérifie si la première image affiché de la galerie contient gallerie01 pour adapter la valeur initiale de l'index du galerieArray contenu dans la fonction qui est passé en forEach pour chaque image
-            if(getGalerieImage[0].src.includes('gallerie01')){
-                let index = 4;
+            // vérifie si la dernière image affiché de la galerie contient dans son attribut "src" un nombre inférieur à la longueur du tableau qui contient la liste des images
+            if(parseInt(getGalerieImage[3].getAttribute("src").substring(22,24)) < galerieArray.length){
+                // fonction qui fait +4 au nom de l'image dans le src et à l'index du tableau pour changer le nom correspondant
                 getGalerieImage.forEach(image => {
-                    changeGalerieImgAndText(image,index)
-                    index++;
+                    switchPageGalerie(image,4)
                 });
-            } else if(getGalerieImage[0].src.includes('gallerie05')){
-                let index = 8;
-                getGalerieImage.forEach(image => {
-                    changeGalerieImgAndText(image,index)
-                    index++;
+                // pour rendre visible les chevrons gauche ( desktop et mobile )
+                getChevronGalerieGauche.forEach(element => {
+                    element.style.visibility = "visible";
                 });
-            }  
-         } else{ //else = si le chevron à la classe chevronGauche
-            if(getGalerieImage[0].src.includes('gallerie05')){
-                let index = 0;
-                getGalerieImage.forEach(image => {
-                    changeGalerieImgAndText(image,index)
-                    index++;
-                });
-            } else if(getGalerieImage[0].src.includes('gallerie09')){
-                let index = 4;
-                getGalerieImage.forEach(image => {
-                    changeGalerieImgAndText(image,index)
-                    index++;
+                //vérifie si la dernière image affiché de la galerie contient dans son attribut "src" un nombre égal à la longueur du tableau, c'est donc la dernière page > chevron droite caché
+                if(parseInt(getGalerieImage[3].getAttribute("src").substring(22,24)) == galerieArray.length ){
+                    getChevronGalerieDroite.forEach(element => {
+                        element.style.visibility = "hidden";
+                    });
+                }
+            } 
+        } else if(parseInt(getGalerieImage[0].getAttribute("src").substring(22,24)) > 1){ //devrait donc être le chevron gauche, et vérifie si la première image affiché de la galerie contient dans son attribut "src" un nombre supérieur à 1, donc que l'on ne se trouve pas sur la première page
+            getGalerieImage.forEach(image => {
+                switchPageGalerie(image,-4)
+            });
+            getChevronGalerieDroite.forEach(element => {
+                element.style.visibility = "visible";
+            });
+            // si la première image affiché de la galerie contient dans son attribut "src" un nombre égal à 1, on est sur la première page > chevron gauche caché
+            if(parseInt(getGalerieImage[0].getAttribute("src").substring(22,24)) == 1){
+                getChevronGalerieGauche.forEach(element => {
+                    element.style.visibility = "hidden";
                 });
             }
         }
