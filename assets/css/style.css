@@ -832,6 +832,14 @@ nav.navbarOfBurger .triangle {
 #sectionAvis img {
   display: none;
 }
+#sectionAvis .doAFlip {
+  animation: doAFlip ease-in-out 0.9s;
+}
+@keyframes doAFlip {
+  to {
+    transform: rotateY(360deg);
+  }
+}
 #sectionAvis #avisFocus .imgContainer {
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
   background-color: white;

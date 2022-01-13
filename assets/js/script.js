@@ -246,6 +246,13 @@ let getAllImageAvis = [
     document.querySelector(' .imgContainer3>.img'),
     document.querySelector('.imgContainer4>.img')
 ];
+let getContainerImageAvis = [
+    document.querySelector('#avisFocus'),
+    document.querySelector('.imgContainer1'),
+    document.querySelector('.imgContainer2'),
+    document.querySelector(' .imgContainer3'),
+    document.querySelector('.imgContainer4')
+]
 let avisTexte = document.getElementById("avisText");
 let nomAvis = document.getElementById('avisName');
 
@@ -254,11 +261,20 @@ function changeContentAvis(sens){
         if(sens !== 'click')updateIdAvis(sens);
         //Pour chaque items dans le tableau je mets a jour les backgrounds image des éléments get au dessus
         for(let i = 0;i<5;i++){
-            getAllImageAvis[i].style.backgroundImage = avisArray.filter(avis => avis.id == i+1)[0].src;
+            getAllImageAvis[i].classList.add('doAFlip');
+            const waitImageChange = setTimeout(()=>{
+                getAllImageAvis[i].style.backgroundImage = avisArray.filter(avis => avis.id == i+1)[0].src;
+            },690);
+            
         }
         //Puis je mets a jour le texte et le nom de celui affiché( dont l'id est 1)
         avisTexte.innerHTML = '<i class="fas fa-quote-left"></i>'+ avisArray.filter(avis => avis.id == 1)[0].texte + '<i class="fas fa-quote-right"></i>';
         nomAvis.innerText = avisArray.filter(avis => avis.id == 1)[0].nom;
+        const removeFlip = setTimeout(()=>{
+            for(let i = 0;i<5;i++){
+                getAllImageAvis[i].classList.remove('doAFlip');
+            }
+        },900)
 }
 
 //On update le tableau d'avis selon le sens de parcours

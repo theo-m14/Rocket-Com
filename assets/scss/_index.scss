@@ -330,7 +330,15 @@
   img {
     display: none;
   }
-
+  .doAFlip{
+    animation: doAFlip ease-in-out 0.9s ;
+  }
+  
+  @keyframes doAFlip {
+    to{
+      transform: rotateY(360deg);
+    }
+  }
   // div avec la photo de l'avis selectionné
   #avisFocus {
     // container de la photo avec un fond et border, forme de parallélogramme
