@@ -261,7 +261,7 @@ function changeContentAvis(sens){
         if(sens !== 'click')updateIdAvis(sens);
         //Pour chaque items dans le tableau je mets a jour les backgrounds image des éléments get au dessus
         for(let i = 0;i<5;i++){
-            getAllImageAvis[i].classList.add('doAFlip');
+            getAllImageAvis[i].parentElement.classList.add('doAFlip');
             const waitImageChange = setTimeout(()=>{
                 getAllImageAvis[i].style.backgroundImage = avisArray.filter(avis => avis.id == i+1)[0].src;
             },690);
@@ -272,7 +272,7 @@ function changeContentAvis(sens){
         nomAvis.innerText = avisArray.filter(avis => avis.id == 1)[0].nom;
         const removeFlip = setTimeout(()=>{
             for(let i = 0;i<5;i++){
-                getAllImageAvis[i].classList.remove('doAFlip');
+                getAllImageAvis[i].parentElement.classList.remove('doAFlip');
             }
         },900)
 }
