@@ -722,7 +722,7 @@ nav.navbarOfBurger .triangle {
   transition: all 1s ease-in-out;
 }
 #sectionEquipe .liPhotoContainer div.imgContainer {
-  transition: all 0.3s ease-in-out;
+  transition: all 1s ease;
   border: 5px solid black;
   background-color: black;
 }
@@ -1913,6 +1913,9 @@ footer .footerBottomPart a {
   #sectionAvis #listeAvisContainer article .chevron {
     display: none;
   }
+  #sectionAvis #listeAvisContainer article #avisTextContainer {
+    width: auto;
+  }
   #sectionAvis #listeAvis {
     display: flex;
     justify-content: space-evenly;
@@ -2043,11 +2046,6 @@ footer .footerBottomPart a {
   }
   footer .socials {
     font-size: 24px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  footer .footerBottomPart {
-    width: 45%;
   }
 }
 @media screen and (min-width: 500px) {

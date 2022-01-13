@@ -140,11 +140,7 @@ const avisArray = [
 let avisFocusName;
                                                                                                
 
-// fonction pour la galerie pour changer le src de l'image + le nom affiché en dessous
-function changeGalerieImgAndText(image,index){
-    image.setAttribute('src', `assets/images/${galerieArray[index].src}`);
-    image.parentElement.parentElement.querySelector('a').innerText = galerieArray[index].nom;
-}
+
 
 // fonction changement d'ordre des photo dans la section équipe
 function changeOrder(mainOrderTo, rightOrderTo, leftOrderTo) {
@@ -156,23 +152,28 @@ function changeOrder(mainOrderTo, rightOrderTo, leftOrderTo) {
     
     // pour chaque photo de chaque li
     for (const photo of getPhotoContainers) {
-      const getDataOrder = photo.getAttribute("data-order");
+        const getDataOrder = photo.getAttribute("data-order");
         //vérification de la valeur de leurs data-order ( 1, 2 ou 3 ) > changement de cette valeur par une valeur passé en argument, ce qui donnera l'animation de mouvement
-            switch (getDataOrder) {
-            //exemple : si la photo a la data-order = 2, je lui passe en premier argument "1" pour que la photo bouge sur la gauche
-            case main:
-                photo.setAttribute("data-order", mainOrderTo);
-                break;
-            case right:
-                photo.setAttribute("data-order", rightOrderTo);
-                break;
-            case left:
-                photo.setAttribute("data-order", leftOrderTo);
-                break;
-            }
+        switch (getDataOrder) {
+        //exemple : si la photo a la data-order = 2, je lui passe en premier argument "1" pour que la photo bouge sur la gauche
+        case main:
+            photo.setAttribute("data-order", mainOrderTo);
+            break;
+        case right:
+            photo.setAttribute("data-order", rightOrderTo);
+            break;
+        case left:
+            photo.setAttribute("data-order", leftOrderTo);
+            break;
         }
     }
+}
     
+// fonction pour la galerie pour changer le src de l'image + le nom affiché en dessous
+function changeGalerieImgAndText(image,index){
+    image.setAttribute('src', `assets/images/${galerieArray[index].src}`);
+    image.parentElement.parentElement.querySelector('a').innerText = galerieArray[index].nom;
+}
 
 function switchImage(chevron){
     // si le parent du parent du chevron est dans #sectionGallerie 
