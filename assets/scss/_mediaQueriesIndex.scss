@@ -33,28 +33,35 @@
             font-size: 22px;
         }
         #equipePhotoContainer{
-        // un article correspond à une photo de membre + son sous titre
-            article{
-                // pour les photos en général
+            .liPhotoContainer{
                 .img{
-                    height: 30vw;
-                    width: 30vw;
+                    height: 35vw;
+                    width: 35vw;
                 }
 
-                // la photo du centre ( en focus )
-                // rajout de border sur le container
-                .mainPhoto{
-                    height: 40vw;
-                    width: 40vw;
+                div.imgContainer{
+                    border: 7px solid black;
+                    background-color: black;
                 }
-                // le nom du membre
+
                 p{
                     font-size: 14px;
                     width: 60%;
-                    // pour la photo du centre, on spécifie pour le deuxième <p>
-                    &:nth-of-type(2){
-                        font-size: 12px;
-                        transform: translate(-4%, -265%);
+                }
+
+                &[data-order="2"] {
+                    p{
+                        transform: translateY(-220%);
+                    }
+            
+                    p:nth-of-type(2) {// le second <p> qui affiche le job est affiché
+                        transform: translate(-5%, -235%);
+                        width: 50%;
+                      }
+
+                    div.imgContainer{
+                        border: 7px solid white;
+                        background-color: white;
                     }
                 }
             }
@@ -68,7 +75,13 @@
     }
 
     #sectionEquipe{
-        padding-bottom: 2em;
+        #equipePhotoContainer {
+            @include flex(space-between, $wrap: nowrap);
+            position: relative;
+            padding: 1em 2%;
+            height: 35vw;
+        }
+
         .chevronDesktop{
             display: block;
         }
@@ -172,32 +185,33 @@
     }
 
     #sectionEquipe{
-        padding-bottom: 3%;
         h1{
-            padding-bottom: 6%;
+            padding-bottom: 5%;
             font-size: 32px;
         }
+
         #equipePhotoContainer{
-            article{
+            .liPhotoContainer{
                 .img{
-                    height: 25vw;
-                    width: 25vw;
-                }
-    
-                .mainPhoto{
-                    height: 35vw;
-                    width: 35vw;
-                    background-image: url(../images/marcPhoto.jpg);
+                    height: 33vw;
+                    width: 33vw;
                 }
 
                 p{
                     font-size: 18px;
                     width: 50%;
-                    // pour la photo du centre, on spécifie pour le deuxième <p>
-                    &:nth-of-type(2){
-                        font-size: 16px;
-                        transform: translate(-4%, -255%);
+                }
+
+                &[data-order="2"] {
+                    p{
+                        transform: translateY(-220%);
                     }
+            
+                    p:nth-of-type(2) {// le second <p> qui affiche le job est affiché
+                        font-size: 16px;
+                        transform: translate(-5%, -255%);
+                        width: 40%;
+                      }
                 }
             }
         }
@@ -275,38 +289,47 @@
 
     #sectionEquipe{
         #equipePhotoContainer{
-            @include flex(space-evenly);
-
+            @include flex(space-between);
+            padding: 1em 8%;
             .chevron{
                 width: 5vw;
                 height: 5vw;
             }
-            // un article correspond à une photo de membre + son sous titre
-                article{
-                    // pour les photos en général
-                    .img{
-                        height: 20vw;
-                        width: 20vw;
-                    }
-    
-                    // la photo du centre ( en focus )
-                    // rajout de border sur le container
-                    .mainPhoto{
-                        height: 30vw;
-                        width: 30vw;
-                    }
-                    // le nom du membre
+
+            .liPhotoContainer{
+                .img{
+                    height: 30vw;
+                    width: 30vw;
+                }
+
+                p{
+                    font-size: 22px;
+                    width: 65%;
+                }
+
+                div.imgContainer{
+                    border: 10px solid black;
+                    background-color: black;
+                }
+
+                &[data-order="2"] {
                     p{
-                        font-size: 22px;
-                        width: 65%;
-                        // pour la photo du centre, on spécifie pour le deuxième <p>
-                        &:nth-of-type(2){
-                            font-size: 18px;
-                            transform: translate(-4%, -285%);
-                        }
+                        transform: translateY(-220%);
+                    }
+            
+                    p:nth-of-type(2) {// le second <p> qui affiche le job est affiché
+                        font-size: 18px;
+                        transform: translate(-5%, -285%);
+                        width: 50%;
+                    }
+
+                    div.imgContainer{
+                        border: 10px solid white;
+                        background-color: white;
                     }
                 }
             }
+        }
     }
 
     #sectionAvis{
@@ -448,21 +471,14 @@
 
     #sectionEquipe{
         #equipePhotoContainer{
-                article{
-                    // pour les photos en général
-                    .img{
-                        height: 15vw;
-                        width: 15vw;
-                    }
-    
-                    // la photo du centre ( en focus )
-                    // rajout de border sur le container
-                    .mainPhoto{
-                        height: 25vw;
-                        width: 25vw;
-                    }
+            height: 25vw;
+            .liPhotoContainer{
+                .img{
+                    height: 24vw;
+                    width: 24vw;
                 }
             }
+        }
     }
 }
 

@@ -86,11 +86,6 @@ const getSectionGalerie = document.getElementById("sectionGallerie");
 const getChevronContainer = getSectionGalerie.querySelector(".chevronContainer");
 const getChevron = document.querySelectorAll(".chevron");
 
-// get pour section equipe
-const getMainEquipePhoto = document.querySelector(".mainPhoto");
-const getGaucheEquipePhoto = document.querySelector(".leftPhoto");
-const getDroiteEquipePhoto = document.querySelector(".rightPhoto");
-
 // modal, lors du clique ajout de la classe "active" sur le modal et modalbackground, ajout d'une div img pour le modal + modif de l'attribut src pour rajouter l'image lié à l'élément
 getGalerieImage.forEach(e => {
     e.addEventListener("click", function(e){
@@ -131,14 +126,7 @@ const galerieArray = [
     { "nom": "Opoint", "src": "gallerie10.jpg"},
     { "nom": "Revibe", "src": "gallerie11.jpg"},
     { "nom": "Lojoli", "src": "gallerie12.jpg"},
-];
-
-// tableau pour la section equipe
-const equipeArray = [
-    { "nom": "Jeanne", "src": "url('assets/images/jeannePhoto.jpg')", "bgPosition": "bottom center", "job": "Graphiste"},
-    { "nom": "Marc", "src": "url('assets/images/marcPhoto.jpg')", "bgPosition": "center center", "job": "Seo / CM"},
-    { "nom": "Martine", "src": "url('assets/images/martinePhoto.jpg')", "bgPosition": "top left", "job": "Security"},
-]                                                                           
+];                                                                    
 
 //tableau de la section avis
 const avisArray = [
@@ -158,18 +146,33 @@ function changeGalerieImgAndText(image,index){
     image.parentElement.parentElement.querySelector('a').innerText = galerieArray[index].nom;
 }
 
-// modification de l'img background + position + le texte sous la photo à chaque clique sur chevron
-function changementContentEquipe(left, main, right){
-    getGaucheEquipePhoto.style.backgroundImage = equipeArray[left].src;
-    getGaucheEquipePhoto.style.backgroundPosition = equipeArray[left].bgPosition;
-    getGaucheEquipePhoto.parentElement.parentElement.querySelector("p").innerText = equipeArray[left].nom;
-    getMainEquipePhoto.style.backgroundPosition = equipeArray[main].bgPosition;
-    getMainEquipePhoto.style.backgroundImage = equipeArray[main].src;
-    getMainEquipePhoto.parentElement.parentElement.querySelector("p").innerText = equipeArray[main].nom;getMainEquipePhoto.parentElement.parentElement.querySelectorAll("p")[1].innerText = equipeArray[main].job;
-    getDroiteEquipePhoto.style.backgroundImage = equipeArray[right].src;
-    getDroiteEquipePhoto.style.backgroundPosition = equipeArray[right].bgPosition;
-    getDroiteEquipePhoto.parentElement.parentElement.querySelector("p").innerText = equipeArray[right].nom;
-}
+// fonction changement d'ordre des photo dans la section équipe
+function changeOrder(mainOrderTo, rightOrderTo, leftOrderTo) {
+    // recupération des trois "li"
+    const getPhotoContainers = document.querySelectorAll(".liPhotoContainer");
+    const left = "1";
+    const main = "2";
+    const right = "3";
+    
+    // pour chaque photo de chaque li
+    for (const photo of getPhotoContainers) {
+      const getDataOrder = photo.getAttribute("data-order");
+        //vérification de la valeur de leurs data-order ( 1, 2 ou 3 ) > changement de cette valeur par une valeur passé en argument, ce qui donnera l'animation de mouvement
+            switch (getDataOrder) {
+            //exemple : si la photo a la data-order = 2, je lui passe en premier argument "1" pour que la photo bouge sur la gauche
+            case main:
+                photo.setAttribute("data-order", mainOrderTo);
+                break;
+            case right:
+                photo.setAttribute("data-order", rightOrderTo);
+                break;
+            case left:
+                photo.setAttribute("data-order", leftOrderTo);
+                break;
+            }
+        }
+    }
+    
 
 function switchImage(chevron){
     // si le parent du parent du chevron est dans #sectionGallerie 
@@ -206,34 +209,11 @@ function switchImage(chevron){
             }
         }
     } else if(chevron.parentElement.id.includes('equipePhotoContainer') || chevron.parentElement.parentElement.id.includes('sectionEquipe')){ //sinon si la parent du chevron est dans #equipePhotoContainer ( chevron desktop) OU que le parent du parent du chevron est dans la #sectionEquipe ( pour le chevron en version mobile)
-        let jeanne = 0;
-        let marc = 1;
-        let martine = 2;
-        if(chevron.classList.contains('chevronDroite')){ //si chevron droite 
-            if(getMainEquipePhoto.style.backgroundImage){// et si la photo du centre à un bg img ( qui n'est pas le cas par défaut), j'appelle ma fonction qui modifie le DOM selon la personne active en photo du centre
-                if(getMainEquipePhoto.style.backgroundImage.includes("jeanne")){
-            changementContentEquipe(marc, martine, jeanne);
-            } else if(getMainEquipePhoto.style.backgroundImage.includes("martine")){
-                changementContentEquipe(jeanne, marc, martine);
-            } else{
-                changementContentEquipe(martine, jeanne, marc);
-            }
-        }else if(window.getComputedStyle(getMainEquipePhoto).backgroundImage.includes("marc")){ // sinon si la photo du centre contient "marc" dans son bg img (cas par défaut)
-            changementContentEquipe(martine, jeanne, marc);
-        }
-        }else{// sinon chevron gauche
-            if(getMainEquipePhoto.style.backgroundImage){
-                if(getMainEquipePhoto.style.backgroundImage.includes("martine")){
-                    changementContentEquipe(martine, jeanne, marc);
-                    } else if(getMainEquipePhoto.style.backgroundImage.includes("jeanne")){
-                        changementContentEquipe(jeanne, marc, martine);
-                    } else{
-                        changementContentEquipe(marc, martine, jeanne);
-                    }
-            }else if(window.getComputedStyle(getMainEquipePhoto).backgroundImage.includes("marc")){
-                changementContentEquipe(marc, martine, jeanne);
-            }
-        }       
+        if(chevron.classList.contains('chevronDroite')){ //si chevron droite > fonction de changement d'ordre avec les argument correspondant au mouvement vers la droite
+            changeOrder(3, 1, 2);
+        } else{// sinon chevron gauche, mouvement vers la gauche
+            changeOrder(1, 2, 3);
+        }   
     } else{ //Sinon c'est un chevron de la section avis
         if(chevron.classList.contains('chevronDroite')){
             changeContentAvis('droite');
@@ -285,21 +265,13 @@ function updateIdAvis(sens){
     }
 }
 
-// Media queries
+// Media query pour retirer le style de la navbar spécifique au burger si la page à une width supérieur a 900px
 if (window.matchMedia("(min-width: 900px)").matches) {
     getNavbar.classList.remove("navbarOfBurger");
 };
 
-// retrait des classes "reveal" qui ajoute l'animation de fade lors du scroll lorsque l'écran est trop petit est donc que la galerie est visible directement lors du chargement de la page
-// if (window.matchMedia("(max-width: 850px)").matches) {
-// const getGalerieReveal = document.querySelectorAll("#sectionGallerie .reveal");
-// getGalerieReveal.forEach(element => {
-//     element.classList.remove('reveal');
-// });
-// } else {
-// /* the view port is less than 900 pixels wide */
-// }
-
+// si la section galerie est visible lors du chargement sur une resolution inférieure à 850px
+// retrait de la classe qui déclenche les animations d'apparition des elements de la section (sinon rien n'apparait tant qu'aucun scroll n'a lieu)
 window.addEventListener("load", function(){
     const getGalerieReveal = document.querySelectorAll("#sectionGallerie .reveal");
     const windowHeight = window.innerHeight;

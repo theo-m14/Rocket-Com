@@ -174,6 +174,20 @@ h1{
     animation: fadeFromRight 1.5s ease, bounceChevronRight 3s 1.5s infinite ease-in-out;
 }
 
+// chevron droite desktop de l'équipe avec moins de translateX pour eviter la barre de scroll
+.reveal.active.fadeFromRightChevronEquipe{
+    animation: fadeFromRightChevronEquipe 1.5s ease, bounceChevronRight 3s 1.5s infinite ease-in-out;
+}
+
+// si les chevrons n'ont pas la classe reveal (js) il y aura quand même l'animationd de bounce
+.active.fadeFromRightChevron{
+    animation: bounceChevronRight 3s 1.5s infinite ease-in-out;
+} 
+
+.active.fadeFromLeftChevron{
+    animation: bounceChevronLeft 3s 1.5s infinite ease-in-out;
+}
+
 // animations pour les deux chevrons de la galerie en desktop
 .reveal.active.fadeFromLeftChevronGalerie{
     animation: fadeFromLeftChevronGalerie 1.5s ease, bounceChevronLeftGalerie 3s 1.5s infinite ease-in-out;
@@ -181,11 +195,6 @@ h1{
 
 .reveal.active.fadeFromRightChevronGalerie{
     animation: fadeFromRightChevronGalerie 1.5s ease, bounceChevronRightGalerie 3s 1.5s infinite ease-in-out;
-}
-
-// animation pour la photo du centre dans la section equipe
-.reveal.active.fadeFromBottomPhoto{
-    animation: fadeFromBottomPhoto 1s ease;
 }
 
 //les animations selon la direction d'apparition avec opacity + mouvement avec translate
@@ -206,18 +215,18 @@ h1{
 
 // animations plus spécifique pour certains éléments
 @keyframes fadeFromLeftChevronGalerie {
-    from{ transform: translateX(-400%); opacity: 0;}
+    from{ transform: translateX(-200%); opacity: 0;}
     to{ transform: translateX(-50%); opacity: 1;}
 }
 
 @keyframes fadeFromRightChevronGalerie {
-    from{ transform: translateX(400%); opacity: 0;}
+    from{ transform: translateX(200%); opacity: 0;}
     to{ transform: translate(50%,-100%); opacity: 1;}
 }
 
-@keyframes fadeFromBottomPhoto {
-    from{transform: translate(-50%); opacity: 0;}
-    to{transform: translate(-50%, -50%); opacity: 1;}
+@keyframes fadeFromRightChevronEquipe {
+    0%{ transform: translateX(20%); opacity: 0;}
+    100%{ transform: translateX(0); opacity: 1;}
 }
 
 // animation bounce pour le bouton retour en haut de la page
@@ -257,6 +266,3 @@ h1{
     50%  { transform: translate(70%,-100%); }
     100% { transform: translate(50%,-100%); }
 }
-
-
-
