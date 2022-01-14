@@ -1,3 +1,17 @@
+@media screen and(min-width: 500px){
+    #sectionGallerie {
+        text-align: center;
+        background-color: $greyBackground;
+        padding: 1em 0 1.5em;
+        position: relative;
+      
+        // modal qui sera visible lors du clique sur l'image ou du clique burger
+        #modalGalerie {
+            height: 80vh;
+        }
+    }
+}
+
 @media screen and (min-width: 550px) {
     #sectionBanniere{
         font-size: 26px;
