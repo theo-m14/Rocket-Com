@@ -426,7 +426,7 @@ nav .triangleRight {
 }
 
 nav.navbarOfBurger {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 12;
@@ -443,8 +443,8 @@ nav.navbarOfBurger {
   transition: all 0.3s ease-in-out;
 }
 nav.navbarOfBurger.active {
-  width: 80%;
-  height: 200vh;
+  width: 75%;
+  height: 100%;
   padding: 2em 0 0 2em;
   transition: all 0.3s ease-in-out;
 }
@@ -519,6 +519,18 @@ nav.navbarOfBurger .triangle {
 #burger::before {
   top: 10px;
   left: 0;
+}
+
+#loadingBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 5px;
+  border-radius: 50px;
+  box-shadow: 1px 1px 1px black;
+  background-color: #c90d0d;
+  z-index: 9999;
 }
 
 #sectionBanniere {
@@ -597,7 +609,7 @@ nav.navbarOfBurger .triangle {
   position: relative;
 }
 #sectionGallerie #modalGalerie {
-  position: absolute;
+  position: fixed;
   width: 80vw;
   height: 80vh;
   top: 10%;
@@ -605,11 +617,13 @@ nav.navbarOfBurger .triangle {
   transition: all 0.5s ease-in-out;
   overflow-x: scroll;
   z-index: 1;
+  visibility: hidden;
 }
 #sectionGallerie #modalGalerie.active {
   z-index: 10;
   top: 10%;
   left: 10%;
+  visibility: visible;
 }
 #sectionGallerie #modalGalerie img {
   object-fit: cover;
@@ -901,10 +915,12 @@ nav.navbarOfBurger .triangle {
   height: 100%;
   background-color: rgba(94, 93, 93, 0.9);
   z-index: -1;
+  visibility: hidden;
 }
 #modalBackground.active {
   z-index: 4;
   opacity: 1;
+  visibility: visible;
 }
 
 #mainContact h1 {

@@ -16,18 +16,18 @@ const reveals = document.querySelectorAll(".reveal");
 function animationFade(){
     // pour chaque element avec la classe "reveal"
     for(let i=0; i < reveals.length; i++) {
-    // la hauteur de la fenetre
-    const windowHeight = window.innerHeight;
-    // distance entre le haut de l'element et le haut de la page
-    let elementTop = reveals[i].getBoundingClientRect().top;
-    // la taille de ce que l'on voit de l'element
-    const elementVisible = 20;
+        // la hauteur de la fenetre
+        const windowHeight = window.innerHeight;
+        // distance entre le haut de l'element et le haut de la page
+        let elementTop = reveals[i].getBoundingClientRect().top;
+        // la taille de ce que l'on voit de l'element
+        const elementVisible = 20;
 
-    // lorsque l'element entre dans le champ de la hauteur de la page de 20px j'ajoute la classe "active" à l'element pour activer l'animation d'apparition, sinon je la retire
-    if(elementTop < windowHeight - elementVisible){
-        reveals[i].classList.add("active");
-        } else{
-            reveals[i].classList.remove("active");
+        // lorsque l'element entre dans le champ de la hauteur de la page de 20px j'ajoute la classe "active" à l'element pour activer l'animation d'apparition, sinon je la retire
+        if(elementTop < windowHeight - elementVisible){
+            reveals[i].classList.add("active");
+            } else{
+                reveals[i].classList.remove("active");
         }
     }
 }
@@ -297,7 +297,16 @@ if (window.matchMedia("(min-width: 900px)").matches) {
     getNavbar.classList.remove("navbarOfBurger");
 };
 
-// si la section galerie est visible lors du chargement sur une resolution inférieure à 850px
+// si jamais la resolution change alors que la page est déjà chargé
+window.addEventListener("resize", function() {
+    if (window.matchMedia("(min-width: 900px)").matches) {
+        getNavbar.classList.remove("navbarOfBurger");
+    }else{
+        getNavbar.classList.add("navbarOfBurger");
+    };
+});
+
+// si la section galerie est visible lors du chargement sur une resolution inférieure à 980px
 // retrait de la classe qui déclenche les animations d'apparition des elements de la section (sinon rien n'apparait tant qu'aucun scroll n'a lieu)
 window.addEventListener("load", function(){
     const getGalerieReveal = document.querySelectorAll("#sectionGallerie .reveal");
@@ -305,7 +314,7 @@ window.addEventListener("load", function(){
     const getSectionGalerie = document.getElementById('sectionGallerie').getBoundingClientRect().top;
     const elementVisible = 20;
 
-    if(getSectionGalerie < windowHeight - elementVisible && window.matchMedia("(max-width: 850px)").matches){
+    if(getSectionGalerie < windowHeight - elementVisible && window.matchMedia("(max-width: 980px)").matches){
         getGalerieReveal.forEach(element => {
         element.classList.remove('reveal');
         })
@@ -329,3 +338,16 @@ function switchAvis(id){
     //je change le contenu de mes images
     changeContentAvis('click');
 }
+
+// loading bar fixé en bas de page
+function loadingBar() {
+    // valeur en pixel de ce qui a été scroll au total par rapport au haut de la page
+    var scrollFromTop = document.documentElement.scrollTop;
+    // la hauteur total si tout les éléments de la page web était visible - la hauteur de la page affiché
+    var height = document.documentElement.scrollHeight - window.innerHeight;
+    // division des deux variable * 100 pour la passer en valeur à la width de la loading bar
+    var scrolled = (scrollFromTop / height) * 100;
+    document.getElementById("loadingBar").style.width = scrolled + "%";
+}
+
+window.addEventListener("scroll", ()=>loadingBar())

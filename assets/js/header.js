@@ -24,3 +24,24 @@ getModalBg.addEventListener('click', function(){
 if (window.matchMedia("(min-width: 900px)").matches) {
     getNavbar.classList.remove("navbarOfBurger");
 };
+
+// si jamais la resolution change alors que la page est déjà chargé
+window.addEventListener("resize", function() {
+    if (window.matchMedia("(min-width: 900px)").matches) {
+        getNavbar.classList.remove("navbarOfBurger");
+    }else{
+        getNavbar.classList.add("navbarOfBurger");
+    };
+});
+
+function loadingBar() {
+    // valeur en pixel de ce qui a été scroll au total par rapport au haut de la page
+    var scrollFromTop = document.documentElement.scrollTop;
+    // la hauteur total si tout les éléments de la page web était visible - la hauteur de la page affiché
+    var height = document.documentElement.scrollHeight - window.innerHeight;
+    // division des deux variable * 100 pour la passer en valeur à la width de la loading bar
+    var scrolled = (scrollFromTop / height) * 100;
+    document.getElementById("loadingBar").style.width = scrolled + "%";
+}
+
+window.addEventListener("scroll", ()=>loadingBar())

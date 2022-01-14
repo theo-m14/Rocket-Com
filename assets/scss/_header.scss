@@ -118,7 +118,7 @@ nav {
 }
 
 nav.navbarOfBurger{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 12;
@@ -131,8 +131,8 @@ nav.navbarOfBurger{
     @include transi;
 
     &.active{
-        width: 80%;
-        height: 200vh;
+        width: 75%;
+        height: 100%;
         padding: 2em 0 0 2em;
         @include transi;
     }
@@ -214,4 +214,16 @@ nav.navbarOfBurger{
 #burger::before {
     top: 10px;
     left: 0;
+}
+// barre de chargement fixé en bas de page
+#loadingBar{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 5px;
+    border-radius: 50px;
+    box-shadow: 1px 1px 1px black;
+    background-color: $primaryColor;
+    z-index: 9999;
 }
